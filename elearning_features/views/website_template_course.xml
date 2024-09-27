@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	
+	<template id="courses_home_inherit" inherit_id="website_slides.courses_home">
+		<xpath expr="//t[@t-set='additional_validated_email_message']" position="replace">
+			<t t-set="additional_validated_email_message" t-value="' Ahora puede participar en nuestros cursos.'"/>
+	    </xpath>
+	</template>
+	
+	<template id="courses_all_inherit" inherit_id="website_slides.courses_all">
+		<xpath expr="//t[@t-set='additional_validation_email_message']" position="replace">
+			<t t-set="additional_validation_email_message" t-value="'Haga clic aquí para enviar un correo electrónico de verificación que le permitirá participar en nuestros cursos.'"/>
+	    </xpath>
+		
+		<xpath expr="//t[@t-set='additional_validated_email_message']" position="replace">
+			<t t-set="additional_validated_email_message" t-value="' Ahora puede participar en nuestros cursos.'"/>
+	    </xpath>
+		
+		<xpath expr="//div[@id='navbarTagGroups']//t[@t-foreach='tag_groups']" position="after">
+			<li class="'nav-item ml16 ">
+                <a class="nav-link" href="/profile/users" role="button" >
+	                Top Ranking
+                </a>
+            </li>
+	    </xpath>
+	</template>
+	
+	<template id="users_page_header" inherit_id="website_profile.users_page_header">
+        <xpath expr="//div[hasclass('o_wprofile_all_users_header')]//div[hasclass('container')]/h1" position="replace">
+			<h1 class="py-4 text-white">Top Ranking de líderes</h1>
+	    </xpath>
+    </template>
+	
+	<template id="course_main_inherit" inherit_id="website_slides.course_main">
+<!--		<xpath expr="//div[hasclass('my-1')]" position="after">
+			<h4 t-if="channel.partner_name" class="mb-0 mb-xl-3" style="padding-bottom:45px!important;">
+				&lt;!&ndash; Impartido por: <span t-if="channel.partner_name" t-field="channel.partner_name"/> &ndash;&gt;
+				</h4>
+	    </xpath>
+		-->
+		<xpath expr="//div[@t-if='channel.nbr_certification > 0 and channel.is_member and channel.completion == 0']//a[1]" position="replace">
+			<a t-attf-href="#{'/slides_survey/slide/get_certification_url?slide_id=%s' %(first_slide.id) if first_slide.slide_type == 'certification' and channel.total_slides == 1 else '/cursos/curso/%s?fullscreen=1' %(slug(first_slide))}" class="btn btn-success mt-2 mt-sm-0">
+				<span>Comenzar ahora</span><i class="fa fa-chevron-right ml-2 align-middle"/>
+			</a>
+	    </xpath>
+		
+		<xpath expr="//ul[hasclass('o_wslides_nav_tabs')]" position="inside">
+			<li t-if="channel.is_member and len(channel.suggest_bank_product_ids)" class="nav-item">
+                <a t-att-class="'nav-link %s' % ('active' if active_tab not in ['home', 'review'] else '')"
+                    id="suggest_product_tab" data-toggle="pill" href="#suggest_product" role="tab" aria-controls="suggest-product-tab"
+                    t-att-aria-selected="'true' if active_tab not in ['home', 'review'] else 'false'">
+                    Productos sugeridos
+                </a>
+            </li>
+	    </xpath>
+		
+		<xpath expr="//div[@id='courseMainTabContent']" position="inside">
+			<div t-if="channel.suggest_bank_product_ids" t-att-class="'tab-pane fade %s' % ('show active' if active_tab not in ['home', 'review'] else '')" id="suggest_product" role="tabpanel" aria-labelledby="suggest-product-tab">
+				<div class="country_events_list">
+			        <t t-if="channel.suggest_bank_product_ids">
+			            <ul class="list-group mb-3">
+			                <li t-foreach="channel.suggest_bank_product_ids" t-as="product" class="list-group-item d-flex justify-content-between">
+			                    <span t-esc="product.name"/>
+			                    <p t-esc="product.get_text_from_html()"/>
+				                <a t-att-href="product.url" class="btn btn-info btn-inline" target="_blank">Ir</a>
+			                </li>
+			            </ul>
+			        </t>
+			    </div>
+            </div>
+	    </xpath>
+<!--		<xpath expr="//div[@id='slideChannelShareModal']" position="inside">
+			<xpath expr="//button[hasclass('o_clipboard_button')]" position="replace">
+				<button class="btn btn-sm btn-primary o_clipboard_button" >
+					<span class="fa fa-clipboard"> Copiar texto</span>
+				</button>
+			</xpath>
+	    </xpath>-->
+	</template>
+
+	<template id="slide_share_link_inherit" inherit_id="website_slides.slide_share_link">
+		<xpath expr="//i[hasclass('fa-clipboard')]" position="replace">
+			 <i class="fa fa-clipboard"/> Copiar texto
+		</xpath>
+	</template>
+
+	<template id="course_join_inherit" inherit_id="website_slides.course_join">
+		<xpath expr="//span[hasclass('text_small_caps')]" position="replace">
+			<span class="cta-title">
+				Participar en el curso
+			</span>
+		</xpath>
+	</template>
+
+	
+	<template id="course_sidebar_inherit" inherit_id="website_slides.course_sidebar">
+		
+		<!--<xpath expr="//span[hasclass('text_small_caps')]" position="replace">
+			<span class="cta-title">
+				Participar en el curso
+			</span>
+	    </xpath>-->
+		<xpath expr="//div[hasclass('mt-3')]" position="replace">
+			<div class="mt-3 o_wslides_js_teacher_follow">
+                <button role="button" class="btn btn-link btn-inline" title="Share Channel"
+                    aria-label="Share Channel"
+                    data-toggle="modal" data-target="#slideChannelShareModal">
+                    <i class="fa fa-share-square fa-fw"/> Compartir
+                </button>
+                <a  t-if="channel.is_member and not channel.is_teacher_follower" role="button"
+                    class="btn btn-link btn-inline o_wslides_js_teacher_follow_link"
+                    title="Follow" aria-label="Follow"
+                    t-att-href="'#'"
+                    t-att-data-channel-id="channel.id"
+                    t-att-data-partner-id="channel.partner_id.id">
+                    <i class="fa fa-user-plus fa-fw"/>  Seguir docente
+                </a>
+                <a  t-if="channel.is_member and channel.is_teacher_follower" role="button"
+                    class="btn-link btn-inline o_wslides_js_teacher_unfollow_link"
+                    title="Follow" aria-label="Follow"
+                    t-att-href="'#'"
+                    t-att-data-channel-id="channel.id"
+                    t-att-data-partner-id="channel.partner_id.id">
+                    <i class="fa fa-user-minus fa-fw"/> Dejar de seguir docente
+                </a>
+            </div>
+	    </xpath>
+		
+		<xpath expr="//div[@id='o_wslides_sidebar_collapse']/table/tr[1]" position="before">
+			<tr t-if="channel.partner_id">
+                <th class="border-top-0">Facilitador</th>
+                <td class="border-top-0">
+	                <i t-if="channel.is_member and channel.is_teacher_follower" class="fa fa-check"/>
+	                <a class="btn btn-link btn-inline" t-attf-href="/profile/teacher/#{channel.user_id.id}">
+                           <t t-esc="channel.user_id.partner_id.name"/> <t t-esc="channel.user_id.partner_id.lastname"/>
+	                </a>
+                </td>
+            </tr>
+		</xpath>
+		
+	</template>
+	
+<!--	<template id="private_profile_inherit" inherit_id="website_slides.private_profile">-->
+<!--        <xpath expr="//t[@t-if='request.params.get('channel_id')']" position="replace">-->
+<!--            <t t-if="request.params.get('channel_id')">-->
+<!--                <p><a t-attf-href="/cursos/course-#{request.params.get('channel_id')}">Regresar al curso.</a></p>-->
+<!--            </t>-->
+<!--        </xpath>-->
+<!--    </template>-->
+	
+	<template id="display_course" inherit_id="website_slides.display_course">
+		<xpath expr="//div[hasclass('o_wprofile_slides_course_card_body')]" position="replace">
+			<div class="card-body o_wprofile_slides_course_card_body p-0 d-flex"
+				t-attf-onclick="location.href='/cursos/#{slug(course.channel_id)}';">
+
+				<div t-if="course.channel_id.image_1024" class="pl-5 pr-4 rounded-left" t-attf-style="background-image: url(#{website.image_url(course.channel_id, 'image_1024')}); background-size: cover; background-position: center"/>
+				<div t-else="" class="o_wslides_gradient pl-5 pr-4 rounded-left position-relative" style="opacity: 0.8">
+					<i class="fa fa-graduation-cap fa-fw mr-2 mt-3 position-absolute text-white-75" style="right:0; top: 0"/>
+				</div>
+
+				<div class="p-2 w-100">
+					<h5 class="mt-0 mb-1" t-field="course.channel_id.name"/>
+
+					<div class="overflow-hidden mb-1" style="height:24px">
+						<t t-foreach="course.channel_id.tag_ids" t-as="tag">
+							<a t-att-href="'/cursos/todos?channel_tag_id=%s' % tag.id" class="badge badge-light" t-esc="tag.name"/>
+						</t>
+					</div>
+
+					<div class="d-flex align-items-center">
+						<div class="progress flex-grow-1" style="height:0.5em">
+							<div class="progress-bar bg-primary" t-att-style="'width: '+ str(channel_completion)+'%'"/>
+						</div>
+						<small class="font-weight-bold pl-2"><span t-esc="channel_completion"/> %</small>
+					</div>
+				</div>
+			</div>
+	    </xpath>
+	</template>
+	
+<!--	<template id="sale_slides_course_sidebar_inherit" inherit_id="website_sale_slides.course_sidebar">
+		<xpath expr="//div[hasclass('add_to_cart_button')]" position="replace">
+			<div class="add_to_cart_button">
+				<form action="/shop/cart/update" method="POST" t-if="not request.website.is_public_user()">
+					<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+					<input type="hidden" class="product_id" name="product_id" t-att-value="channel.product_id.id"/>
+					<input type="hidden" class="product_template_id" name="product_template_id" t-att-value="channel.product_id.id"/>
+					<input type="hidden" class="channel_id" name="channel_id" t-att-value="channel.id"/>
+					<a id="add_to_cart" role="button" class="btn btn-primary btn-block js_check_product o_js_add_to_cart a-submit" href="#">
+						<i class="fa fa-shopping-cart"/> Agregar al carrito!
+					</a>
+					<div id="product_option_block"/>
+				</form>
+				<a t-if="request.website.is_public_user()" id="add_to_cart_signup" role="button" class="btn btn-primary btn-block" href="/web/signup">
+					<i class="fa fa-shopping-cart"/> Agregar al carrito!
+				</a>
+			</div>
+	    </xpath>
+	</template>-->
+	<template id="sale_course_buy_course_button_inherit" inherit_id="website_sale_slides.course_buy_course_button">
+		<xpath expr="//div[hasclass('add_to_cart_button')]" position="replace">
+			<div class="add_to_cart_button">
+				<form action="/shop/cart/update" method="POST" t-if="not request.website.is_public_user()">
+					<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+					<input type="hidden" class="product_id" name="product_id" t-att-value="channel.product_id.id"/>
+					<input type="hidden" class="product_template_id" name="product_template_id" t-att-value="channel.product_id.id"/>
+					<input type="hidden" class="channel_id" name="channel_id" t-att-value="channel.id"/>
+					<a id="add_to_cart" role="button" class="btn btn-primary btn-block js_check_product o_js_add_to_cart a-submit" href="#">
+						<i class="fa fa-shopping-cart"/> Agregar al carrito!
+					</a>
+					<div id="product_option_block"/>
+				</form>
+				<a t-if="request.website.is_public_user()" id="add_to_cart_signup" role="button" class="btn btn-primary btn-block" href="/web/signup">
+					<i class="fa fa-shopping-cart"/> Agregar al carrito!
+				</a>
+			</div>
+	    </xpath>
+	</template>
+	
+	<template id="header_inherit" inherit_id="website_forum.header">
+		<xpath expr="//t[@t-set='additional_validation_email_message']" position="replace">
+			<t t-set="additional_validation_email_message" t-value="'Click para enviar un correo de verificación para permitirle participar en nuestros foros.'"/>
+	    </xpath>
+		<xpath expr="//t[@t-set='additional_validated_email_message']" position="replace">
+			<t t-set="additional_validated_email_message" t-value="' Ahora puede participar en nuestros foros.'"/>
+	    </xpath>
+	</template>
+
+	<template id="forum_course_main_inherit" inherit_id="website_slides_forum.course_main">
+		<xpath expr="//li[hasclass('nav-item')]" position="replace">
+			<li class="nav-item" t-if="not invite_preview and (channel.is_member or channel.visibility == 'public') and channel.forum_id">
+                <a t-att-href="'/forum/%s' % (slug(channel.forum_id))"
+                    t-att-class="'nav-link'" target="new">Foro</a>
+            </li>
+	    </xpath>
+	</template>
+
+<!--	<template id="sfinished" inherit_id="survey.sfinished">
+		<xpath expr="//h1" position="replace">
+			<h1>¡Gracias!</h1>
+	    </xpath>
+	</template>	-->
+	<template id="survey_fill_form_done" inherit_id="survey.survey_fill_form_done">
+		<xpath expr="//h1" position="replace">
+			<h1>¡Gracias!</h1>
+	    </xpath>
+	</template>
+
+	<template id="forum_post_answer_inherit" inherit_id="website_forum.post_answer">
+		<xpath expr="//form//p[1]" position="replace">
+			<p class="small mt-2 mb-1">
+				<b>Intente dar una respuesta sustancial.</b>
+				Si desea comentar la pregunta o la respuesta, simplemente <b>use la herramienta de comentarios.</b>
+				Recuerde que siempre puede <b>revisar sus respuestas,</b> no es necesario que responda la misma pregunta dos veces. Además, <b>no olvide votar</b>:
+				¡realmente ayuda seleccionar las mejores preguntas y respuestas!
+        	</p>
+	    </xpath>
+	</template>
+	
+	<template id="survey_recommend_channels">
+		<t t-foreach="survey_channels" t-as="channel">
+			<t t-set="slide" t-value="channel"/>
+			<t t-set="course_image" t-value="website.image_url(channel, 'image_1024')"/>
+			<div class="item cursos-sug" data-aos="zoom-in-up">
+				<a t-attf-href="/cursos/#{slug(slide)}">
+					<div t-attf-class="img destacado">
+						<img t-attf-src="#{course_image}" t-attf-href="/cursos/#{slug(slide)}" alt="Curso"/>
+					</div>
+				</a>
+				<div class="details-body" style="">
+					<div>
+						<span style="font-weight: bold;color: #00c1d5;">Impartido por  </span>   <span style="font-weight: bold;color: #ed8b00;"> <t t-esc="channel.sudo().user_id.partner_id.name"/>  <t t-esc="channel.user_id.partner_id.lastname"/> </span>
+						<h4>
+							<a class="no-decor" t-attf-href="/cursos/#{slug(slide)}">
+							  <h4 t-esc="slide.name"/>
+							</a>
+						</h4>
+						<p class="details-body-description">
+							<t t-if="slide.short_description_slide">
+							  <t t-esc="slide.short_description_slide"/>
+							</t>
+							<t t-else="">
+							  <t t-esc="slide.description"/>
+							</t>
+						</p>
+					</div>
+					<p class="details-body-category">
+						<t t-foreach="slide.tag_ids" t-as="tag">
+							<span t-if="tag.id not in skipp_tags">
+								<a t-att-href="'/cursos/todos?channel_tag_id=%s' % tag.id" class="badge badge-light" t-esc="tag.name"/>
+							</span>
+						</t>
+					</p>
+				</div>
+				<div class="details-footer">
+					<i class="fa fa-clock-o">
+						<small t-if="channel.total_time" class="font-weight-bold" t-esc="channel.total_time" t-options="{'widget': 'duration', 'unit': 'hour', 'round': 'minute'}"/>
+					</i>
+					<p class="footer-btn">
+						<a class="btn btn-mamey" t-attf-href="/cursos/#{slug(slide)}">Iniciar</a>
+						<a class="more-btn" t-attf-href="/cursos/#{slug(slide)}"><!-- Flecha apuntando a la derecha -->
+							<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-w-10" role="img" viewBox="0 0 320 512">
+								<path fill="currentColor" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/>
+							</svg>Conocer más
+						</a>
+					</p>
+				</div>
+			</div>
+		</t>
+	</template>
+	
+</odoo>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="lms_view_partner_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+			<xpath expr="//h1" position="replace">
+                <div class="o_row">
+                    <h1>
+                        <field name="name" default_focus="1" placeholder="Name" required="type=='contact'"/>
+                    </h1>
+                    <h2>
+                         <field name="lastname"  placeholder="Apellido" required="type=='contact'"/>
+                    </h2>
+                </div>
+            </xpath>
+			
+			<field name="vat" position="after">
+                <field name="gender"/>
+            </field>
+			
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="is_teacher" widget="boolean_toggle"/>
+            </xpath>
+
+            <xpath expr="//field[@name='function']" position="after">
+                <field name="short_description_teacher"/>
+                <field name="long_description_teacher"/>
+            </xpath>
+            <xpath expr="//page[@name='sales_purchases']" position="after">
+                <page string="Perfil profesional" name="profile" invisible="is_teacher==False">
+                    <field name="profile_html" widget="html" options="{'style-inline': true}"/>
+                </page>
+                <page string="Social Media" name="social_media">
+                    <group>
+                        <group>
+                            <field name="social_twitter"/>
+                            <field name="social_facebook"/>
+                            <field name="social_github"/>
+                        </group>
+                        <group>
+                            <field name="social_linkedin"/>
+                            <field name="social_youtube"/>
+                            <field name="social_instagram"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+            
+        </field>
+    </record>
+    
+    <record id="partner_login_report_tree_view" model="ir.ui.view">
+		<field name="name">res.partner.login.report.tree</field>
+		<field name="model">res.partner</field>
+		<field name="arch" type="xml">
+			<tree create="false" edit="false">
+				<field name="complete_name" readonly="1"/>
+				<field name="email" string="Correo electrónico" readonly="1"/>
+				<field name="user_type" string="Tipo de usuario" readonly="1"/>
+				<field name="vat" string="Documento de identificación" readonly="1"/>
+				<field name="login_status" string="Validación" readonly="1"/>
+			</tree>
+		</field>
+	</record>
+	
+	<record model="ir.actions.act_window" id="action_login_report">
+	  <field name="name">Reporte de registro</field>
+	  <field name="res_model">res.partner</field>
+	  <field name="view_mode">tree</field>
+	  <field name="view_id" ref="partner_login_report_tree_view"/>
+	</record>
+	
+	<menuitem
+		parent="website.menu_reporting"
+		id="menu_login_report"
+		action="action_login_report"
+		sequence="3"
+		name="Reporte de registro"
+	/>
+	
+</odoo>

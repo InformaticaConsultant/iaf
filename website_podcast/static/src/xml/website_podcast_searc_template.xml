@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+<t t-name="website_podcast.WebsitePodcastSearch">
+  <div>
+    <section>
+        <form class="container d-flex flex-column-reverse flex-lg-row pb-1" id="podcast_search_form" t-on-submit.prevent="_onSearchFormSubmit">
+            <div class="position-relative podcast-search col-lg-9 pr-lg-0">
+                <input type="text" class="form-control rounded-pill px-5 podcast-input"
+                       placeholder="Search" id="search_term" t-on-keyup="_onInput" t-ref="search_input_ref"/>
+                <i class="fa fa-search position-absolute podcast-search-icon"></i>
+            </div>
+            <div class="col-lg-3 pb-2">
+                <select class="form-select rounded-pill custom-select podcast-input px-5"
+                        id="search_type" t-ref="search_type_ref" t-on-change="_onInput">
+                    <option value="host" selected="1">Host</option>
+                    <option value="name">Name</option>
+                </select>
+            </div>
+        </form>
+    </section>
+  </div>
+</t>
+
+</templates>

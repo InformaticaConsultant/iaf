@@ -1,0 +1,198 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* base_event_online
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-17 09:21+0000\n"
+"PO-Revision-Date: 2020-12-17 09:21+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: base_event_online
+#: model:ir.model.fields,field_description:base_event_online.field_event_event__attendies_password
+msgid "Attendee Password"
+msgstr "Mot de passe du participant"
+
+#. module: base_event_online
+#: model:ir.model.fields,field_description:base_event_online.field_res_config_settings__bb_secret_key
+msgid "Authentication Secret"
+msgstr "Secret d'authentification"
+
+#. module: base_event_online
+#: model_terms:ir.ui.view,arch_db:base_event_online.view_users_form_inherit_zoom_multi
+msgid ""
+"Build an app that supports server-to-server integration with Zoom services without a need for user authorization.\n"
+"                  <br/>"
+msgstr "Créez une application qui prend en charge l'intégration de serveur à serveur avec les services Zoom sans avoir besoin d'une autorisation utilisateur.\n"
+
+#. module: base_event_online
+#: model:ir.model,name:base_event_online.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de config"
+
+#. module: base_event_online
+#: model:ir.model.fields,field_description:base_event_online.field_res_config_settings__e_mail
+msgid "E Mail"
+msgstr ""
+
+#. module: base_event_online
+#: model:ir.model.fields,field_description:base_event_online.field_res_users__zoom_email
+msgid "E-Mail"
+msgstr ""
+
+#. module: base_event_online
+#: model:ir.model,name:base_event_online.model_event_event
+msgid "Event"
+msgstr "Événement"
+
+#. module: base_event_online
+#: model:ir.model,name:base_event_online.model_event_registration
+msgid "Event Registration"
+msgstr "Inscription à l'événement"
+
+#. module: base_event_online
+#: model_terms:ir.ui.view,arch_db:base_event_online.view_users_form_inherit_zoom_multi
+msgid "Generate your API Key and Secret."
+msgstr "Générez votre clé API et votre secret."
+
+#. module: base_event_online
+#: model_terms:ir.ui.view,arch_db:base_event_online.event_event_view_form_inherit_website_zoom
+msgid "Initiate Online Event"
+msgstr "Lancer un événement en ligne"
+
+#. module: base_event_online
+#: model_terms:ir.ui.view,arch_db:base_event_online.view_event_registration_form_inherit
+msgid "Join"
+msgstr "Joindre"
+
+#. module: base_event_online
+#: model_terms:ir.ui.view,arch_db:base_event_online.event_description_full_inherit
+#: model_terms:ir.ui.view,arch_db:base_event_online.registration_template_inherit_zoom
+msgid "Join As Moderator"
+msgstr "Rejoindre en tant que modérateur"
+
+#. module: base_event_online
+#: model_terms:ir.ui.view,arch_db:base_event_online.view_event_registration_form_inherit
+msgid "Join Class"
+msgstr "Rejoindre la classe"
+
+#. module: base_event_online
+#: model_terms:ir.ui.view,arch_db:base_event_online.event_description_full_inherit
+#: model_terms:ir.ui.view,arch_db:base_event_online.registration_template_inherit_zoom
+msgid "Join Online Session"
+msgstr "Rejoindre une session en ligne"
+
+#. module: base_event_online
+#: model:ir.model.fields,field_description:base_event_online.field_event_registration__compute_url
+msgid "Join Url"
+msgstr "Rejoindre l'URL"
+
+#. module: base_event_online
+#: model:ir.model.fields,field_description:base_event_online.field_event_event__meeting_id
+#: model:ir.model.fields,field_description:base_event_online.field_event_registration__meeting_id
+msgid "Meeting Id"
+msgstr "ID de la réunion"
+
+#. module: base_event_online
+#: model:ir.model.fields,field_description:base_event_online.field_event_event__is_meeting_active
+msgid "Meeting Initiated"
+msgstr "Meeting initiée"
+
+#. module: base_event_online
+#: model:ir.model.fields,field_description:base_event_online.field_event_event__meeting_type
+msgid "Meeting Type"
+msgstr ""
+
+#. module: base_event_online
+#: model:ir.model.fields,field_description:base_event_online.field_event_event__moderator_password
+msgid "Moderator Password"
+msgstr "Mot de passe du modérateur"
+
+#. module: base_event_online
+#: model:ir.model.fields,field_description:base_event_online.field_event_event__moderator_url
+#: model:ir.model.fields,field_description:base_event_online.field_event_registration__compute_url_moderator
+msgid "Moderator Url"
+msgstr "URL du modérateur"
+
+#. module: base_event_online
+#: model_terms:ir.ui.view,arch_db:base_event_online.view_event_registration_form_inherit
+msgid "Online Class Informations"
+msgstr "Informations sur les cours en ligne"
+
+#. module: base_event_online
+#: code:addons/base_event_online/models/inherit_event.py:0
+#, python-format
+msgid "Please Select Type before Initiating Meeting"
+msgstr "Veuillez sélectionner le type avant de lancer la réunion"
+
+#. module: base_event_online
+#: model:ir.model.fields,field_description:base_event_online.field_res_config_settings__bb_server_url
+msgid "Server Url"
+msgstr "URL du serveur"
+
+#. module: base_event_online
+#: model:ir.model.fields,field_description:base_event_online.field_res_users__show_zoom_settings
+msgid "Show Zoom Settings"
+msgstr "Afficher les paramètres de zoom"
+
+#. module: base_event_online
+#: model:ir.model,name:base_event_online.model_res_users
+msgid "Users"
+msgstr "Utilisateurs"
+
+#. module: base_event_online
+#: model:ir.model.fields,field_description:base_event_online.field_res_users__zoom_secret_key
+msgid "Zoom App(jWT) Token"
+msgstr ""
+
+#. module: base_event_online
+#: model_terms:ir.ui.view,arch_db:base_event_online.view_users_form_inherit_zoom_multi
+msgid "Zoom Configurations"
+msgstr "Configurations de zoom"
+
+#. module: base_event_online
+#: model:ir.model.fields,field_description:base_event_online.field_res_config_settings__zm_server_url
+msgid "Zoom Server Url"
+msgstr "URL du serveur Zoom"
+
+#. module: base_event_online
+#: model_terms:ir.ui.view,arch_db:base_event_online.view_users_form_inherit_zoom_multi
+msgid "eyE._Qn4FYLNdq1kpY4ZgoDHvOc_-vZXXHHr03TwUBnY89g"
+msgstr ""
+
+#. module: base_event_online
+#: model:ir.model.fields,field_description:base_event_online.field_event_registration__is_active
+msgid "is_active"
+msgstr ""
+
+#. module: base_event_online
+#: model:ir.model.fields,field_description:base_event_online.field_event_registration__is_moderator
+msgid "is_moderator"
+msgstr "Active"
+
+#. module: base_event_online
+#: model:ir.model.fields,field_description:base_event_online.field_res_config_settings__zoom_secret_key
+msgid "jWT Token"
+msgstr ""
+
+#. module: base_event_online
+#: model:ir.model.fields,field_description:base_event_online.field_event_event__public_url
+msgid "public_url"
+msgstr ""
+
+#. module: base_event_online
+#: model:ir.model.fields,field_description:base_event_online.field_event_event__temp_key
+msgid "temp_key"
+msgstr ""
+
+#. module: base_event_online
+#: model_terms:ir.ui.view,arch_db:base_event_online.view_users_form_inherit_zoom_multi
+msgid "user@syncoria.com"
+msgstr ""

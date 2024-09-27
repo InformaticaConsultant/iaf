@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="certification_report_view_inherit" inherit_id="survey.certification_report_view_general">
+            <xpath expr="//div[@id='o_survey_certification']" position="replace">
+                <style>
+                    .article {
+                        font-face: 'Neo Sans Pro';
+                    }
+                </style>
+                <div t-att-data-oe-model="user_input._name" t-att-data-oe-id="user_input.id" class="article">
+                    <div class="" style="color:black !important; border:0px solid #000;background: url(https://finanzasconproposito.edu.do/documents/image/178/600x500);background-size: contain;background-repeat: no-repeat;background-position: center right 25px;min-height: 612px; z-index:-1000px;">
+                        <div class="row" style="color:red !important;">
+                            <div class="col-6" style="text-align:left;">
+                                <img t-if="user_input.partner_id.parent_id and user_input.partner_id.parent_id.image_1920" t-att-src="image_data_uri(user_input.partner_id.parent_id.image_1920)" width="250px" height="135px"/>
+                            </div>
+                            <div class="col-6" style="text-align:right;">
+                            </div>
+                        </div>
+                        <div class="col-12" style="text-align:center; margin-top: 70px;">
+                            <h4 style="font-face: 'Neo Sans Pro'; font-weight: 500; font-style: normal; font-size: 12px; color: #032b6b;">CERTIFICA A</h4>
+                            <h2 style="font-face: 'Neo Sans Pro'; font-weight: bold; font-style: italic; font-size: 32px; color: #032b6b; margin-top: 15px;">
+                                <span t-esc="user_input.partner_id.name"/> <span t-esc="user_input.partner_id.lastname"/>
+                            </h2>
+                        </div>
+                        <div class="col-12" style="text-align:center; margin-top: 40px;">
+                            <h4 style="font-face: 'Neo Sans Pro'; font-weight: 500; font-style: normal; font-size: 12px; color: #032b6b;">POR HABER COMPLETADO EL PROGRAMA FORMATIVO</h4>
+                            <h1  style="font-face: 'Neo Sans Pro'; font-weight: bold; font-style: italic; font-size: 46px; color: #032b6b;"><span t-esc="user_input.get_channel()"/></h1>
+                        </div>
+                        <t t-set="date_info" t-value="user_input.get_date_formatted()"/>
+                        <div class="col-12" style="text-align:center; margin-top: 40px;">
+                            <h4 style="font-face: 'Neo Sans Pro'; font-weight: 500; font-style: normal; font-size: 12px; color: #032b6b; text-transform: uppercase;">"DE LA ACADEMIA DE FINANZAS CON PROPÓSITO DEL BANCO POPULAR DOMINICANO"</h4>
+                            <h4 style="font-face: 'Neo Sans Pro'; font-weight: 500; font-style: normal; font-size: 12px; color: #032b6b;">EL <span t-esc="date_info.get('day')"/> DE <span t-esc="date_info.get('month')"/> DEL <span t-esc="date_info.get('year')"/> EN LA CIUDAD DE SANTO DOMINGO</h4>
+                        </div>
+                        <div class="col-12" style="text-align:right; padding-top:25px;padding-bottom:25px;margin-top: 40px;">
+                            <h4 style="font-face: 'Neo Sans Pro'; font-weight: 500; font-style: normal; font-size: 12px; color: #032b6b;">BPD-002</h4>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+        
+        <!--<record id="paperformat_certification" model="report.paperformat">
+            <field name="name">Certificaciones</field>
+            <field name="default" eval="True"/>
+            <field name="format">Letter</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">40.00</field>
+            <field name="margin_bottom">25.00</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>-->
+        
+        <record id="survey.certification_report" model="ir.actions.report">
+<!--            <field name="paperformat_id" ref="elearning_features.paperformat_certification"/>-->
+        </record>
+
+    </data>
+</odoo>

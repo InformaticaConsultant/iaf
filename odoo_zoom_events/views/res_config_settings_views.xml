@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <record id="res_config_settings_zoom" model="ir.ui.view">
+            <field name="name">res.conf.zoom</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base_event_online.res_config_settings_event_base" />
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('app_settings_block_evl_events_zoom')]" position="replace">
+
+                    <div class="app_settings_block_evl_events_zoom" title="Configuration" id="zoom_config">
+                        <div class="row mt16 o_settings_container evl_zoom">
+
+                            <div class="content-group o_setting_box" title="Configuration">
+                                <h2>Zoom Configurations</h2>
+                                <div class="o_setting_left_pane"></div>
+                                <div class="o_setting_right_pane">
+
+                                    <div>
+                                        <label for="zm_server_url" />
+                                        <div class="text-muted">
+                               Api Url
+                                    </div>
+                                        <div class="text-muted">
+                                            <field name="zm_server_url" placeholder="https://api.zoom.us/v2/" rows="50" />
+                                        </div>
+
+                                    </div>
+
+                                    <div>
+                                        <label for="e_mail" />
+                                        <div class="text-muted">
+                                        Zoom Login 
+                                    </div>
+                                        <div class="text-muted">
+                                            <field placeholder="user@syncoria.com" name="e_mail" rows="50" />
+                                        </div>
+
+                                    </div>
+
+
+                                    <div>
+                                        <label for="zoom_secret_key" />
+                                        <div class="text-muted">
+                                       App-jWT Key
+                                    </div>
+                                        <div class="text-muted">
+                                            <field placeholder="eyE._Qn4FYLNdq1kpY4ZgoDHvOc_-vZXXHHr03TwUBnY89g" password='0' name="zoom_secret_key" rows="50" />
+                                        </div>
+
+                                        <div class="text-muted">
+                                            Build an app that supports server-to-server integration with Zoom services without a need for user authorization.
+                                            <br></br>
+                                            <a target="_blank" href="https://marketplace.zoom.us/docs/guides/build/jwt-app"> Generate your API Key and Secret.</a>
+
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+
+
+</odoo>

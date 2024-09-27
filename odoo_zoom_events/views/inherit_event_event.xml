@@ -1,0 +1,52 @@
+<odoo>
+  <data>
+
+    <record id="event_form_bbb_inherit" model="ir.ui.view">
+      <field name="name">event.form.bbb.inherit</field>
+      <field name="model">event.event</field>
+      <field name="inherit_id" ref="event.view_event_form" />
+      <field name="arch" type="xml">
+
+
+        <xpath expr="//button[@name='initiate_class']" position="replace">
+<!--          <field name="is_online" />-->
+
+
+<!--          Falta is Online y state-->
+<!--          invisible="(is_meeting_active != False) or (is_online != True) or (state != 'confirm')"-->
+          <button
+          string="Initiate Online Event" name="initiate_class" 
+          type="object" id="is_event_show_initiate"
+          invisible="(is_meeting_active != False)"
+          class="oe_highlight" />
+
+
+        </xpath>
+        
+        <xpath expr="//group[@id='base_event_configurations']" position="replace">
+
+
+<!--          <group invisible="not is_online" id="base_event_configurations">-->
+          <group id="base_event_configurations">
+
+            <group string="Online Event and Credentials">
+              <field name="meeting_type" />
+              <field name="is_meeting_active" readonly="1" string="Initiated" />
+              <field name="meeting_id" readonly="1" invisible="0" string="Meeting Id" />
+              <field name="temp_key" readonly="1" invisible="1" />
+              <field name="moderator_password" />
+            </group>
+          </group>
+
+
+
+
+        </xpath>
+
+
+      </field>
+    </record>
+
+
+  </data>
+</odoo>

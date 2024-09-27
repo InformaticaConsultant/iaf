@@ -1,0 +1,38 @@
+id,name,state_id:id
+city_DO_01,Santo Domingo de Guzmán,base.state_DO_01
+city_DO_02,Santiago de los Caballeros,base.state_DO_25
+city_DO_03,Santo Domingo Este,base.state_DO_32
+city_DO_04,Santo Domingo Norte,base.state_DO_32
+city_DO_05,Santo Domingo Oeste,base.state_DO_32
+city_DO_06,San Felipe de Puerto Plata,base.state_DO_18
+city_DO_07,Concepción de la Vega,base.state_DO_13
+city_DO_08,San Pedro de Macorís,base.state_DO_23
+city_DO_09,La Romana,base.state_DO_12
+city_DO_10,Los Alcarrizos (D.M.),base.state_DO_32
+city_DO_11,San Francisco de Macoris,base.state_DO_06
+city_DO_12,San Cristóbal,base.state_DO_21
+city_DO_13,Salvaleón de Higüey,base.state_DO_11
+city_DO_14,Santa Cruz de Barahona,base.state_DO_04
+city_DO_15,Bonao,base.state_DO_28
+city_DO_16,San Juan de la Maguana,base.state_DO_22
+city_DO_17,Baní,base.state_DO_17
+city_DO_18,Bajos de Haina,base.state_DO_21
+city_DO_19,Moca,base.state_DO_09
+city_DO_20,Azua de Compostela,base.state_DO_02
+city_DO_21,Mao,base.state_DO_27
+city_DO_22,Boca Chica,base.state_DO_32
+city_DO_23,Punta Cana,base.state_DO_11
+city_DO_24,Cotuí,base.state_DO_24
+city_DO_25,Esperanza,base.state_DO_27
+city_DO_26,Villa Altagracia,base.state_DO_21
+city_DO_27,Hato Mayor del Rey,base.state_DO_30
+city_DO_28,Nagua,base.state_DO_14
+city_DO_29,Villa Bisonó,base.state_DO_25
+city_DO_30,Jarabacoa,base.state_DO_13
+city_DO_31,Constanza,base.state_DO_13
+city_DO_32,Consuelo,base.state_DO_23
+city_DO_33,Pedro Brand (D.M.),base.state_DO_32
+city_DO_34,Santa Cruz del Seibo,base.state_DO_08
+city_DO_35,Tamboril,base.state_DO_25
+city_DO_36,Las Matas de Farfán,base.state_DO_22
+city_DO_37,San José de Ocoa,base.state_DO_31

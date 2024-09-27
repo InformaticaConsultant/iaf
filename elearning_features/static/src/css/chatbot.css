@@ -1,0 +1,109 @@
+#contBtn-Chat {
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    z-index: 8;
+    bottom: 50px;
+    right: 25px;
+}
+
+#contBtn-Chat .btn-chat {
+    float: left!important;
+    position: relative!important;
+    width: 70px!important;
+    height: 70px!important;
+    color: #fff!important;
+    text-align: center!important;
+    font-size: 12px!important;
+    font-weight: 700!important;
+    padding-top: 46px!important;
+    background-image: url("../img/chat-en-linea.png")!important;
+    background-repeat: no-repeat!important;
+    background-position: center 10px!important;
+    text-transform: uppercase!important;
+    background-size: 58% auto!important;
+    -webkit-border-radius: 50%!important;
+    -ms-border-radius: 50%!important;
+    -mz-border-radius: 50%!important;
+    -o-border-radius: 50%!important;
+    border-radius: 50%!important;
+    background-color: rgba(0, 185, 207, 1)!important;
+    cursor: pointer!important;
+    z-index: 5!important;
+    -webkit-transition: all .2s ease-in-out!important;
+    -mz-transition: all .2s ease-in-out!important;
+    -ms-transition: all .2s ease-in-out!important;
+    -o-transition: all .2s ease-in-out!important;
+    transition: all .2s ease-in-out!important;
+    -webkit-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3)!important;
+    -moz-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3)!important;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.3)!important;
+}
+
+.contBtn-Survey{
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    z-index: 8;
+    bottom: 150px !important;
+    right: 25px;
+}
+
+
+/* Popup container - can be anything you want */
+/* .contBtn-Survey {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  } */
+  
+  /* The actual popup */
+  .contBtn-Survey .popuptext {
+    visibility: hidden;
+    width: 170px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 105%;
+    left: 10%;
+    margin-left: -120px;
+    font-size: 10px;
+  }
+  
+  /* Popup arrow */
+  .contBtn-Survey .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Toggle this class - hide and show the popup */
+  .contBtn-Survey .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }

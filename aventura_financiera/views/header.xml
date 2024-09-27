@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- <template id="custom_header" inherit_id="website.layout" name="Custom Header">
+        <xpath expr="//header" position="replace">
+
+  <div class="bg-blue py-2 bg-small-curve bg-no-repeat bg-contain bg-left-top">
+    <div class="container mx-auto px-6">
+      <div class="flex justify-center lg:justify-end items-center"> <a href="https://finanzasconproposito.edu.do/"
+          class="flex items-center gap-2 text-white uppercase font-bold text-sm"> <span
+            class="flex items-center justify-center bg-white rounded-full h-8 w-8"><svg
+              xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#012169"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-left">
+              <path d="M6 8L2 12L6 16"></path>
+              <path d="M2 12H22"></path>
+            </svg></span> <span>Regresar academia finanzas con propósito</span> </a> </div>
+    </div>
+  </div>
+  <nav class="navbar-container bg-white sticky py-4 top-0 z-50 transition-all ease-in-out">
+    <div class="container mx-auto px-6">
+      <div class="flex justify-between items-center gap-4">
+        <div>
+          <div> <a href="/"><img src="../aventura_financiera/static/images/logo/img_aventura_financiera_logo.svg" alt=""
+                class="h-[72px]"></img></a> </div>
+        </div>
+
+        <div> <button class="lg:hidden p-2 rounded-full bg-secondary/5 hover:bg-secondary/10 transition-all"
+            id="hamburger-openner-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="#012169" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" class="lucide lucide-menu">
+              <line x1="4" x2="20" y1="12" y2="12"></line>
+              <line x1="4" x2="20" y1="6" y2="6"></line>
+              <line x1="4" x2="20" y1="18" y2="18"></line>
+            </svg></button>
+          <div id="nav-menu"
+            class="bg-white lg:bg-transparent fixed lg:relative right-0 top-0 w-10/12 sm:w-6/12 lg:w-auto py-12 lg:py-2 px-8 lg:px-0 shadow-md lg:shadow-none transform translate-x-full lg:translate-x-0 ease-out transition-all h-screen lg:h-auto">
+            <button class="lg:hidden absolute right-8 top-8 p-2 rounded-full bg-red/5"
+              id="hamburger-closing-button"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                viewBox="0 0 24 24" fill="none" stroke="#012169" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" class="lucide lucide-x-circle">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="m15 9-6 6"></path>
+                <path d="m9 9 6 6"></path>
+              </svg></button>
+            <ul
+              class="flex flex-col lg:flex-row items-start lg:items-center gap-2 mt-12 lg:mt-0 uppercase font-bold text-sm font-MuseoSans text-white">
+              <li> <a href="#acerca-de-seccion"
+                  class="flex rounded-full bg-teal hover:bg-accent-teal px-6 py-2 transition-all">Sobre Aventura
+                  Financiera</a> </li>
+              <li> <a href="#descargar-ebook-seccion"
+                  class="flex rounded-full bg-blue hover:bg-accent-blue px-6 py-2 transition-all">Descargar eBook</a>
+              </li>
+              <li> <a href="#glosario-seccion"
+                  class="flex rounded-full bg-turquoise hover:bg-accent-turquoise px-6 py-2 transition-all">Glosario</a>
+              </li>
+              <li> <button onclick="openModal('modalLogin')"
+                  class="flex rounded-full uppercase bg-orange hover:bg-accent-orange px-6 py-2 transition-all">Acceder</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+        </xpath>
+    </template> -->
+</odoo>

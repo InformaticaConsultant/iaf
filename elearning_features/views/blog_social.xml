@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="elearning_features_opt_blog_post_share_links_display" inherit_id="website_blog.opt_blog_post_share_links_display">
+        <xpath expr="//div[hasclass('o_wblog_social_links')]" position="inside">
+            <a href="#" aria-label="Whatsapp" title="Compartir en Whatsapp" t-attf-class="o_whatsapp #{classes}"><i class="fa fa-whatsapp text-whatsapp" aria-label="Whatsapp" title="Whatsapp"/></a>
+            <script src="/elearning_features/static/src/js/blog_social.js"></script>
+        </xpath>
+    </template>
+
+</odoo>

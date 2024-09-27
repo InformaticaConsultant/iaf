@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record model="ir.ui.view" id="lms_view_slide_channel_form">
+        <field name="name">slide.channel.view.form</field>
+        <field name="model">slide.channel</field>
+        <field name="inherit_id" ref="website_slides.view_slide_channel_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="button_publish" type="object" string="Publicar" class="oe_highlight"/>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath>
+            
+            <xpath expr="//page[@name='karma_rules']" position="after">
+                <page name="bank_products" string="Suggest bank products">
+                    <field name="suggest_bank_product_ids" nolabel="1">
+                        <tree>
+                            <field name="name"/>
+                            <field name="benefit"/>
+                            <field name="url"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+
+            <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="segment"/>
+                    <field name="short_description_slide"/>
+                    <!-- <field name="date_for_publish"/> -->
+            </xpath>
+            
+            <xpath expr="//field[@name='enroll_group_ids']" position="after">
+                <field name="survey_tag_ids" widget="many2many_tags" placeholder="Etiquetas de encuesta"/>
+            </xpath>
+
+            <xpath expr="//field[@name='website_id']" position="after">
+                <field name="start_date"/>
+                <field name="channel_with_limit_date"/>
+                <label for="interval_number" string="Tiempo de expiracion" invisible="channel_with_limit_date==False" required="channel_with_limit_date==True"/>
+                <div>
+                    <field name="interval_number" class="oe_inline" invisible="channel_with_limit_date==False" required="channel_with_limit_date==True"/>
+                    <field name="interval_type" class="oe_inline" invisible="channel_with_limit_date==False" required="channel_with_limit_date==True"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="lms_view_slide_slide_form">
+        <field name="name">slide.slide.view.form</field>
+        <field name="model">slide.slide</field>
+        <field name="inherit_id" ref="website_slides.view_slide_slide_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='slide_category']" position="after">
+                <field name="slide_required" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

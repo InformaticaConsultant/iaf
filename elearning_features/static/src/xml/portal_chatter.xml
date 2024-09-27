@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template">
+    <t t-extend="website_rating.chatter_rating_publisher_comment">
+        <t t-jquery=".o_portal_chatter_avatar" t-operation="replace">
+<!--            <img class="o_portal_chatter_avatar" t-att-src="'/web/image?model=res.partner&#38;id=%d&#38;field=image_128' % (rating.partner_id)"/>-->
+            <img class="o_portal_chatter_avatar" t-att-src="'https://finanzasconproposito-staging-4152267.dev.odoo.com/web/image?model=res.partner&#38;id=43&#38;field=image_128'"/>
+        </t>
+    </t>
+</templates>

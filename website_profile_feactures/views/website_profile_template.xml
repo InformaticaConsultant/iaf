@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="website_forum_header_inherit" inherit_id="website_forum.header">
+		<xpath expr="//div[hasclass('o_wprofile_email_validation_container')]" position="replace"/>
+	</template>
+	
+	<template id="user_profile_content_inherit" inherit_id="website_profile.user_profile_content">
+		<xpath expr="//t[@t-set='send_validation_email_message']" position="replace">
+			<t t-set="send_validation_email_message" t-value="'Haga clic aquí para enviar un correo electrónico de verificación.'"/>
+	    </xpath>
+		
+		<xpath expr="//div[@id='profile_tab_content_about']/div[1]" position="replace"/>
+	</template>
+
+	<template id="email_validation_banner_inherit" inherit_id="website_profile.email_validation_banner">
+		<xpath expr="//div[@t-if='validation_email_done']" position="replace"/>
+	
+	</template>
+	
+	<template id="user_profile_edit_content_inherit" inherit_id="website_profile.user_profile_edit_content">
+		<xpath expr="//div[hasclass('oe_email_required')]" position="replace">
+			<div t-if="email_required" class="alert alert-danger alert-dismissable oe_email_required" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                <p>Ingrese una dirección de correo electrónico válida para recibir notificaciones de respuestas o comentarios.</p>
+            </div>
+	    </xpath>
+	</template>
+	
+	<template id="email_validation_banner_inherit" inherit_id="website_profile.email_validation_banner">
+		<xpath expr="//div[@t-if='not validation_email_sent and not is_public_user and user.karma == 0']" position="replace">
+			<div t-if="not validation_email_sent and not is_public_user and user.karma == 0" t-att-class="send_alert_classes" role="alert">
+	            <button type="button" class="close validation_email_close" data-dismiss="alert" aria-label="Close">&amp;times;</button>
+	            Parece que su correo electrónico no ha sido verificado.<br/>
+	            <a class="send_validation_email alert-link" href="#" t-att-data-redirect_url="redirect_url">
+	                <span t-esc="send_validation_email_message"/>
+	            </a>
+	        </div>
+	    </xpath>
+	
+	</template>
+	
+</odoo>

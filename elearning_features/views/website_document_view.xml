@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record model="ir.ui.view" id="documents_folder_view_form_inherit">
+            <field name="name">Workspace form</field>
+            <field name="model">documents.folder</field>
+            <field name="inherit_id" ref="documents.folder_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='parent_folder_id']" position="before">
+                    <field name="use_in_website"/>
+                    <field name="use_in_capsule"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="document_view_form">
+            <field name="name">document form view</field>
+            <field name="model">documents.document</field>
+            <field name="inherit_id" ref="documents.document_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="author_name" invisible="url==False"/>
+                </xpath>
+                
+                <xpath expr="//field[@name='mimetype']" position="after">
+                    <field name="description" widget="html" invisible="url==False"/>
+                    <field name="embed_code" readonly="1" invisible="url==False"/>
+                </xpath>
+                
+                <xpath expr="//field[@name='lock_uid']" position="after">
+                    <field name="use_in_capsule" invisible="1"/>
+                    <field name="use_in_home" invisible="use_in_capsule==False"/>
+                    <field name="main_video" invisible="use_in_capsule==False"/>
+                </xpath>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="documents_upload_url_view">
+            <field name="name">documents_upload_url_view</field>
+            <field name="model">documents.document</field>
+            <field name="inherit_id" ref="documents.documents_upload_url_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                    <field name="use_in_home"/>
+                    <field name="main_video"/>
+                </xpath>
+            </field>
+        </record>
+        
+        
+
+        <record id="website_glosary_view_tree" model="ir.ui.view">
+            <field name="name">website.glosary.view.tree</field>
+            <field name="model">website.glosary</field>
+            <field name="arch" type="xml">
+                <tree string="Glosary" editable="top">
+                    <field name="letter"/>
+                    <field name="name"/>
+                    <field name="definition"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="website_glosary_action" model="ir.actions.act_window">
+            <field name="name">Glosary</field>
+            <field name="res_model">website.glosary</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="website_glosary_view_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new glosary
+                </p>
+            </field>
+        </record>
+        
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="website_glosary" name="Glosary" parent="website.menu_website_global_configuration" action="website_glosary_action" sequence="35"/>
+
+    </data>
+</odoo>

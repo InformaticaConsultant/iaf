@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!-- TODO:	pendiente de migrar no se encuentra quantity-->
+	<!--<template id="event_registration_template"  inherit_id="website_event.registration_template">
+		<xpath expr="//t[@t-set='quantity']" position="replace">
+			<t t-set="quantity">
+				<select name="nb_register-0" class="custom-select w-auto">
+					<t t-if="tickets.price &gt; 0">
+						<t t-foreach="range(0, (event.seats_availability == 'unlimited' or event.seats_available &gt; 9) and 10 or event.seats_available+1)" t-as="nb">
+							<option t-esc="nb" t-att-selected="nb == 1 and 'selected'"/>
+						</t>
+					</t>
+					<t t-else="">
+						<option value="1">1</option>
+					</t>
+				</select>
+			</t>
+	    </xpath>
+    </template>
+-->
+
+	<!-- TODO:	No es posible debido a phone se encuentra dentro de question.title sugerencia usar traducciones-->
+<!--	<template id="event_registration_attendee_details"  inherit_id="website_event.registration_attendee_details">
+		<xpath expr="//div[hasclass('row')]/div[3]" position="replace">
+			<div class="col-lg my-2">
+                <label>Teléfono</label>
+                <input class="form-control" type="tel" t-attf-name="#{counter}-phone" maxlength="10" size="12" required="Este campo es obligatorio"/>
+            </div>
+	    </xpath>
+    </template>-->
+	
+	<template id="website_social_share" inherit_id="website.s_share">
+		<xpath expr="//a[last()]" position="after">
+			<script type="text/javascript" src="/elearning_features/static/src/js/blog_social.js"/>
+			<a t-attf-href="#" t-attf-class="o_whatsapp #{_link_classes}" aria-label="Whatsapp" title="Compartir en Whatsapp" target="_blank">
+				<i class="fa fa-whatsapp #{not _link_classes and 'rounded shadow-sm'}"/>
+			</a>
+	    </xpath>
+	</template>
+
+	<template id="index_sidebar_quotes_elearning" inherit_id="website_event.index_sidebar_quotes">
+		<xpath expr="//div[hasclass('card')]" position="replace">
+	    </xpath>
+	</template>
+	
+	<template id="registration_attendee_details" inherit_id="website_event.registration_attendee_details">
+		<xpath expr="//form[@id='attendee_registration']" position="attributes">
+			<attribute name="t-attf-action">/eventos/#{slug(event)}/registration/confirm</attribute>
+		</xpath>
+	</template>
+	
+	<template id="registration_complete" inherit_id="website_event.registration_complete">
+		<xpath expr="//div[@id='add_to_calendar']//a[1]" position="attributes">
+			<attribute name="style">display:none;</attribute>
+		</xpath>
+	</template>
+	
+</odoo>

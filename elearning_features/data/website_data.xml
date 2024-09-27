@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- split between ir_ui_view & website_page record to keep external_id on ir_ui_view -->
+        <record id="email_validation" model="ir.ui.view">
+            <field name="name">Validación de Correo</field>
+            <field name="type">qweb</field>
+            <field name="key">website.email_validation</field>
+            <field name="arch" type="xml">
+                <t name="Validación de Cuenta" priority="200" t-name="website.email_validation">
+                    <t t-call="website.layout">
+                        <t t-set="pageName" t-value="'Validación de correo'"/>
+                        <div id="wrap" class="oe_structure oe_empty">
+                            <div class="container mt16">
+                                <div t-if="resend" class="alert alert-warning mt-2-5">
+                                    <p class="text-center mb-0">
+                                        Le hemos reenviado un correo electrónico para confirmar su cuenta.
+                                    </p>
+                                </div>
+                                <div class="alert mt-2-5">
+                                    <h1 class="text-center" style="color:#00709e;">¡Gracias por registrarte!</h1>
+                                    <p class="text-center mb-0">
+                                        Le hemos enviado un correo electrónico para confirmar su cuenta. Asegúrese de mirar la carpeta de correo no deseado en caso de no ver el mensaje en su bandeja de entrada.
+                                    </p>
+                                    <span class="text-center mb-0">
+                                        No lo he recibido,
+                                        <a class="btn btn-info text-center mb-0" t-att-href="'/account/email/resend?user_id=%d' % user.id"> Enviar de nuevo</a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </field>
+        </record>
+        
+        <record id="account_validation" model="ir.ui.view">
+            <field name="name">Validación de Cuenta</field>
+            <field name="type">qweb</field>
+            <field name="key">website.account_validation</field>
+            <field name="arch" type="xml">
+                <t name="Validación de Cuenta" priority="201" t-name="website.account_validation">
+                    <t t-call="website.layout">
+                        <t t-set="pageName" t-value="'Validación de Cuenta'"/>
+                        <div id="wrap" class="oe_structure oe_empty">
+                            <div class="container mt16">
+                                <h1 class="text-center">Email confirmado!</h1>
+                                <small class="well text-success text-center">Redirigiendo para inicio de sessión.</small>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </field>
+        </record>
+    
+        <record id="account_confirm" model="ir.ui.view">
+            <field name="name">Cuenta validada</field>
+            <field name="type">qweb</field>
+            <field name="key">website.account_confirm</field>
+            <field name="arch" type="xml">
+                <t name="Cuenta valida" priority="207" t-name="website.account_confirm">
+                    <t t-call="website.layout">
+                        <t t-set="pageName" t-value="'Cuenta valida'"/>
+                        <div id="wrap" class="oe_structure oe_empty">
+                            <div class="container mt16">
+                                <div class="alert info_icon mt-2-5">
+                                    <span class="fa fa-user-check fa-lg"/>
+                                    <h1 class="text-center" style="color:#00709e;">Su cuenta ha sido verificada</h1>
+                                    <p class="text-center mb-0">
+                                        <a role="buton" class="btn btn-md btn-info text-center mb-2" href="/web/login">Iniciar sesión</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </field>
+        </record>
+        
+        
+        <record id="account_validation_page" model="website.page">
+            <field name="is_published">True</field>
+            <field name="url">/account/validation</field>
+            <field name="view_id" ref="account_validation"/>
+            <field name="track">False</field>
+        </record>
+        
+        <record id="account_email_validation_page" model="website.page">
+            <field name="is_published">True</field>
+            <field name="url">/account/email/validation</field>
+            <field name="view_id" ref="email_validation"/>
+            <field name="track">False</field>
+        </record>
+        
+        <record id="account_confirm_page" model="website.page">
+            <field name="is_published">True</field>
+            <field name="url">/account/confirm</field>
+            <field name="view_id" ref="account_confirm"/>
+            <field name="track">False</field>
+        </record>
+        
+    </data>
+</odoo>

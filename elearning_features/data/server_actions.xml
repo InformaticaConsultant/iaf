@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="server_action_delete_course" model="ir.actions.server">
+		<field name="name">Eliminar</field>
+		<field name="type">ir.actions.server</field>
+		<field name="state">code</field>
+		<field name="model_id" ref="website_slides.model_slide_channel"/>
+		<field name="binding_model_id" ref="website_slides.model_slide_channel"/>
+		<field name="code">
+			for channel in records:
+			    channel.slide_ids.unlink()
+			    if channel.product_id:
+					channel.product_id.write({'active': False})
+			    if channel.suggest_bank_product_ids:
+					channel.write({'suggest_bank_product_ids': [(5, 0, 0)]})
+			    if channel.channel_partner_ids:
+					channel.channel_partner_ids.unlink()
+				channel.unlink()
+		</field>
+	</record>
+
+</odoo>
+

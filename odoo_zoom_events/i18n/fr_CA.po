@@ -1,0 +1,161 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* odoo_zoom_events
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-17 18:02+0000\n"
+"PO-Revision-Date: 2020-12-17 18:02+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: odoo_zoom_events
+#: model_terms:ir.ui.view,arch_db:odoo_zoom_events.res_config_settings_zoom
+msgid "Api Url"
+msgstr ""
+
+#. module: odoo_zoom_events
+#: model_terms:ir.ui.view,arch_db:odoo_zoom_events.res_config_settings_zoom
+msgid "App-jWT Key"
+msgstr ""
+
+#. module: odoo_zoom_events
+#: model_terms:ir.ui.view,arch_db:odoo_zoom_events.res_config_settings_zoom
+msgid ""
+"Build an app that supports server-to-server integration with Zoom services without a need for user authorization.\n"
+"                                            <br/>"
+msgstr ""
+
+#. module: odoo_zoom_events
+#: model_terms:ir.ui.view,arch_db:odoo_zoom_events.res_config_settings_zoom
+msgid "Configuration"
+msgstr ""
+
+#. module: odoo_zoom_events
+#: model:ir.model,name:odoo_zoom_events.model_event_event
+msgid "Event"
+msgstr "Événement"
+
+#. module: odoo_zoom_events
+#: model:ir.model,name:odoo_zoom_events.model_event_registration
+msgid "Event Registration"
+msgstr "Inscription à l'événement"
+
+#. module: odoo_zoom_events
+#: model_terms:ir.ui.view,arch_db:odoo_zoom_events.res_config_settings_zoom
+msgid "Generate your API Key and Secret."
+msgstr ""
+
+#. module: odoo_zoom_events
+#: model_terms:ir.ui.view,arch_db:odoo_zoom_events.event_form_bbb_inherit
+msgid "Initiate Online Event"
+msgstr "Lancer un événement en ligne"
+
+#. module: odoo_zoom_events
+#: model_terms:ir.ui.view,arch_db:odoo_zoom_events.event_form_bbb_inherit
+msgid "Initiated"
+msgstr "Initiée"
+
+#. module: odoo_zoom_events
+#: model_terms:ir.ui.view,arch_db:odoo_zoom_events.event_form_bbb_inherit
+msgid "Meeting Id"
+msgstr "ID de la Meeting
+"
+
+#. module: odoo_zoom_events
+#: model:ir.model.fields,field_description:odoo_zoom_events.field_event_event__meeting_type
+msgid "Meeting Type"
+msgstr ""
+
+#. module: odoo_zoom_events
+#: model_terms:ir.ui.view,arch_db:odoo_zoom_events.event_form_bbb_inherit
+msgid "Online Event and Credentials"
+msgstr "Événement en ligne et informations d'identification"
+
+#. module: odoo_zoom_events
+#: code:addons/odoo_zoom_events/models/inherit_event_event.py:0
+#: code:addons/odoo_zoom_events/models/inherit_event_event.py:0
+#, python-format
+msgid "Please Configure Global Zoom Authentication Parameters"
+msgstr "Veuillez configurer les paramètres d'authentification du zoom global"
+
+#. module: odoo_zoom_events
+#: code:addons/odoo_zoom_events/models/inherit_event_event.py:0
+#, python-format
+msgid "Please Configure Global Zoom Configuration"
+msgstr "Veuillez configurer la configuration globale du zoom"
+
+#. module: odoo_zoom_events
+#: code:addons/odoo_zoom_events/models/inherit_event_event.py:0
+#, python-format
+msgid "Please Configure Zoom Server Global Configuration"
+msgstr "Veuillez configurer la configuration globale du serveur Zoom"
+
+#. module: odoo_zoom_events
+#: code:addons/odoo_zoom_events/models/inherit_event_event.py:0
+#, python-format
+msgid "Please Provide Moderator Password to initiate meeting"
+msgstr "Veuillez fournir le mot de passe du modérateur pour lancer la réunion"
+
+#. module: odoo_zoom_events
+#: model_terms:ir.ui.view,arch_db:odoo_zoom_events.event_form_bbb_inherit
+msgid "Published"
+msgstr ""
+
+#. module: odoo_zoom_events
+#: model:ir.model.fields,field_description:odoo_zoom_events.field_res_users__show_zoom_settings
+msgid "Show Zoom Settings"
+msgstr "Afficher les paramètres de zoom"
+
+#. module: odoo_zoom_events
+#: model:ir.model,name:odoo_zoom_events.model_res_users
+msgid "Users"
+msgstr "Utilisateurs"
+
+#. module: odoo_zoom_events
+#: model:ir.model.fields.selection,name:odoo_zoom_events.selection__event_event__meeting_type__odoo_zoom_events
+msgid "Zoom"
+msgstr ""
+
+#. module: odoo_zoom_events
+#: model_terms:ir.ui.view,arch_db:odoo_zoom_events.res_config_settings_zoom
+msgid "Zoom Configurations"
+msgstr "Configurations de zoom"
+
+#. module: odoo_zoom_events
+#: model_terms:ir.ui.view,arch_db:odoo_zoom_events.res_config_settings_zoom
+msgid "Zoom Login"
+msgstr ""
+
+#. module: odoo_zoom_events
+#: code:addons/odoo_zoom_events/models/inherit_event_event.py:0
+#, python-format
+msgid "Zoom Meeting is not Initiated due to error in configuration"
+msgstr "La réunion Zoom n'est pas lancée en raison d'une erreur de configuration"
+
+#. module: odoo_zoom_events
+#: model_terms:ir.ui.view,arch_db:odoo_zoom_events.res_config_settings_zoom
+msgid "eyE._Qn4FYLNdq1kpY4ZgoDHvOc_-vZXXHHr03TwUBnY89g"
+msgstr ""
+
+#. module: odoo_zoom_events
+#: model_terms:ir.ui.view,arch_db:odoo_zoom_events.res_config_settings_zoom
+msgid "https://api.zoom.us/v2/"
+msgstr ""
+
+#. module: odoo_zoom_events
+#: code:addons/odoo_zoom_events/models/inherit_event_event.py:0
+#, python-format
+msgid "message"
+msgstr ""
+
+#. module: odoo_zoom_events
+#: model_terms:ir.ui.view,arch_db:odoo_zoom_events.res_config_settings_zoom
+msgid "user@syncoria.com"
+msgstr ""

@@ -1,0 +1,13 @@
+.calculator.formularioUno .form1 section {
+    display: grid;
+    grid-template-columns: 30% auto;
+}
+
+main .resultado.calculator {
+    grid-gap: 20px 38px;
+}
+
+main form.calculator .monto input[type="text"],
+.input-text {
+    justify-self: left;
+}

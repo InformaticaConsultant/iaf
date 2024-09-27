@@ -1,0 +1,186 @@
+.full-container .container.blog-detalles {
+    display: grid;
+    grid-template-columns: auto 300px;
+}
+
+
+/* Head bar */
+
+.banner-global.blog-detalles .container h1 {
+    max-width: none;
+    color: var(--entremar-5);
+}
+
+.header-bar.blog-detalles {
+    height: 60px;
+    background-color: var(--entremar-4);
+}
+
+.header-bar.blog-detalles .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-bar.blog-detalles .container .goback a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.header-bar.blog-detalles .container .goback a img {
+    vertical-align: middle;
+}
+
+
+/* Main content */
+
+.container.blog-detalles .main {
+    width: calc(100% - 25px);
+}
+
+.full-container .container.blog-detalles .main .content {
+    width: 100%;
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.full-container .container.blog-detalles .main .content h3 {
+    color: var(--entremar-5);
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.full-container .container.blog-detalles .main .content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.full-container .container.blog-detalles .main .footer {
+    width: 100%;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.full-container .container.blog-detalles .main .footer .redes {
+    display: flex;
+}
+
+.full-container .container.blog-detalles .main .footer .redes span {
+    font-size: 18px;
+    font-weight: 400;
+    color: #000;
+    margin-right: 20px;
+}
+
+.full-container .container.blog-detalles .main .footer .redes img {
+    width: 20px;
+    margin: 0 5px;
+}
+
+.full-container .container.blog-detalles .main .footer .link img {
+    width: 16px;
+}
+
+.full-container .container.blog-detalles .main .footer .link,
+.full-container .container.blog-detalles .main .footer .redes {
+    display: flex;
+    align-items: center;
+}
+
+
+/* Aside */
+
+.aside-blog-detalles {
+    width: 300px;
+}
+
+.aside-blog-detalles .publicidad img {
+    width: 100%;
+}
+
+.aside-blog-detalles .sugerencias {
+    background-color: white;
+    padding: 20px 15px 10px;
+    margin-bottom: 10px;
+}
+
+.aside-blog-detalles .sugerencias h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.aside-blog-detalles .sugerencias div a {
+    display: block;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+
+/* Sugerencias */
+
+.full-container .container.blog-detalles .sugerencias.blog-detalles {
+    grid-column-start: 1;
+    grid-column-end: -1;
+    margin-bottom: 80px;
+}
+
+.full-container .container.blog-detalles .sugerencias.blog-detalles .list-items {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 20px 10px;
+    box-sizing: border-box;
+}
+
+.full-container .container.blog-detalles .sugerencias.blog-detalles .list-items .item .img {
+    line-height: 0;
+}
+
+.full-container .container.blog-detalles .sugerencias.blog-detalles .list-items .item .img img {
+    width: 100%;
+}
+
+.full-container .container.blog-detalles .sugerencias.blog-detalles .list-items .item .body {
+    background-color: white;
+    padding: 30px 15px;
+    border-radius: 0 0 5px 5px;
+    box-sizing: border-box;
+}
+
+.full-container .container.blog-detalles .sugerencias.blog-detalles .list-items .item .body h4 {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 992px) {
+    .aside-blog-detalles {
+        display: none;
+    }
+    .full-container .container.blog-detalles {
+        grid-template-columns: auto;
+    }
+    .full-container .container.blog-detalles .sugerencias.blog-detalles .list-items {
+        grid-template-columns: auto auto;
+    }
+    .full-container .container.blog-detalles .main {
+        margin-bottom: 50px;
+    }
+    .full-container .container.blog-detalles .sugerencias.blog-detalles .section-header {
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .full-container .container.blog-detalles .sugerencias.blog-detalles .list-items {
+        grid-template-columns: auto;
+    }
+}

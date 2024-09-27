@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+
+        <record id="view_res_user_form_inherit_ZOOM" model="ir.ui.view">
+            <field name="name">res.users.form.ZOOM</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//page[@id='zoom_res_user_settings']" position="attributes">
+                    <attribute name="invisible">0</attribute>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

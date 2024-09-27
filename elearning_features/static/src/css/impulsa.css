@@ -1,0 +1,278 @@
+﻿/*!
+	Theme Name: Impulsa Popular 1.2.4
+	Theme URI: http://odsoluciones.com
+	Description: Impulsa Popular WordPress Theme
+	Version: 1.3.0
+	Author: OD Soluciones (@odsoluciones)
+	Author URI: http://odsoluciones.com
+	Tags: HTML5, CSS3, SASS, Twitter Bootstrap
+*/
+@font-face{font-family:"NeoSans Regular";src:url("fonts/NeoSansStd/NeoSansStd-Regular.eot");src:url("fonts/NeoSansStd/NeoSansStd-Regular.eot?#iefix") format("embedded-opentype"),url("fonts/NeoSansStd/NeoSansStd-Regular.woff2") format("woff2"),url("fonts/NeoSansStd/NeoSansStd-Regular.woff") format("woff"),url("fonts/NeoSansStd/NeoSansStd-Regular.ttf") format("truetype"),url("fonts/NeoSansStd/NeoSansStd-Regular.svg#svgFontName") format("svg")}@font-face{font-family:"NeoSans Bold";src:url("fonts/NeoSansStd/NeoSansStd-Bold.eot");src:url("fonts/NeoSansStd/NeoSansStd-Bold.eot?#iefix") format("embedded-opentype"),url("fonts/NeoSansStd/NeoSansStd-Bold.woff2") format("woff2"),url("fonts/NeoSansStd/NeoSansStd-Bold.woff") format("woff"),url("fonts/NeoSansStd/NeoSansStd-Bold.ttf") format("truetype"),url("fonts/NeoSansStd/NeoSansStd-Bold.svg#svgFontName") format("svg")}@font-face{font-family:"NeoSans Medium";src:url("fonts/NeoSansStd/NeoSansStd-Medium.eot");src:url("fonts/NeoSansStd/NeoSansStd-Medium.eot?#iefix") format("embedded-opentype"),url("fonts/NeoSansStd/NeoSansStd-Medium.woff2") format("woff2"),url("fonts/NeoSansStd/NeoSansStd-Medium.woff") format("woff"),url("fonts/NeoSansStd/NeoSansStd-Medium.ttf") format("truetype"),url("fonts/NeoSansStd/NeoSansStd-Medium.svg#svgFontName") format("svg")}@font-face{font-family:"NeoSans Italic";src:url("fonts/NeoSansStd/NeoSansStd-Italic.eot");src:url("fonts/NeoSansStd/NeoSansStd-Italic.eot?#iefix") format("embedded-opentype"),url("fonts/NeoSansStd/NeoSansStd-Italic.woff2") format("woff2"),url("fonts/NeoSansStd/NeoSansStd-Italic.woff") format("woff"),url("fonts/NeoSansStd/NeoSansStd-Italic.ttf") format("truetype"),url("fonts/NeoSansStd/NeoSansStd-Italic.svg#svgFontName") format("svg")}@font-face{font-family:"NeoSans Bold Italic";src:url("fonts/NeoSansStd/NeoSansStd-BoldItalic.eot");src:url("fonts/NeoSansStd/NeoSansStd-BoldItalic.eot?#iefix") format("embedded-opentype"),url("fonts/NeoSansStd/NeoSansStd-BoldItalic.woff2") format("woff2"),url("fonts/NeoSansStd/NeoSansStd-BoldItalic.woff") format("woff"),url("fonts/NeoSansStd/NeoSansStd-BoldItalic.ttf") format("truetype"),url("fonts/NeoSansStd/NeoSansStd-BoldItalic.svg#svgFontName") format("svg")}@font-face{font-family:"NeoSans Light";src:url("fonts/NeoSansStd/NeoSansStd-Light.eot");src:url("fonts/NeoSansStd/NeoSansStd-Light.eot?#iefix") format("embedded-opentype"),url("fonts/NeoSansStd/NeoSansStd-Light.woff2") format("woff2"),url("fonts/NeoSansStd/NeoSansStd-Light.woff") format("woff"),url("fonts/NeoSansStd/NeoSansStd-Light.ttf") format("truetype"),url("fonts/NeoSansStd/NeoSansStd-Light.svg#svgFontName") format("svg")}@font-face{font-family:"NeoSans Medium Italic";src:url("fonts/NeoSansStd/NeoSansStd-MediumItalic.eot");src:url("fonts/NeoSansStd/NeoSansStd-MediumItalic.eot?#iefix") format("embedded-opentype"),url("fonts/NeoSansStd/NeoSansStd-MediumItalic.woff2") format("woff2"),url("fonts/NeoSansStd/NeoSansStd-MediumItalic.woff") format("woff"),url("fonts/NeoSansStd/NeoSansStd-MediumItalic.ttf") format("truetype"),url("fonts/NeoSansStd/NeoSansStd-MediumItalic.svg#svgFontName") format("svg")}@font-face{font-family:"NeoSans Black";src:url("fonts/NeoSansStd/NeoSansStd-Black.eot");src:url("fonts/NeoSansStd/NeoSansStd-Black.eot?#iefix") format("embedded-opentype"),url("fonts/NeoSansStd/NeoSansStd-Black.woff2") format("woff2"),url("fonts/NeoSansStd/NeoSansStd-Black.woff") format("woff"),url("fonts/NeoSansStd/NeoSansStd-Black.ttf") format("truetype"),url("fonts/NeoSansStd/NeoSansStd-Black.svg#svgFontName") format("svg")}@font-face{font-family:"NeoSans Regular";src:url("fonts/NeoSansStd/NeoSansStd-Regular.eot");src:url("fonts/NeoSansStd/NeoSansStd-Regular.eot?#iefix") format("embedded-opentype"),url("fonts/NeoSansStd/NeoSansStd-Regular.woff2") format("woff2"),url("fonts/NeoSansStd/NeoSansStd-Regular.woff") format("woff"),url("fonts/NeoSansStd/NeoSansStd-Regular.ttf") format("truetype"),url("fonts/NeoSansStd/NeoSansStd-Regular.svg#svgFontName") format("svg")}@font-face{font-family:"Gotham Bold";src:url("fonts/Gotham/Gotham-Bold.eot");src:url("fonts/Gotham/Gotham-Bold.eot?#iefix") format("embedded-opentype"),url("fonts/Gotham/Gotham-Bold.woff2") format("woff2"),url("fonts/Gotham/Gotham-Bold.woff") format("woff"),url("fonts/Gotham/Gotham-Bold.ttf") format("truetype"),url("fonts/Gotham/Gotham-Bold.svg#svgFontName") format("svg")}@font-face{font-family:"Gotham Medium";src:url("fonts/Gotham/Gotham-Medium.eot");src:url("fonts/Gotham/Gotham-Medium.eot?#iefix") format("embedded-opentype"),url("fonts/Gotham/Gotham-Medium.woff2") format("woff2"),url("fonts/Gotham/Gotham-Medium.woff") format("woff"),url("fonts/Gotham/Gotham-Medium.ttf") format("truetype"),url("fonts/Gotham/Gotham-Medium.svg#svgFontName") format("svg")}@font-face{font-family:"Emprende Icon";src:url("img/emprende/emprende-icons.svg.eot");src:url("img/emprende/emprende-icons.svg.eot?#iefix") format("embedded-opentype"),url("img/emprende/emprende-icons.svg.woff2") format("woff2"),url("img/emprende/emprende-icons.svg.woff") format("woff"),url("img/emprende/emprende-icons.svg.ttf") format("truetype"),url("img/emprende/emprende-icons.svg.svg#svgFontName") format("svg")}
+
+
+.emp-icon {
+    background: transparent url("img/icons/emprende-icons.png") no-repeat;
+    display: inline-block
+}
+
+.emp-icon.emp-arrows {
+    width: 79px;
+    height: 82px;
+    background-position: -1px -1px
+}
+
+.emp-icon.emp-book {
+    width: 95px;
+    height: 83px;
+    background-position: -82px -1px
+}
+
+.emp-icon.emp-card {
+    width: 301px;
+    height: 285px;
+    background-position: -179px -1px
+}
+
+.emp-icon.emp-cash {
+    width: 50px;
+    height: 102px;
+    background-position: -482px -1px
+}
+
+.emp-icon.emp-certificate {
+    width: 57px;
+    height: 72px;
+    background-position: -534px -1px
+}
+
+.emp-icon.emp-challenge-1 {
+    width: 82px;
+    height: 101px;
+    background-position: -593px -1px
+}
+
+.emp-icon.emp-challenge-2 {
+    width: 61px;
+    height: 74px;
+    background-position: -677px -1px
+}
+
+.emp-icon.emp-coins {
+    width: 287px;
+    height: 326px;
+    background-position: -1px -288px
+}
+
+.emp-icon.emp-diamond {
+    width: 70px;
+    height: 65px;
+    background-position: -677px -77px
+}
+
+.emp-icon.emp-finance-1 {
+    width: 170px;
+    height: 224px;
+    background-position: -482px -144px
+}
+
+.emp-icon.emp-finance-3 {
+    width: 58px;
+    height: 76px;
+    background-position: -1px -144px
+}
+
+.emp-icon.emp-histories {
+    width: 96px;
+    height: 76px;
+    background-position: -61px -144px
+}
+
+.emp-icon.emp-idea-1 {
+    width: 58px;
+    height: 79px;
+    background-position: -654px -144px
+}
+
+.emp-icon.emp-idea-2 {
+    width: 162px;
+    height: 221px;
+    background-position: -290px -370px
+}
+
+.emp-icon.emp-idea-3 {
+    width: 59px;
+    height: 80px;
+    background-position: -654px -225px
+}
+
+.emp-icon.emp-idea-4 {
+    width: 56px;
+    height: 88px;
+    background-position: -654px -307px
+}
+
+.emp-icon.emp-info {
+    width: 69px;
+    height: 67px;
+    background-position: -454px -397px
+}
+
+.emp-icon.emp-mic {
+    width: 66px;
+    height: 65px;
+    background-position: -525px -397px
+}
+
+.emp-icon.emp-note {
+    width: 59px;
+    height: 78px;
+    background-position: -593px -397px
+}
+
+.emp-icon.emp-notes {
+    width: 252px;
+    height: 345px;
+    background-position: -749px -1px
+}
+
+.emp-icon.emp-program {
+    width: 57px;
+    height: 57px;
+    background-position: -712px -348px
+}
+
+.emp-icon.emp-project-1 {
+    width: 67px;
+    height: 66px;
+    background-position: -771px -348px
+}
+
+.emp-icon.emp-project-2 {
+    width: 198px;
+    height: 199px;
+    background-position: -654px -416px
+}
+
+.emp-icon.emp-project-3 {
+    width: 67px;
+    height: 67px;
+    background-position: -854px -348px
+}
+
+.emp-icon.emp-rocket-1 {
+    width: 130px;
+    height: 130px;
+    background-position: -854px -417px
+}
+
+.emp-icon.emp-rocket-2 {
+    width: 209px;
+    height: 209px;
+    background-position: -1px -617px
+}
+
+.emp-icon.emp-rocket-3 {
+    width: 74px;
+    height: 74px;
+    background-position: -454px -549px
+}
+
+.emp-icon.emp-tools {
+    width: 74px;
+    height: 100px;
+    background-position: -530px -549px
+}
+
+.emp-icon.emp-user {
+    width: 69px;
+    height: 92px;
+    background-position: -854px -549px
+}
+
+.emp-icon.emp-workshop {
+    width: 72px;
+    height: 89px;
+    background-position: -925px -549px
+}
+
+
+.doc-cal-list .doc-cal-item .doc-cal-item-icon {
+    background: transparent
+}
+
+.doc-cal-list .doc-cal-item .doc-cal-item-icon.calendar-date span {
+    line-height: 1.2;
+    color: #00C1D5
+}
+
+
+#documentos-page {
+    background: #f4f4f4;
+    padding-top: 0
+}
+
+#documentos-page .section-title,#documentos-page #sticky-sidebar-encuesta form .gform_body .gfield_label:first-of-type,#sticky-sidebar-encuesta form .gform_body #documentos-page .gfield_label:first-of-type {
+    margin-bottom: 0;
+    margin-top: 30px
+}
+
+#documentos-page .page-title-container {
+    border-bottom: 1px solid #dadada;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 45px;
+    padding-bottom: 10px
+}
+
+.doc-cal-list {
+    padding-top: 15px
+}
+
+.doc-cal-list .doc-cal-item {
+    background: white;
+    display: table;
+    width: 100%;
+    height: 51px;
+    margin-bottom: 20px
+}
+
+.doc-cal-list .doc-cal-item .doc-cal-item-icon {
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 5px;
+    text-align: center;
+    width: 68px;
+    background: #00c1d5
+}
+
+.doc-cal-list .doc-cal-item .doc-cal-item-icon span {
+    display: inline-block;
+    color: white;
+    font-family: "NeoSans Bold",arial,sans-serif;
+    font-size: 15px;
+    width: 50%;
+    text-align: left;
+    padding-left: 2px
+}
+
+.doc-cal-list .doc-cal-item .doc-cal-item-icon.calendar-date {
+    padding-top: 3px
+}
+
+.doc-cal-list .doc-cal-item .doc-cal-item-icon.calendar-date span {
+    line-height: 1.2
+}
+
+.doc-cal-list .doc-cal-item .doc-cal-item-info {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 20px
+}
+
+.doc-cal-list .doc-cal-item .doc-cal-item-info p,.doc-cal-list .doc-cal-item .doc-cal-item-info p a {
+    color: #6e6e6e;
+    font-size: 12px;
+    font-family: Arial,Helvetica,sans-serif;
+    margin: 0
+}
+

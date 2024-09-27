@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="import_user_tree_view" model="ir.ui.view">
+        <field name="name">import.user.tree.view</field>
+        <field name="model">import.user</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="partner_id"/>
+                <field name="rnc"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+    
+    <record id="import_user_view" model="ir.ui.view">
+        <field name="name">import.user.view</field>
+        <field name="model">import.user</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="import_user" string="Importar usuarios" class="oe_highlight" type="object"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="rnc"/>
+                            <field name="email"/>
+                            <field name="partner_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <field name="user_ids" nolabel="1" string="Usuarios">
+                        <tree options="{'no_edit': True, 'no_create': True}">
+                            <field name="name"/>
+                            <field name="login"/>
+                        </tree>
+                    </field>
+                    <group>
+                        <div class="alert alert-info info_icon" colspan="4" role="alert">
+                            <span class="fa fa-lightbulb-o fa-lg"/>
+                            <p><strong> Cómo importar usuarios </strong></p>
+                            <p>
+                                Para importar usuarios de forma masiva siga estos pasos:
+                            </p>
+                            <p>
+                                1. Crear la empresa a la que corresponden dichos usuarios, para eso complete los campos que se le piden y guarde el registro.
+                            </p>
+                            <p>
+                                2. Debe crear una hoja de excel con las siguientes columnas:
+                            </p>
+                            <p><strong>NOMBRE</strong> | <strong>APELLIDO</strong> | <strong>CEDULA</strong> | <strong>CORREO</strong></p>
+                            <p>
+                                Luego que tenga listo el archivo, en la parte inferior o lateral,según el ancho de su pantalla, tendra un ícono de adjunto al cual
+                                ha de darle click,para que le muestre el botón para adjuntar un documento. Haga uso de este para subir el documento de excel.
+                            </p>
+                            
+                            <p>
+                                3. Haga click en el botón Importar usuarios. Si todo sale bien recibira un mensaje indicando que los usuarios han sido creados. A estos
+                                se les enviara un correo de invitación para que accedan a la plataforma.
+                            </p>
+                        </div>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    
+    <record id="import_user_view_action" model="ir.actions.act_window">
+        <field name="name">Importar usuarios</field>
+        <field name="res_model">import.user</field>
+        <field name="view_mode">tree,form</field>
+       <field name="view_id" ref="import_user_tree_view"/>
+    </record>
+    
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="menu_action_import_user"
+        name="Importar usuarios"
+        action="import_user_view_action"
+        parent="contacts.menu_contacts"
+        groups="base.group_user,base.group_partner_manager"
+        sequence="2"/>
+
+</odoo>

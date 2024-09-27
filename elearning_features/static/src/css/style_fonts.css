@@ -1,0 +1,187 @@
+
+
+    @font-face {
+        font-family: 'Neo Sans Pro Regular';
+        font-style: normal;
+        font-weight: normal;
+        src: url(../fonts/NeoSansProRegular.woff) format('woff');
+    }
+    
+
+    @font-face {
+        font-family: 'Neo Sans Pro Italic';
+        font-style: normal;
+        font-weight: normal;
+        src: url(../fonts/NeoSansProItalic.woff) format('woff');
+    }
+    
+
+    @font-face {
+        font-family: 'Neo Sans Pro Light';
+        font-style: normal;
+        font-weight: normal;
+        src: url(../fonts/NeoSansProLight.woff) format('woff');
+    }
+    
+
+    @font-face {
+        font-family: 'Neo Sans Pro Light Italic';
+        font-style: normal;
+        font-weight: normal;
+        src: url(../fonts/NeoSansProLightIt.woff) format('woff');
+    }
+    
+
+    @font-face {
+        font-family: 'Neo Sans Pro Medium';
+        font-style: normal;
+        font-weight: normal;
+        src: url(../fonts/NeoSansProMedium.woff) format('woff');
+    }
+    
+
+    @font-face {
+        font-family: 'Neo Sans Pro Medium Italic';
+        font-style: normal;
+        font-weight: normal;
+        src: url(../fonts/NeoSansProMedIt.woff) format('woff');
+    }
+    
+
+    @font-face {
+        font-family: 'Neo Sans Pro Bold';
+        font-style: normal;
+        font-weight: normal;
+        src: url(../fonts/NeoSansProBold.woff) format('woff');
+    }
+    
+
+    @font-face {
+        font-family: 'Neo Sans Pro Bold Italic';
+        font-style: normal;
+        font-weight: normal;
+        src: url(../fonts/NeoSansProBoldIt.woff) format('woff');
+    }
+    
+
+    @font-face {
+        font-family: 'Neo Sans Pro Black';
+        font-style: normal;
+        font-weight: normal;
+        src: url(../fonts/NeoSansProBlack.woff) format('woff');
+    }
+    
+
+    @font-face {
+        font-family: 'Neo Sans Pro Ultra';
+        font-style: normal;
+        font-weight: normal;
+        src: url(../fonts/NeoSansProUltra.woff) format('woff');
+    }
+    
+
+    @font-face {
+        font-family: 'Neo Sans Pro Black Italic';
+        font-style: normal;
+        font-weight: normal;
+        src: url(../fonts/NeoSansProBlackIt.woff) format('woff');
+    }
+    
+
+    @font-face {
+        font-family: 'Neo Sans Pro Ultra Italic';
+        font-style: normal;
+        font-weight: normal;
+        src: url(../fonts/NeoSansProUltIt.woff) format('woff');
+    }
+    
+    @font-face {
+    font-family: 'Neo Sans Pro';
+    src: url(../fonts/NeoSansPro-Bold.woff2) format('woff2'),
+        url(../fonts/NeoSansPro-Bold.woff) format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neo Sans Pro';
+    src: url(../fonts/NeoSansPro-BoldItalic.woff2) format('woff2'),
+        url(../fonts/NeoSansPro-BoldItalic.woff) format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neo Sans Pro';
+    src: url(../fonts/NeoSansPro-Italic.woff2) format('woff2'),
+        url(../fonts/NeoSansPro-Italic.woff) format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neo Sans Pro';
+    src: url(../fonts/NeoSansPro-Light.woff2) format('woff2'),
+        url(../fonts/NeoSansPro-Light.woff) format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neo Sans Pro';
+    src: url(../fonts/NeoSansPro-LightItalic.woff2) format('woff2'),
+        url(../fonts/NeoSansPro-LightItalic.woff) format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neo Sans Pro';
+    src: url(../fonts/NeoSansPro-MediumItalic.woff2) format('woff2'),
+        url(../fonts/NeoSansPro-MediumItalic.woff) format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neo Sans Pro';
+    src: url(../fonts/NeoSansPro-Regular.woff2) format('woff2'),
+        url(../fonts/NeoSansPro-Regular.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neo Sans Pro';
+    src: url(../fonts/NeoSansPro-Ultra.woff2) format('woff2'),
+        url(../fonts/NeoSansPro-Ultra.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neo Sans Pro';
+    src: url(../fonts/NeoSansPro-UltraItalic.woff2) format('woff2'),
+        url(../fonts/NeoSansPro-UltraItalic.woff) format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Neo Sans Pro';
+    src: url(../fonts/NeoSansPro-Medium.woff2) format('woff2'),
+        url(../fonts/NeoSansPro-Medium.woff) format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+

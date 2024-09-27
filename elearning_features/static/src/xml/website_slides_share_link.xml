@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-extend="website.slide.share.socialmedia">
+        <t t-jquery=".btn-group" t-operation="append">
+            <script type="text/javascript" src="/elearning_features/static/src/js/blog_social.js"/>
+			<a t-attf-href="https://api.whatsapp.com/send?text=#{window.location.href}" class="btn border bg-white o_wslides_js_social_share" aria-label="Whatsapp" title="Compartir en Whatsapp" target="_blank">
+				<i class="fa fa-whatsapp #{not _link_classes and 'rounded shadow-sm'}"/>
+			</a>
+<!--            <a t-attf-href="http://www.linkedin.com/shareArticle?mini=true&amp;url=#{window.location.href}&amp;title=#{widget.slide.name}&amp;" social-key="linkedin" class="btn border bg-white o_wslides_js_social_share" aria-label="Share on LinkedIn" title="Share on LinkedIn"><i class="fa fa-linkedin fa-fw"/></a>-->
+        </t>
+    </t>
+</templates>

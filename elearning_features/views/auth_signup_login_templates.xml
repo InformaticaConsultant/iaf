@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--    <template id="assets_frontend_feacture" inherit_id="website.assets_frontend">-->
+<!--        <xpath expr="link[last()]" position="after">-->
+<!--            <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/website_profile.css"/>-->
+<!--        </xpath>-->
+
+<!--        <xpath expr="//script[last()]" position="after">-->
+<!--                <script type="text/javascript" src="/elearning_features/static/src/js/profile.js"/>-->
+<!--        </xpath>-->
+<!--    </template>-->
+
+    <template id="signup_inherited" inherit_id="auth_signup.signup">
+        <xpath expr="//input[@name='redirect']" position="replace">
+            <input type="hidden" name="redirect" value="/profile/edit?url_param=#{edit_button_url_param}&amp;user_id=#{user.id}"/>
+        </xpath>
+    </template>
+
+    <template id="user_profile_edit_content_feactures" inherit_id="website_profile.user_profile_edit_content" name="Edit Profile">
+        <xpath expr="//h1[hasclass('o_page_header')]" position="replace">
+            <h1 class="o_page_header">Bienvenido a tu cuenta</h1>
+        </xpath>
+
+        <xpath expr="//form" position="replace">
+            <form t-attf-action="/profile/user/save" method="post" role="form" class="o_wprofile_editor_form js_website_submit_form row" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                <input type="file" class="d-none o_forum_file_upload" name="ufile" accept="image/*"/>
+                <input type="hidden" name="url_param" t-att-value="request.params.get('url_param')"/>
+                <div class="col-3">
+                    <div class="card o_card_people">
+                        <div class="card-body">
+                            <img class="o_forum_avatar_img w-100 mb-3" t-att-src="website.image_url(user, 'image_128')"/>
+                            <div class="text-center">
+                                <a href="#" class="o_forum_profile_pic_edit btn btn-primary" aria-label="Edit">
+                                    <i class="fa fa-pencil fa-1g float-sm-none float-md-left" title="Edit"/>
+                                </a>
+                                <a href="#" title="Clear" aria-label="Clear" class="btn border-primary o_forum_profile_pic_clear">
+                                    <i class="fa fa-trash-o float-sm-none float-md-right"/>
+                                </a>
+                            </div>
+                            <div class="form-group mt-3 mb-0 pt-2 border-top">
+                                <label class="text-primary" for="user_website_published" t-if="user.id == uid">
+                                    <span class="font-weight-bold">Perfil público</span>
+                                </label>
+                                <div class=" mb-0 float-right" t-if="user.id == uid">
+                                    <input type="checkbox" class="mt8" name="website_published" id="user_website_published" value="True" t-if="not user.website_published"/>
+                                    <input type="checkbox" class="mt8" name="website_published" id="user_website_published" value="True" checked="checked" t-if="user.website_published"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- percent -->
+                    <div style="margin-top:20px">
+                        <h6 class="text-left">
+                            Porcentaje del perfil completado
+                        </h6>
+                        <div t-att-class="profile_percent_class">
+                            <span>
+                                <t t-esc="profile_percent"/> %
+                            </span>
+                            <div class="slice">
+                                <div class="bar"/>
+                                <div class="fill"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <input name="user_id" t-att-value="user.id" type="hidden"/>
+                                <input name="name" id="complete_name" type="hidden" t-att-value="user.name"/>
+
+                             
+
+                                <div class="form-group col-6">
+                                    <label class="text-primary mb-1 d-block" for="user_only_name">
+                                        <span class="font-weight-bold">Nombre</span>
+                                    </label>
+                                    <div>
+                                       <t t-if="user.user_only_name">
+                                            <input type="text"  onkeydown="return /[a-z, ]/i.test(event.key)" class="form-control" name="user_only_name" id="user_only_name" required="True" t-attf-value="#{user.user_only_name}"/>
+                                        </t>
+                                        <t t-else="">
+                                            <input type="text"  onkeydown="return /[a-z, ]/i.test(event.key)" class="form-control" name="user_only_name" id="user_only_name" required="True" t-attf-value="#{user.name}"/>
+
+                                        </t>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-6">
+                                    <label class="text-primary mb-1 d-block" for="user_last_name">
+                                        <span class="font-weight-bold">Apellido</span>
+                                    </label>
+                                    <div>
+
+                                        <t t-if="user.user_last_name">
+                                         <input type="text"  onkeydown="return /[a-z, ]/i.test(event.key)" class="form-control" name="user_last_name" id="user_last_name" required="True" t-attf-value="#{user.user_last_name}"/>
+                                        </t>
+                                        <t t-else="">
+                                            <input type="text"  onkeydown="return /[a-z, ]/i.test(event.key)" class="form-control" name="user_last_name" id="user_last_name" required="True" t-attf-value="#{user.partner_id.lastname}"/>
+
+                                        </t>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-6">
+                                    <label class="mb-1 text-primary" for="vat">
+                                        <span class="font-weight-bold">Cédula</span>
+                                    </label>
+                                    <div>
+                                        <input type="text" maxlength="11" class="form-control" name="vat" id="vat"  t-attf-value="#{user.partner_id.vat or ''} "/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-6">
+                                    <label class="mb-1 text-primary" for="user_phone">
+                                        <span class="font-weight-bold">Teléfono vivienda</span>
+                                    </label>
+                                    <div>
+                                        <input type="tel" t-att-id="phoneFormat" maxlength = "14" class="form-control" name="phone" id="user_phone" onKeyup="formatPhone(this);"  t-attf-value="#{user.partner_id.phone or ''} "/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-6">
+                                    <label class="mb-1 text-primary" for="user_mobile">
+                                        <span class="font-weight-bold">Teléfono móvil</span>
+                                    </label>
+                                    <div>
+                                        <input type="tel" t-att-id="phoneFormat" maxlength = "14" class="form-control" name="mobile" id="user_mobile" onKeyup="formatPhone(this);"  t-attf-value="#{user.partner_id.mobile or ''} "/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-6">
+                                    <label class="mb-1 text-primary" for="user_birthday">
+                                        <span class="font-weight-bold">Fecha de nacimiento </span>
+                                    </label>
+                                    <div>
+                                        <input type="date" class="form-control" name="birthday" id="user_birthday" t-attf-value="#{user.birthday or ''}" t-att-readonly="'readonly' if only_passwords else None" t-att-autofocus="'autofocus' if login and not only_passwords else None" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label class="mb-1 text-primary" for="user_age">
+                                        <span class="font-weight-bold">Edad </span>
+                                    </label>
+                                    <div>
+                                        <input type="number" class="form-control" name="age" id="user_age" t-attf-value="#{user.age or ''}" readonly="1"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group col-6" >
+                                    <label class="mb-1 text-primary">
+                                        <span class="font-weight-bold">Sexo</span>
+                                    </label>
+                                    <div>
+                                        <select class="form-control" name="gender" required="required">
+                                            <option value=""/>
+                                            <option value="M" t-att-selected="gender == 'M'">Hombre</option>
+                                            <option value="F" t-att-selected="gender == 'F'">Mujer</option>
+                                            <option value="O" t-att-selected="gender == 'O'">Otro</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-6">
+                                    <label class="mb-1 text-primary" for="user_website">
+                                        <span class="font-weight-bold">Sitio web</span>
+                                    </label>
+                                    <div>
+                                        <input type="text"  class="form-control" name="website" id="user_website" t-attf-value="#{user.partner_id.website or ''}"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-6">
+                                    <div t-if="email_required" class="alert alert-danger alert-dismissable oe_email_required" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert">x</button>
+                                        <p>Ingrese una dirección de correo electrónico válida para recibir notificaciones de respuestas o comentarios.</p>
+                                    </div>
+                                    <label class="mb-1 text-primary" for="user_email">
+                                        <span class="font-weight-bold">Correo electrónico</span>
+                                    </label>
+                                    <div>
+                                        <input type="email" class="form-control" name="email" id="user_email" required="True" t-attf-value="#{user.partner_id.email}"/>
+                                    </div>
+                                </div>
+
+                                
+
+                                <div class="form-group col-6" >
+                                    <label class="mb-1 text-primary">
+                                        <span class="font-weight-bold">País</span>
+                                    </label>
+                                    <div>
+                                        <select class="form-control" name="country" disabled="1">
+                                            <option value="">País...</option>
+                                            <t t-foreach="countries or []" t-as="country">
+                                                <option readonly="1" t-att-value="country.id" t-att-selected="country.id == user.partner_id.country_id.id">
+                                                    <t t-esc="country.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                   <div class="form-group col-6">
+                                    <label class="mb-1 text-primary" for="provincia">
+                                        <span class="font-weight-bold">Provincia</span>
+                                    </label>
+                                    <div>
+                                        <select class="form-control" name="provincia" id="state_profile">
+                                            <option value="">Provincia...</option>
+                                            <option t-att-value="user.provincia" t-att-selected="user.provincia">
+                                                <t t-esc="user.provincia"/>
+                                            </option>
+                                           
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-6" >
+                                    <label class="mb-1 text-primary">
+                                        <span class="font-weight-bold">Municipio</span>
+                                    </label>
+                                    <div>
+                                        <select class="form-control" name="municipio" id ="city_profile">
+                                            <option value="">Municipio...</option>
+                        
+                                                <option t-att-value="user.municipio" t-att-selected="user.municipio" >
+                                                    <t t-esc="user.municipio"/>
+                                                </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                             
+
+                                <div class="form-group col-6" >
+                                    <label class="mb-1 text-primary">
+                                        <span class="font-weight-bold">Distritos Municipales</span>
+                                    </label>
+                                    <div>
+                                        <select class="form-control" name="distritos_municipales" id ="town_profile">
+                                            <option value="">Distritos Municipales...</option>
+                                           
+                                                <option t-att-value="user.distritos_municipales" t-att-selected="user.distritos_municipales">
+                                                    <t t-esc="user.distritos_municipales"/>
+                                                </option>
+                                           
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-6" >
+                                    <label class="mb-1 text-primary">
+                                        <span class="font-weight-bold">Sector</span>
+                                    </label>
+                                    <div>
+                                        <select class="form-control" name="sector" id ="sector_profile">
+                                            <option value="">Sector...</option>
+                                           
+                                                <option t-att-value="user.sector" t-att-selected="user.sector">
+                                                    <t t-esc="user.sector"/>
+                                                </option>
+                                           
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-6">
+                                    <label class="mb-1 text-primary" for="user_street">
+                                        <span class="font-weight-bold">Calle</span>
+                                    </label>
+                                    <div>
+                                        <input type="text" onkeydown="return /^[a-z0-9, :\\]+$/i.test(event.key)" class="form-control" name="street" id="user_street" t-attf-value="#{user.partner_id.street or ''}"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group col-6">
+                                    <label class="mb-1 text-primary" for="user_workplace">
+                                        <span class="font-weight-bold">Lugar de trabajo</span>
+                                    </label>
+                                    <div>
+                                        <input type="text" onkeydown="return /^[a-z0-9, ]+$/i.test(event.key)"   class="form-control" name="workplace" id="user_workplace" t-attf-value="#{user.workplace or ''}"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12">
+                                    <label class="mb-1 text-primary" for="user_goals">
+                                        <span class="font-weight-bold">Déjanos saber cuales son tus metas personales</span>
+                                    </label>
+                                    <div style="margin: 10px 0;">
+                                        <input type="text" class="form-control" name="goals_first" id="user_goals_first" placeholder="Meta #1" t-attf-value="#{user.goals_first or ''}"/>
+                                        <input type="text" class="form-control" name="goals_second" id="user_goals_second" placeholder="Meta #2" t-attf-value="#{user.goals_second or ''}"/>
+                                        <input type="text" class="form-control" name="goals_third" id="user_goals_third" placeholder="Meta #3" t-attf-value="#{user.goals_third or ''}"/>
+                                    </div>
+                                </div>
+
+                                <br/>
+
+                                <div class="form-group col-12">
+                                    <label class="mb-1 text-primary" for="user_goals">
+                                        <span class="font-weight-bold">Déjanos saber cuales son tus metas financieras</span>
+                                    </label>
+                                    <div style="margin: 10px 0;">
+                                        <input type="text" class="form-control" name="goals_financial_first" id="user_goals_financial_first" placeholder="Meta  Financiera #1" t-attf-value="#{user.goals_financial_first or ''}"/>
+                                        <input type="text" class="form-control" name="goals_financial_second" id="user_goals_financial_second" placeholder="Meta  Financiera #2" t-attf-value="#{user.goals_financial_second or ''}"/>
+                                        <input type="text" class="form-control" name="goals_financial_third" id="user_goals_financial_third" placeholder="Meta Financiera #3" t-attf-value="#{user.goals_financial_third or ''}"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group col-12">
+                                    <label class="mb-1 text-primary" for="description">
+                                        <span class="font-weight-bold">Biografía</span>
+                                    </label>
+                                    <textarea name="description" id="description" style="min-height: 120px" class="form-control o_wysiwyg_loader">
+                                        <t t-esc="user.partner_id.website_description"/>
+                                    </textarea>
+                                </div>
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary o_wprofile_submit_btn">Actualizar</button>
+                                </div>
+
+                                <div class="form-group col-6" style="opacity: 0;" >
+                                    <label class="mb-1 text-primary">
+                                        <span class="font-weight-bold">Pais</span>
+                                    </label>
+                                    <div>
+                                        <select class="form-control" name="country">
+                                            <option value="">Pais...</option>
+                                            <t t-foreach="countries or []" t-as="country">
+                                                <option t-att-value="country.id" t-att-selected="(user.partner_id.country_id and country.id == user.partner_id.country_id.id) or country.code =='DO' ">
+                                                    <t t-esc="country.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </xpath>
+    </template>
+
+
+    <template inherit_id="website_forum.forum_model_nav" id="elearning_features.user_profile_edit_content_feacture" >
+        
+        <xpath expr="//nav" position="replace">
+            <nav t-if="uid" class="o_wforum_nav nav nav-pills flex-column ml-4">
+                <a t-attf-href="/forum/#{slug(forum)}/user/#{uid}?forum_origin=#{request.httprequest.path}"
+                    class="nav-link d-flex align-items-center rounded-pill text-reset mb-2"
+                    data-toggle="tooltip"
+                    data-trigger="hover"
+                    title="My profile">
+                    <img class="o_forum_avatar rounded-circle mr-1" t-att-src="website.image_url(user, 'image_128', '30x30')" alt="Avatar"/>
+                    <div>
+                        <h6 class="my-0" t-esc="user_id.name"/>
+                        <small class="text-muted font-weight-bold"><t t-esc="user_id.karma"/>xp</small>
+                    </div>
+                </a>
+        
+                <t t-set="location" t-value="url_for('/forum/') + slug(forum) + ( ('/tag/' + slug(tag) + '/questions?') if tag else '?' )"/>
+        
+                <!-- My Questions -->
+                <span t-if="my == 'mine'" class="nav-link rounded-pill mb-2 active font-weight-bold">
+                    <i class="fa fa-question-circle-o fa-fw"/> MIS PREGUNTAS
+                    <a class="text-reset pull-right no-decoration" t-att-href="location + keep_query('search', 'filters', 'sorting')">&#215;</a>
+                </span>
+                <a t-else="" class="nav-link rounded-pill mb-2 text-reset" t-att-href="location + keep_query('search', 'filters', 'sorting', my='mine')">
+                    <i class="fa fa-question-circle-o fa-fw"/> MIS PREGUNTAS
+                </a>
+        
+                <!-- My Favourites -->
+                <span t-if="my == 'favourites'" class="nav-link rounded-pill mb-2 active font-weight-bold">
+                    <i class="fa fa-star fa-fw"/> FAVORITOS
+                    <a class="text-reset pull-right no-decoration" t-att-href="location + keep_query( 'search', 'filters', 'sorting')">&#215;</a>
+                </span>
+                <a t-else="" t-attf-class="nav-link rounded-pill mb-2 text-reset" t-att-href="location + keep_query( 'search', 'filters', 'sorting', my='favourites')">
+                    <i class="fa fa-star fa-fw"/> FAVORITOS
+                </a>
+        
+                <!-- My Followed posts -->
+                <span t-if="my == 'followed'" class="nav-link rounded-pill mb-2 active font-weight-bold">
+                    <i class="fa fa-bell fa-fw"/> PUBLICACIONES SEGUIDAS
+                    <a class="text-reset pull-right no-decoration" t-att-href="location + keep_query( 'search', 'filters', 'sorting')">&#215;</a>
+                </span>
+                <a t-else="" class="nav-link rounded-pill mb-2 text-reset" t-att-href="location + keep_query( 'search', 'filters', 'sorting', my='followed')">
+                    <i class="fa fa-bell fa-fw"/> PUBLICACIONES SEGUIDAS
+                </a>
+        
+                <!-- My Followed tags -->
+                <span t-if="my == 'tagged'" class="nav-link rounded-pill mb-2 active font-weight-bold">
+                    <i class="fa fa-tags fa-fw"/> ETIQUETAS SEGUIDAS
+                    <a class="text-reset pull-right no-decoration" t-att-href="location + keep_query( 'search', 'filters', 'sorting')">&#215;</a>
+                </span>
+                <a t-else="" class="nav-link rounded-pill mb-2 text-reset" t-att-href="location + keep_query( 'search', 'filters', 'sorting', my='tagged')">
+                    <i class="fa fa-tags fa-fw"/> ETIQUETAS SEGUIDAS
+                </a>
+        
+                <!-- Moderation Tools -->
+                <t t-if="user.karma>=forum.karma_moderate or queue_type">
+                    <span class="nav-link disabled mt-3">
+                        <div class="pb-1 border-bottom text-muted">HERRAMIENTAS DE MODERACIÓN</div>
+                    </span>
+
+                    <span t-if="queue_type == 'validation'" class="nav-link rounded-pill mb-2 active font-weight-bold">
+                        <i class="fa fa-check-square-o fa-fw"/> POR VALIDAR
+                        <a class="text-reset pull-right no-decoration" t-attf-href="/forum/#{ slug(forum) }">&#215;</a>
+                    </span>
+                    <a t-else="" class="nav-link rounded-pill text-reset" t-attf-href="/forum/#{slug(forum)}/validation_queue">
+                        <i class="fa fa-check-square-o fa-fw"/> POR VALIDAR
+                        <span t-attf-class="badge pull-right #{forum.count_posts_waiting_validation > 0 and 'badge-warning' or 'badge-light'}" t-esc="forum.count_posts_waiting_validation"/>
+                    </a>
+                    <span t-if="queue_type == 'offensive' or queue_type == 'flagged'" class="nav-link rounded-pill mb-2 active font-weight-bold">
+                        <i class="fa fa-flag fa-fw"/> MARCADA
+                        <a class="text-reset pull-right no-decoration" t-attf-href="/forum/#{ slug(forum) }">&#215;</a>
+                    </span>
+                    <a t-else="" class="nav-link rounded-pill text-reset" t-attf-href="/forum/#{slug(forum)}/flagged_queue">
+                        <i class="fa fa-flag fa-fw"/> MARCADA
+                        <span t-attf-class="badge pull-right #{forum.count_flagged_posts > 0 and 'badge-danger' or 'badge-light'}" t-esc="forum.count_flagged_posts"/>
+                    </a>
+                </t>
+            </nav>
+        </xpath>
+    </template>
+
+    <template inherit_id="website_forum.forum_index"  id="forum_index_feacture" name="Forum">
+        <xpath expr="//t" position="replace">
+            <t t-call="website_forum.header">
+                <div class="row no-gutters">
+                    <div t-attf-class="d-flex justify-content-end flex-md-grow-1 #{(search or tag or my) and 'col-12 flex-column-reverse flex-md-row mb-3' or 'col-md-auto order-md-3'}">
+                        <div t-if="search or tag or my" class="d-flex flex-wrap align-items-center flex-grow-1">
+                            <span t-if="search" class="w-100 w-md-auto mb-2 mb-md-0 border rounded pl-2 d-inline-flex align-items-center justify-content-between">
+                                <em class="bg-light px-2" t-esc="search"/>
+                                <a t-att-href="url_for('') + '?' + keep_query( 'filters', 'sorting', 'my')" class="btn py-1">&#215;</a>
+                            </span>
+                            <span t-if="my" t-attf-class="w-100 w-md-auto mb-2 mb-md-0 border rounded pl-2 d-inline-flex align-items-center justify-content-between #{search and 'ml-md-2'}">
+                                <div>
+                                    <img t-if="uid" class="o_forum_avatar rounded-circle mr-1" t-att-src="website.image_url(user, 'image_128', '16x16')" alt="Avatar"/>
+                                    <span t-if="my == 'favourites'"> Mi <b>Favoritas</b></span>
+                                    <span t-elif="my == 'followed'"> Estoy <b> siguiendo</b></span>
+                                    <span t-elif="my == 'mine'">Mis <b> preguntas </b></span>
+                                    <span t-elif="my == 'tagged'"> <b> Etiquetas </b> que sigo</span>
+                                </div>
+                                <a t-att-href="url_for('') + '?' + keep_query( 'search', 'filters', 'sorting')" class="btn py-1">&#215;</a>
+                            </span>
+                            <span t-if="tag" t-attf-class="w-100 w-md-auto mb-2 mb-md-0 border rounded pl-2 d-inline-flex align-items-center justify-content-between #{(search or my) and 'ml-md-2'}">
+                                <div>
+                                    <span class="fa fa-tag text-muted mr-1"/>
+                                    <span t-esc="tag.name"/>
+                                </div>
+                                <a t-att-href="url_for('/forum/') + slug(forum) + '?' + keep_query( 'search', 'sorting', 'filters', 'my')" class="btn py-1">&#215;</a>
+                            </span>
+                        </div>
+                        <div t-if="uid and request.env.user.forum_waiting_posts_count"
+                            title="Ya tienes una publicación pendiente"
+                            data-toggle="popover" data-trigger="hover" data-content="Espere a que un moderador valide su publicación anterior antes de continuar.">
+                            <a class="disabled btn btn-secondary btn-block mb-3 mb-md-0" t-attf-href="/forum/#{slug(forum)}/ask">Hacer una pregunta</a>
+                        </div>
+                        <a t-else="" role="button" type="button" class="btn btn-primary btn-block o_forum_ask_btn mb-3 mb-md-0" t-att-href="uid and '/forum/' + slug(forum) + '/ask' or '/web/login'">Ask a Question</a>
+                    </div>
+        
+                    <t t-set="no_filters" t-value="not filters in ('solved', 'unsolved', 'unanswered')"/>
+                    <t t-if="not no_filters or (no_filters and question_count)">
+                        <!-- Filter post by type (mobile only) -->
+                        <div class="col-6 col-md-auto d-lg-none d-flex align-items-center">
+                            <div class="dropdown"> MOSTRAR
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <t t-if="no_filters"> TODAS</t>
+                                    <t t-elif="filters == 'solved'"> RESUELTO</t>
+                                    <t t-elif="filters == 'unsolved'"> SIN RESOLVER</t>
+                                    <t t-elif="filters == 'unanswered'"> SIN RESPUESTA</t>
+                                </a>
+                                <div class="dropdown-menu" role="menu">
+                                    <a t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', filters='all')"
+                                        class="dropdown-item">
+                                        TODAS
+                                    </a>
+        
+                                    <div class="dropdown-divider"/>
+                                    <a t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', filters='solved')"
+                                        class="dropdown-item">RESUELTO
+                                    </a>
+                                    <a t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', filters='unsolved')"
+                                        class="dropdown-item">SIN RESOLVER
+                                    </a>
+                                    <a t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', filters='unanswered')"
+                                        class="dropdown-item">SIN RESPUESTA
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <!-- Filter post by type (desktop) -->
+                        <div class="d-none d-lg-flex align-items-center col-auto flex-grow-md-1 flex-grow-lg-0">
+                            <nav class="o_wforum_nav nav nav-pills justify-content-around">
+                                <a t-att-href="url_for('') + '?' + keep_query('search', 'sorting', 'my', filters='all')"
+                                    t-attf-class="nav-link py-1 rounded-pill #{no_filters and 'active font-weight-bold' or 'pl-0 pr-2'}">
+                                    TODAS
+                                </a>
+                                <span class="mx-1 text-400 d-none d-lg-block">|</span>
+                                <a t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', 'my', filters='solved')"
+                                    t-attf-class="nav-link py-1 rounded-pill #{filters == 'solved' and 'active font-weight-bold' or 'px-2'}">Solved
+                                </a>
+                                <a t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', 'my', filters='unsolved')"
+                                    t-attf-class="d-none d-lg-block nav-link py-1 rounded-pill #{filters == 'unsolved' and 'active font-weight-bold' or 'px-2'}">Unsolved
+                                </a>
+                                <span class="mx-1 text-400 d-none d-lg-block">|</span>
+                                <a t-att-href="url_for('') + '?' + keep_query( 'search', 'sorting', 'my', filters='unanswered')"
+                                    t-attf-class="nav-link py-1 rounded-pill #{filters == 'unanswered' and 'active font-weight-bold' or 'px-2'}">Unanswered
+                                </a>
+                            </nav>
+                        </div>
+                    </t>
+        
+                    <!-- Order by -->
+                    <div t-if="question_count > 1"
+                        t-attf-class="col-6 col-md-auto d-flex align-items-center justify-content-end #{uid and 'mt-lg-0'}">
+                        <span class="mx-3  mx-lg-2 text-400 d-none d-md-inline">|</span>
+                        <span class="dropdown">
+                            Ordenar por
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <t t-if="sorting == 'relevancy desc'"> tendencias</t>
+                                <t t-elif="sorting == 'create_date desc'"> el más nuevo                                </t>
+                                <t t-elif="sorting == 'write_date desc'"> fecha de última actividad</t>
+                                <t t-elif="sorting == 'child_count desc'"> más respondido</t>
+                                <t t-elif="sorting == 'vote_count desc'"> más votado</t>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                <a role="menuitem" t-att-href="url_for('') + '?' + keep_query( 'search', 'filters', sorting='relevancy desc')" t-attf-class="dropdown-item#{sorting == 'relevancy desc' and ' active'}">Tendencias</a>
+                                <a role="menuitem" t-att-href="url_for('') + '?' + keep_query( 'search', 'filters', sorting='write_date desc')" t-attf-class="dropdown-item#{sorting == 'write_date desc' and ' active'}">Fecha de última actividad</a>
+                                <a role="menuitem" t-att-href="url_for('') + '?' + keep_query( 'search', 'filters', sorting='create_date desc')" t-attf-class="dropdown-item#{sorting == 'create_date desc' and ' active'}">El más nuevo</a>
+                                <a role="menuitem" t-att-href="url_for('') + '?' + keep_query( 'search', 'filters', sorting='child_count desc')" t-attf-class="dropdown-item#{sorting == 'child_count desc' and ' active'}">Más respondido</a>
+                                <a role="menuitem" t-att-href="url_for('') + '?' + keep_query( 'search', 'filters', sorting='vote_count desc')" t-attf-class="dropdown-item#{sorting == 'vote_count desc' and ' active'}">Más votado</a>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+        
+                <div class="row mt-4">
+                    <!-- List questions or search/filters result -->
+                    <div t-if="question_count != 0" class="col">
+                        <t t-foreach="question_ids" t-as="question">
+                            <t t-call="website_forum.display_post">
+                                <t t-set="show_author_avatar" t-value="true"/>
+                            </t>
+                        </t>
+                    </div>
+        
+                    <!-- No questions or search/filters result -->
+                    <div t-if="question_count == 0" class="col">
+                        <div t-if="search or tag or (not no_filters)" class="alert alert-info">
+                            <t t-set="_filters_str">
+                                <t t-if="filters == 'unanswered'">sin respuesta</t>
+                                <t t-elif="filters == 'solved'">resuelto</t>
+                                <t t-elif="filters == 'unsolved'">resuelto</t>
+                            </t>
+                            <t t-set="_my_str">
+                                <t t-if="my == 'favourites'">en tus favoritos</t>
+                                <t t-if="my == 'followed'">en tu lista de seguidos</t>
+                                <t t-if="my == 'mine'">en tus preguntas</t>
+                            </t>
+                            <t t-set="_search_str"><t t-if="search">matching "<em class="font-weight-bold" t-esc="search"/>"</t></t>
+                            <t t-set="_search_and_tag_str"><t t-if="search and tag">&amp;nbsp;and&amp;nbsp;</t></t>
+                            <t t-set="_tag_str"><t t-if="tag">utilizando la <span class="badge badge-light" t-esc="tag.name"/> etiqueta</t></t>
+                            <t t-set="result_msg">
+                                Lo sentimos, no pudimos encontrar ninguna pregunta en estado: <b>%s</b>  <b>
+                                %s</b> %s%s%s.
+                            </t>
+                            <span t-raw="result_msg % (_filters_str.strip(), _my_str.strip(), _search_str.strip(), _search_and_tag_str.strip(), _tag_str.strip())"/>
+                        </div>
+        
+                        <t t-elif="not tag and not search and no_filters">
+                            <div t-if="my == 'followed'" class="alert border">
+                                No estás siguiendo ningún tema en este foro (todavía).<br/>
+                                <a t-attf-href="/forum/#{slug(forum)}/">VER TODOS</a>
+                            </div>
+                            <div t-elif="my == 'favourites'" class="alert border">
+                                No hay preguntas favoritas en este foro (todavía).<br/>
+                                <a t-attf-href="/forum/#{slug(forum)}/">VER TODOS</a>
+                            </div>
+                            <div t-elif="my == 'mine'" class="alert border">No tienes preguntas en este foro (todavía).</div>
+                        </t>
+        
+                        <div t-elif="filters == 'unanswered'" class="alert alert-info">¡Asombroso! ¡No hay preguntas respondidas!</div>
+                        <div t-elif="no_filters and not search and not tag and not my" class="alert alert-info">
+                            <b>Este foro está vacío.</b><br/>
+                            Sea el primero en hacer una pregunta
+                        </div>
+        
+                        <t t-if="search">
+                            <h4>Consejos de búsqueda</h4>
+                            <ul>
+                                <li>Revise su ortografía y vuelva a intentarlo</li>
+                                <li>Intente buscar una o dos palabras</li>
+                                <li>Sea menos específico en su redacción para obtener un resultado de búsqueda más amplio</li>
+                            </ul>
+                        </t>
+                    </div>
+                </div>
+        
+                <t t-call="website.pager"/>
+            </t>
+
+        </xpath>
+    </template>
+
+    
+</odoo>

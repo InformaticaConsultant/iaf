@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+  <template id="aventura_financiera.layout" inherit_id="website.layout" name="Aventura" primary="True">
+      <xpath expr="//header" position="before">
+          <t t-set="no_header" t-value="1"/>
+          <t t-set="no_elearning_header" t-value="1"/>
+      </xpath>
+  </template>
+
+  <template id="page_aventura" name="Aventura Financiera">
+    <t t-call="aventura_financiera.layout">
+        <!-- <t t-set="pageName" t-value="'homepage'"/> -->
+
+        <header id="aventura-header">
+          <div class="bg-blue py-2 bg-small-curve bg-no-repeat bg-contain bg-left-top">
+              <div class="container mx-auto px-6">
+                  <div class="flex justify-center lg:justify-end items-center">
+                      <a href="https://finanzasconproposito.edu.do/" class="flex items-center gap-2 text-white uppercase font-bold text-sm">
+                          <span class="flex items-center justify-center bg-white rounded-full h-8 w-8">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#012169" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-left">
+                                  <path d="M6 8L2 12L6 16"></path>
+                                  <path d="M2 12H22"></path>
+                              </svg>
+                          </span>
+                          <span>Regresar academia finanzas con propósito</span>
+                      </a>
+                  </div>
+              </div>
+          </div>
+          <nav class="navbar-container bg-white sticky py-4 top-0 z-50 transition-all ease-in-out">
+              <div class="container mx-auto px-6">
+                  <div class="flex justify-between items-center gap-4">
+                      <div>
+                          <div>
+                              <a href="/">
+                                  <img src="../aventura_financiera/static/images/logo/img_aventura_financiera_logo.svg" alt="" class="h-[72px]"></img>
+                              </a>
+                          </div>
+                      </div>
+
+                      <div>
+                          <button class="lg:hidden p-2 rounded-full bg-secondary/5 hover:bg-secondary/10 transition-all" id="hamburger-openner-button">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#012169" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
+                                  <line x1="4" x2="20" y1="12" y2="12"></line>
+                                  <line x1="4" x2="20" y1="6" y2="6"></line>
+                                  <line x1="4" x2="20" y1="18" y2="18"></line>
+                              </svg>
+                          </button>
+                          <div id="nav-menu" class="bg-white lg:bg-transparent fixed lg:relative right-0 top-0 w-10/12 sm:w-6/12 lg:w-auto py-12 lg:py-2 px-8 lg:px-0 shadow-md lg:shadow-none transform translate-x-full lg:translate-x-0 ease-out transition-all h-screen lg:h-auto">
+                              <button class="lg:hidden absolute right-8 top-8 p-2 rounded-full bg-red/5" id="hamburger-closing-button">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#012169" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-circle">
+                                      <circle cx="12" cy="12" r="10"></circle>
+                                      <path d="m15 9-6 6"></path>
+                                      <path d="m9 9 6 6"></path>
+                                  </svg>
+                              </button>
+                              <ul class="flex flex-col lg:flex-row items-start lg:items-center gap-2 mt-12 lg:mt-0 uppercase font-bold text-sm font-MuseoSans text-white">
+                                  <li>
+                                      <a href="#acerca-de-seccion" class="flex rounded-full bg-teal hover:bg-accent-teal px-6 py-2 transition-all">
+                                          Sobre Aventura Financiera
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a href="#descargar-ebook-seccion" class="flex rounded-full bg-blue hover:bg-accent-blue px-6 py-2 transition-all">Descargar eBook</a>
+                                  </li>
+                                  <li>
+                                      <a href="#glosario-seccion" class="flex rounded-full bg-turquoise hover:bg-accent-turquoise px-6 py-2 transition-all">Glosario</a>
+                                  </li>
+                                  <li>
+                                      <button onclick="openModal('modalLogin')" class="flex rounded-full uppercase bg-orange hover:bg-accent-orange px-6 py-2 transition-all">Acceder</button>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </nav>
+        </header>
+
+        <div class="2xl:-mt-80">
+          <img src="../aventura_financiera/static/images/animations/img_teal_circle_left.gif" alt="IMAGE ALT HERE" class="w-full max-w-md"></img>
+        </div>
+        <section class="flex items-center bg-waves-texture bg-no-repeat bg-center bg-cover 2xl:py-40" id="acerca-de-seccion">
+          <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-40 items-center">
+              <div class="bg-orange rounded-lg lg:bg-transparent">
+                <label class="text-white text-2xl">Sobre Aventura financiera</label>
+                <h2 class=" text-4xl lg:text-[45px] leading-none font-bold text-white mb-4">
+              Buscamos que los niños aprendan finanzas divertidas
+                </h2>
+                <p class="text-2xl text-white mb-8">
+              Gorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
+              turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec
+              fringilla accumsan, risus sem sollicitudin lacus feugiat lectus.
+                </p>
+              </div>
+              <div class="flex flex-col items-end">
+                <div class="max-w-[80%] items-end">
+                  <div class="grid grid-cols-2 gap-4">
+                    <a target="_blank" href="https://finanzasconproposito.edu.do" class="flex flex-col justify-center items-center bg-blue text-white group p-10 rounded-tl-[24px] rounded-tr-[24px] rounded-bl-[24px]">
+                      <img src="../aventura_financiera/static/images/home/img_save_cash.png" class="group-hover:-translate-y-4 transition-all duration-300" alt=""></img>
+                      <h3 class="text-2xl mt-4 font-bold">Finanzas</h3>
+                    </a>
+                    <button onclick="openModal('modalSuscription')" class="w-[90%] h-[90%] flex flex-col justify-center items-center mt-auto bg-blue text-white group p-10 rounded-tl-[24px] rounded-tr-[24px] rounded-br-[24px]">
+                      <img src="../aventura_financiera/static/images/home/img_book.png" class="group-hover:-translate-y-4 transition-all duration-300" alt=""></img>
+                      <h3 class="text-2xl mt-4">Libro</h3>
+                    </button>
+                    <a target="_blank" href="#" class="w-[90%] h-[90%] flex flex-col justify-center items-center ml-auto bg-blue text-white group p-10 rounded-tl-[24px] rounded-bl-[24px] rounded-br-[24px]">
+                      <img src="../aventura_financiera/static/images/home/img_learn.png" class="group-hover:-translate-y-4 transition-all duration-300" alt=""></img>
+                      <h3 class="text-2xl mt-4">Aprendizaje</h3>
+                    </a>
+                    <a target="_blank" href="https://popularenlinea.com" class="w-[90%] h-[90%] flex flex-col justify-center items-center bg-blue text-white group p-10 rounded-br-[24px] rounded-bl-[24px] rounded-tr-[24px]">
+                      <img src="../aventura_financiera/static/images/home/img_bank.png" class="group-hover:-translate-y-4 transition-all duration-300" alt=""></img>
+                      <h3 class="text-2xl mt-4">Banco</h3>
+                    </a>
+                  </div>
+                </div>
+                <div>
+                  <img src="../aventura_financiera/static/images/home/img_childrens_together.png" alt="" class="pt-20 w-full"></img>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="modalSuscription" class="fixed hidden z-50 inset-0 bg-gray-900 bg-opacity-80 overflow-y-auto h-full w-full px-4">
+            <div class="flex flex-col justify-center items-center px-4 py-20 md:p-20 relative top-12 mx-auto shadow-xl rounded-md bg-white bg-cover bg-center bg-circles-pattern-aqua md:max-w-[600px]">
+              <div class="absolute top-4 right-4 flex justify-end p-2">
+                <button onclick="closeModal('modalSuscription')" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
+                  <svg class="w-5 h-5" fill="#012169" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+              </div>
+              <img src="../aventura_financiera/static/images/home/img_children_boy_onlone.png" alt="IMAGE ALT HERE" class="w-48"></img>
+              <h3 class="text-orange font-bold text-4xl text-center">
+            Cursos próximamente
+              </h3>
+              <p class="text-teal text-lg mb-6">Suscríbete para mantenerte informado</p>
+              <input type="text" class="w-full border-b border-teal placeholder:text-teal/50 p-2 mb-6 focus-visible:outline-none focus-visible:border-4 focus-visible:rounded-sm focus-visible:border-orange/10" placeholder="Correo electrónico"></input>
+              <button class="w-full font-MuseoSans cursor-pointer inline-flex gap-2 items-center justify-center text-lg uppercase font-bold py-2 px-4 text-white bg-orange shadow-md rounded-full">Suscribirme
+              </button>
+            </div>
+          </div>
+          <script type="text/javascript">
+        window.openModal = function (modalId) {
+          document.getElementById(modalId).style.display = "block";
+          document.getElementsByTagName("body")[0].classList.add("overflow-y-hidden");
+        };
+
+        window.closeModal = function (modalId) {
+          document.getElementById(modalId).style.display = "none";
+          document
+            .getElementsByTagName("body")[0]
+            .classList.remove("overflow-y-hidden");
+        };
+
+        // Close all modals when press ESC
+        document.onkeydown = function (event) {
+          event = event || window.event;
+          if (event.keyCode === 27) {
+            document
+              .getElementsByTagName("body")[0]
+              .classList.remove("overflow-y-hidden");
+            let modals = document.getElementsByClassName("modal");
+            Array.prototype.slice.call(modals).forEach((i) => {
+              i.style.display = "none";
+            });
+          }
+        };
+          </script>
+        </section>
+        <section id="descargar-ebook-seccion">
+          <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 py-8 items-center">
+              <div>
+                <img src="../aventura_financiera/static/images/animations/img_ebook_tablet.gif" alt=""></img>
+              </div>
+              <div>
+                <label class="text-2xl text-teal">eBook</label>
+                <h2 class=" text-4xl lg:text-[45px] leading-none font-bold text-orange mb-4"> Ahorrar es crear </h2>
+                <p class="text-2xl text-teal mb-8">
+              Descubre las aventuras de Enrique, Matilde, Nico y como pudieron
+              llegar ahorrar para hacer su sueño realidad.
+                </p>
+                <button onclick="openModal('modalEbook')" class="group transition-all  z-auto cursor-pointer inline-flex gap-2 items-center justify-center text-lg  uppercase font-bold font-MuseoSans py-2 px-4 bg-white text-orange hover:bg-accent-orange hover:text-white bg-white shadow-md rounded-full">Descarga
+              ahora <span class="flex items-center justify-center h-10 w-10 rounded-full bg-orange group-hover:bg-white transition-all group-hover:ml-4 transition-all">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-right stroke-white group-hover:stroke-orange transition-all">
+                    <path d="M18 8L22 12L18 16"></path>
+                    <path d="M2 12H22"></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-10 bg-teal-right-circle-animation bg-right-top bg-no-repeat bg-[length:500px]" id="glosario-seccion">
+        <div class="container mx-auto px-6">
+          <div class="flex flex-col items-center text-center">
+            <img src="../aventura_financiera/static/images/home/img_children_girl_onlone.png" alt="" class="max-w-[150px]"></img>
+            <h2 class=" text-4xl lg:text-[45px] leading-none font-bold text-blue mb-4"> ¿Qué palabra aprenderás hoy? </h2>
+            <div class="max-w-screen-lg">
+              <div class="relative flex justify-center items-center bg-white shadow-md rounded-full overflow-hidden mt-8 mb-4 pl-8">
+                <ul class="flex overflow-x-scroll lg:overflow-x-hidden max-w-[300px] lg:max-w-full flex-auto justify-between text-teal">
+                  <li>
+                    <button class="px-1 md:px-2 py-5 bg-[#1AA8C4] text-white">A</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">B</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">C</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">D</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">E</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">F</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">G</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">H</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">I</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">J</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">K</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">L</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">M</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">N</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">O</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">P</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">Q</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">R</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">S</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">T</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">U</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">V</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">W</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">X</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">Y</button>
+                  </li>
+                  <li>
+                    <button class="px-1 md:px-2 py-5 hover:bg-aqua transition-all">Z</button>
+                  </li>
+                </ul>
+                <button class="group flex items-center justify-center h-16 w-16 bg-aqua hover:bg-[#1AA8C4] transition-all rounded-full border-8 border-white" id="glossary-openner-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#889FBC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search group-hover:stroke-white transition-all">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.3-4.3"></path>
+                  </svg>
+                </button>
+                <div class="absolute bg-white hidden items-center justify-between inset-0 pl-4" id="glossary-searchbox">
+                  <input type="text" class="w-full px-6 py-2 focus-visible:outline-none placeholder:text-teal" placeholder="Ej. Ahorrar"></input>
+                  <button class="flex items-center justify-center h-16 w-16 bg-aqua rounded-full border-8 border-white" id="glossary-closing-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#889FBC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
+                      <path d="M18 6 6 18"></path>
+                      <path d="m6 6 12 12"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="text-left w-full px-8">
+                <ul class="text-teal">
+                  <li class="py-2">
+                    <p>
+                      <strong>Ahorrar</strong>
+                    </p>
+                    <p>Guardar el dinero para algo que realmente necesites o quieres.</p>
+                  </li>
+                  <li class="py-2">
+                    <p>
+                      <strong>Alcancía</strong>
+                    </p>
+                    <p>
+                    Objeto que se utiliza para guardar pequeños montos de dinero con el
+                    objetivo de ir ahorrando antes de llevar al banco para mayor
+                    seguridad. Usualmente son artesanales o de metal y están cerradas, por
+                    lo que se tiene que romper para extraer el dinero o usar una
+                    combinación de seguridad.
+                    </p>
+                  </li>
+                  <li class="py-2">
+                    <p>
+                      <strong>Aportar</strong>
+                    </p>
+                    <p>Dar.</p>
+                  </li>
+                  <li class="py-2">
+                    <p>
+                      <strong>Ayudar</strong>
+                    </p>
+                    <p>
+                    Hacer un esfuerzo para que otro logre algo. no cumplir el avalado.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-20">
+        <div class="container mx-auto px-6">
+          <div class="flex flex-col md:flex-row items-end justify-between gap-8 bg-orange bg-cover bg-center bg-circle-texture rounded-2xl px-20">
+            <div class="py-20 w-full">
+              <h2 class=" text-4xl lg:text-[45px] leading-none font-bold text-white mb-4"> Suscríbete para más aventuras
+              </h2>
+              <div>
+                <form class="flex flex-col gap-4 md:flex-row md:gap-x-0">
+                  <input type="email" class="bg-transparent border-b w-full focus-visible:outline-none text-white placeholder:text-white/80" placeholder="Correo electrónico"></input>
+                  <button class="group transition-all  z-auto cursor-pointer inline-flex gap-2 items-center justify-center text-lg  uppercase font-bold font-MuseoSans py-2 px-4 bg-white text-orange hover:bg-accent-orange hover:text-white bg-white shadow-md rounded-full">Suscribirse
+                    <span class="flex items-center justify-center h-10 w-10 rounded-full bg-orange group-hover:bg-white transition-all group-hover:ml-4 transition-all">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-right stroke-white group-hover:stroke-orange transition-all">
+                        <path d="M18 8L22 12L18 16"></path>
+                        <path d="M2 12H22"></path>
+                      </svg>
+                    </span>
+                  </button>
+                </form>
+                <!-- Este label mostrar unicamente si la suscripcion fue efectiva: Y borrar este comentario -->
+                <label class="block text-white mt-4">Te has suscrito correctamente ✔</label>
+              </div>
+            </div>
+            <div class="">
+              <img src="../aventura_financiera/static/images/home/img_children_boy_onlone.png" alt=""></img>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div id="modalLogin" class="fixed hidden z-50 inset-0 bg-gray-900 bg-opacity-80 overflow-y-auto h-full w-full px-4">
+        <div class="flex flex-col justify-center items-center px-4 py-20 md:p-20 relative top-12 mx-auto shadow-xl rounded-md bg-white bg-center bg-cover bg-circles-pattern-aqua md:max-w-[600px]">
+          <div class="absolute top-4 right-4 flex justify-end p-2">
+            <button onclick="closeModal('modalLogin')" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
+              <svg class="w-5 h-5" fill="#012169" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+          <h3 class="text-orange font-bold text-4xl text-center mb-6">
+          Inicia sesión para acceder al material didáctico
+          </h3>
+          <input type="text" class="w-full border-b border-teal placeholder:text-teal/50 p-2 mb-6 focus-visible:outline-none focus-visible:border-4 focus-visible:rounded-sm focus-visible:border-orange/10" placeholder="Correo electrónico"></input>
+          <input type="password" class="w-full border-b border-teal placeholder:text-teal/50 p-2 mb-6 focus-visible:outline-none focus-visible:border-4 focus-visible:rounded-sm focus-visible:border-orange/10" placeholder="Contraseña"></input>
+          <button class="w-full font-MuseoSans cursor-pointer inline-flex gap-2 items-center justify-center text-lg uppercase font-bold py-2 px-4 text-white bg-orange shadow-md rounded-full">Iniciar
+          sesión
+          </button>
+          <div class="flex w-full justify-between items-center text-blue mt-4">
+            <a href="#" class="hover:text-accent-blue">¿No tienes cuenta?</a>
+            <a href="#" class="hover:text-accent-blue">Restablecer
+            contraseña</a>
+          </div>
+        </div>
+      </div>
+
+
+    </t>
+</template>
+</odoo>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    
+    <!-- Main Glosary Page Template -->
+    <template id="glosary" name="Glosario">
+        <t t-call="website.layout">
+            <t t-set="pageName" t-value="'Glosario'" />
+            <div id="wrap" class="oe_structure oe_empty">
+                <section class="pt32 pb32" data-name="Title">
+                    <div class="container">
+                        <div class="col-md-12">
+                            <div class="page-title-container">
+                                <h3 class="section-title with-icon full mid">
+                                    <i class="icon-impulsa icon-impulsa-docu2"/>
+                                    <span>Glosario de términos financieros</span>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="container">
+                     <div class="col-lg-12">
+                         <div>
+                             <t t-foreach="letters" t-as="letter">
+                                <t t-set="letter_ancle" t-value="'#accor_' + letter"/>
+                                <t t-set="letter_id" t-value="'accor_' + letter"/>
+                                <a class="btn btn-default" data-toggle="collapse" t-att-href="letter_ancle" role="button" aria-expanded="false"  t-att-aria-controls="letter_id">
+                                    <span t-esc="letter"/>
+                                </a>
+                            </t>
+                         </div>
+                         <div>
+                            <t t-foreach="glosary_dict" t-as="item">
+                                <t t-set="letter_id" t-value="'accor_' + item"/>
+                                <div t-att-id="letter_id" class="collapse">
+                                    <t t-foreach="item_value" t-as="rec">
+                                        <div class="card card-body">
+                                            <p><b t-esc="rec.get('name')"/></p>
+                                            <p class="card-text">
+                                                <span style="text-align: justify;" t-esc="rec.get('definition')"/>
+                                            </p>
+                                        </div>
+                                    </t>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+            </div>
+        </t>
+    </template>
+    
+    <!-- Publish the template on the website -->
+    <record id="glosary_page" model="website.page">
+        <field name="website_published">True</field>
+        <field name="url">/glosario</field>
+        <field name="view_id" ref="glosary" />
+    </record>
+</odoo>

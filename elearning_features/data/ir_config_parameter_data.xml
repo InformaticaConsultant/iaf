@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+
+    <record id="bpd_cedula_api_instance" model="ir.config_parameter">
+        <field name="key">bpd.api</field>
+        <field name="value">prod</field>
+    </record>
+
+</odoo>

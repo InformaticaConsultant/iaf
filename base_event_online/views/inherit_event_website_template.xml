@@ -1,0 +1,83 @@
+<odoo>
+  <data>
+
+
+    <template id="registration_template_inherit_zoom" inherit_id="website_event.registration_template">
+      <xpath expr="//form[@id='registration_form']" position="before">
+        <style>
+                  
+          zoomH3 {
+
+            background-color: #4CAF50; /* Green */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 13px;
+            border-radius: 13px;
+            padding: 5px;
+
+           
+          }
+          </style>
+        <t t-if="user_registration_object and user_registration_object.is_active">
+          <div class="btn btn-secondary">
+            <a t-if="user_registration_object.is_moderator" role="button" target="_blank" t-attf-href="#{user_registration_object.compute_url_moderator}">
+              <zoomH3>
+              Join As Moderator
+            </zoomH3>
+            </a>
+
+            <a t-if="not user_registration_object.is_moderator" role="button" target="_blank" t-attf-href="#{user_registration_object.compute_url}">
+              <zoomH3>
+              Join Online Session
+            </zoomH3>
+
+            </a>
+
+
+          </div>
+
+        </t>
+
+
+      </xpath>
+    </template>
+
+
+    <template id="event_description_full_inherit" name="Extend" inherit_id="website_event.event_description_full">
+      <xpath expr="//div[hasclass('dropdown')]" position="inside">
+        <br></br>
+
+        <t t-if="user_registration_object and user_registration_object.is_active">
+
+
+          <div>
+            <i class="fa fa-book mr-1" />
+
+            <a t-if="user_registration_object.is_moderator" role="button" target="_blank" t-attf-href="#{user_registration_object.compute_url_moderator}">
+              <zoomH3>
+              Join As Moderator
+            </zoomH3>
+            </a>
+
+            <a t-if="not user_registration_object.is_moderator" role="button" target="_blank" t-attf-href="#{user_registration_object.compute_url}">
+              <zoomH3>
+              Join Online Session
+            </zoomH3>
+
+            </a>
+
+
+          </div>
+
+        </t>
+
+
+      </xpath>
+
+    </template>
+
+
+  </data>
+</odoo>

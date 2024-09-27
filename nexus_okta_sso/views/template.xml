@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="okta_login" name='Office Odoo Login' inherit_id="web.login">
+            <xpath expr="//form" position="inside">
+                <t t-set='okta_authorize_url' t-value="request.env['res.config.settings'].sudo().okta_authorize_url()"/>
+                <a t-att-href="okta_authorize_url" icon="fa-okta" class="btn btn-info btn-block" style="color: white; margin-top: 8px;">
+                    Login with Okta
+                </a>
+            </xpath>
+    </template>
+</odoo>

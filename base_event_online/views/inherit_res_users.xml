@@ -1,0 +1,45 @@
+<odoo>
+  <data>
+
+    <record id="view_users_form_inherit_zoom_multi" model="ir.ui.view">
+      <field name="name">res.users.form.inherit</field>
+      <field name="model">res.users</field>
+      <field name="inherit_id" ref="base.view_users_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//sheet/notebook" position="inside">
+
+          <page id="zoom_res_user_settings" invisible="1" string="Zoom Configurations">
+            <group>
+              <group>
+                <!-- <field name="show_zoom_settings" invisible="0" /> -->
+
+                <field name="zoom_email" placeholder="user@syncoria.com" />
+                <field password='1' style="width:30%;" name="zoom_secret_key" placeholder="eyE._Qn4FYLNdq1kpY4ZgoDHvOc_-vZXXHHr03TwUBnY89g" />
+                
+                
+<br>
+</br>
+                <div class="text-muted">
+                  Build an app that supports server-to-server integration with Zoom services without a need for user authorization.
+                  <br></br>
+                  <a target="_blank" href="https://marketplace.zoom.us/docs/guides/build/jwt-app"> Generate your API Key and Secret.</a>
+                 
+
+                </div>
+                
+                
+
+              </group>
+
+            </group>
+
+          </page>
+
+        </xpath>
+
+
+      </field>
+    </record>
+
+  </data>
+</odoo>

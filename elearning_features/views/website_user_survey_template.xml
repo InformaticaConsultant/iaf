@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    
+    <!-- User suvey template -->
+    <template id="user_profile_survey" name="Perfil cliente - Acadamia digital">
+        <t t-call="website.layout">
+            <t t-set="pageName" t-value="'PERFIL DE CLIENTE - ACADEMIA DIGITAL'" />
+            <div id="wrap" class="oe_structure oe_empty">
+<!--                <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/app.css"/>-->
+<!--                &lt;!&ndash; <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/home.css"/> &ndash;&gt;-->
+<!--                <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/cal-generic.css"/>-->
+<!--                <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/calculadoras_meta_de_ahorro.css"/>-->
+<!--            -->
+    
+                 <!-- ######################### BANNER - HEADER  ##################### -->
+                <section class="banner-global banner-calculator" style="background-image: url(/elearning_features/static/src/img/calculadoras/banner-FCP-academia-CALCULADORAS.jpg);">
+                    <div class="container">
+                        <h1>PERFIL DE CLIENTES - ACADEMIAN DIGITAL</h1>
+                        <small>Formulario para conocer que producto se adecuan a ti</small>
+                    </div>
+                </section>
+    
+                <!-- ########################### HEADER BAR ########################### -->
+                <section class="header-bar bar-calculator">
+                    <div class="container ">
+                        <span class="goback"><a href="#"><img src="/elearning_features/static/src/img/arrow-pointing-to-right.png"/>
+                                Volver atrás</a></span>
+                        <select id="categoria" name="categoria">
+                            <option>Préstamos personales</option>
+                            <option>Inversión</option>
+                            <option>Fondos de emergencia</option>
+                            <option selected="1">Meta de ahorro</option>
+                            <option>Plan de retiro</option>
+                        </select>
+                    </div>
+                </section>
+    
+                <!-- ########################### MAIN ########################### -->
+    
+    
+                <div class="full-container">
+                    <div class="container calculator">
+                        <main class="main">
+                            <div class="image-side">
+                                <img src="/elearning_features/static/src/img/calculadoras/Imagenes-calculadoras-320x440px/Calculadora-Meta-ahorro-320x440.jpg" alt="image-side"/>
+                            </div>
+                        </main>
+                        
+                        <!-- ########################### SECCION LISTA DE PRODUCTOS ########################### -->
+                        <section class="productos calculator">
+                            <section class="section-header">
+                                <h3>Productos relacionados</h3>
+                                <hr/>
+                            </section>
+            
+                            <section class="list-items">
+                                <div class="item">
+                                    <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos" />
+                                    <h4>Portafolio de cursos</h4>
+                                    <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+            
+                                    <div class="item-options">
+                                        <a class="btn btn-azul" href="#">Solicita</a>
+                                        <a class="more-btn" href="#">
+                                            <!-- Flecha apuntando a la derecha -->
+                                            Conocer más
+                                        </a>
+                                    </div>
+                                </div>
+            
+                                <div class="item">
+                                    <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos" />
+                                    <h4>Portafolio de cursos</h4>
+                                    <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+            
+                                    <div class="item-options">
+                                        <a class="btn btn-azul" href="#">Solicita</a>
+                                        <a class="more-btn" href="#">
+                                            <!-- Flecha apuntando a la derecha -->
+                                            Conocer más
+                                        </a>
+                                    </div>
+                                </div>
+            
+                                <div class="item">
+                                    <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos" />
+                                    <h4>Portafolio de cursos</h4>
+                                    <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+            
+                                    <div class="item-options">
+                                        <a class="btn btn-azul" href="#">Solicita</a>
+                                        <a class="more-btn" href="#">
+                                            <!-- Flecha apuntando a la derecha -->
+                                            Conocer más
+                                        </a>
+                                    </div>
+                                </div>
+            
+                                <div class="item">
+                                    <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos" />
+                                    <h4>Portafolio de cursos</h4>
+                                    <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+            
+                                    <div class="item-options">
+                                        <a class="btn btn-azul" href="#">Solicita</a>
+                                        <a class="more-btn" href="#">
+                                            <!-- Flecha apuntando a la derecha -->
+                                            Conocer más
+                                        </a>
+                                    </div>
+                                </div>
+                            </section>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+    
+    <!-- Publish the template on the website -->
+    <record id="page_user_survey" model="website.page">
+        <field name="website_published">True</field>
+        <field name="url">/perfil_cliente</field>
+        <field name="view_id" ref="user_profile_survey" />
+    </record>
+
+
+      <record id="lms_view_survey_survey_form_inherit" model="ir.ui.view">
+        <field name="name">survey.survey.form.inherit</field>
+        <field name="model">survey.survey</field>
+        <field name="inherit_id" ref="survey.survey_survey_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="before">
+                 <label for="academy_survey" string="Encuenta Academia?"/>
+                <field name="academy_survey"/>
+            </xpath>
+            
+        </field>
+    </record>
+
+
+</odoo>

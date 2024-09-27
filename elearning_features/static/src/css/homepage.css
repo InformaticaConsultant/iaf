@@ -1,0 +1,262 @@
+/* #################### SECCION DEL FOOTER #################### */
+
+footer {
+    background-color: var(--entremar-5);
+    padding-top: 80px;
+}
+
+footer .footer {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 80px;
+}
+
+footer .footer .contactos {
+    min-width: 35%;
+    max-width: 35%;
+}
+
+footer .footer .enlaces,
+footer .footer .nosotros {
+    min-width: 20%;
+    max-width: 20%;
+}
+
+footer .footer .metodos {
+    max-width: 25%;
+    min-width: 25%;
+}
+
+footer h4 {
+    margin-bottom: 10px;
+}
+
+footer h4,
+footer .footer .metodos span {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+footer .footer .contactos h4 {
+    margin-bottom: 20px;
+}
+
+footer .footer .contactos .telefono,
+footer .footer .contactos .direccion {
+    color: white;
+    display: block;
+    margin-left: 20px;
+    position: relative;
+}
+
+footer .footer .contactos .telefono {
+    margin-bottom: 10px;
+}
+
+footer .footer .contactos .telefono::before {
+    background-image: url(../img/phone-icon.png);
+}
+
+footer .footer .contactos .telefono::before,
+footer .footer .contactos .direccion::before {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: -20px;
+}
+
+footer .footer .contactos .direccion::before {
+    background-image: url(../img/location-icon.png);
+    top: 3px;
+}
+
+footer .footer .contactos .direccion {
+    margin-bottom: 20px;
+}
+
+footer .footer .contactos img {
+    margin-right: 20px;
+}
+
+footer .footer .enlaces a,
+footer .footer .nosotros a {
+    display: block;
+    color: white !important;
+    margin-bottom: 10px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer .footer .enlaces a svg,
+footer .footer .nosotros a svg {
+    opacity: .5;
+}
+
+footer .footer .enlaces a:hover>svg,
+footer .footer .nosotros a:hover>svg {
+    opacity: 1;
+}
+
+footer .footer .metodos img {
+    margin-right: 10px;
+}
+
+footer .footer .metodos .finanzas-logo {
+    min-width: 110px;
+}
+
+footer .footer .metodos span {
+    display: block;
+    margin: 25px 0 15px;
+}
+
+footer .sub-footer {
+    background-color: var(--ultramar);
+    padding: 20px 0;
+}
+
+footer .sub-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+footer .sub-footer .container .redes a {
+    text-decoration: none;
+}
+
+footer .sub-footer .container .redes img {
+    margin-right: 10px;
+}
+
+footer .sub-footer .container .copyright span {
+    color: white;
+    font-weight: 500;
+}
+
+
+/* //////////////////////////////  MEDIA QUERYS  ////////////////////////////// */
+
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 970px;
+    }
+    .container .main {
+        width: 67%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        width: 750px;
+    }
+    footer .footer .contactos {
+        min-width: 40%;
+        max-width: 40%;
+    }
+    footer .footer .enlaces {
+        display: none;
+    }
+    footer .footer .nosotros {
+        min-width: 30%;
+        max-width: 30%;
+    }
+    footer .footer .metodos {
+        max-width: 30%;
+        min-width: 30%;
+    }
+    nav.menu .container .call-action,
+    nav.menu .container .main-menu {
+        display: none;
+    }
+    nav.menu .container .movil {
+        display: flex;
+    }
+    nav.menu .container {
+        justify-content: space-between;
+    }
+    .container {
+        flex-wrap: wrap;
+    }
+    .container .main {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    footer .footer {
+        flex-wrap: wrap;
+    }
+    footer .footer .contactos,
+    footer .footer .metodos,
+    footer .footer .nosotros {
+        width: 100%;
+        max-width: 380px;
+        margin: 0 auto 50px;
+    }
+    footer .footer .nosotros {
+        order: 1;
+        margin-bottom: 0;
+    }
+    footer .sub-footer .container {
+        flex-wrap: wrap;
+    }
+    footer .sub-footer .container .redes {
+        margin-bottom: 10px;
+    }
+    footer .sub-footer .container .redes,
+    footer .sub-footer .container .copyright {
+        width: 100%;
+        text-align: center;
+    }
+    .section-header {
+        flex-wrap: wrap;
+        margin-bottom: 50px;
+    }
+    .section-header h3 {
+        margin-bottom: 10px;
+    }
+    .section-header h3,
+    .section-header .more-btn {
+        display: block;
+        width: 100%;
+    }
+    .section-header hr {
+        display: none;
+    }
+    nav.menu .container .movil .movil-main-menu .ayuda {
+        display: block;
+    }
+    .banner-global .container h1 {
+        margin-top: 100px;
+    }
+    .banner-global,
+    .banner-finanzas {
+        height: auto;
+        min-height: 350px;
+        padding: 20px 0;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .action-bar .container a {
+        display: none;
+    }
+    .banner-global .container h1 {
+        font-size: 28px;
+    }
+    .banner-global .container h2 {
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,502 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_podcast
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-30 03:59+0000\n"
+"PO-Revision-Date: 2023-06-30 00:11-0400\n"
+"Last-Translator: Raul Ovalle <raulovallet@gmail.com>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.3.2\n"
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.website_podcast_template
+msgid "<i class=\"fa fa-google fa-2x  pr-1\"/>Google<br/>Podcast"
+msgstr ""
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.website_podcast_template
+msgid "<i class=\"fa fa-podcast fa-2x  pr-1\"/>Apple<br/>Podcast"
+msgstr ""
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.website_podcast_template
+msgid "<i class=\"fa fa-spotify fa-2x pr-1\"/>Spotify"
+msgstr ""
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.website_podcast_template
+msgid "<i class=\"fa fa-youtube-play fa-2x pr-1\"/>YouTube"
+msgstr ""
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.website_podcast_template
+#, fuzzy
+msgid "<span class=\"font-weight-bold\">You may also be interested in</span>"
+msgstr "<span class=\"font-weight-bold\">También te puede interesar</span>"
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.view_website_podcast_form
+#, fuzzy
+msgid "<span class=\"o_stat_text\"> Guest</span>"
+msgstr "<span class=\"o_stat_text\"> Invitados</span>"
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.view_website_podcast_form
+#, fuzzy
+msgid "<span class=\"o_stat_text\"> Hosts</span>"
+msgstr "<span class=\"o_stat_text\"> Presentadores</span>"
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.view_website_podcast_category_form
+#, fuzzy
+msgid "<span class=\"o_stat_text\"> Podcasts</span>"
+msgstr "<span class=\"o_stat_text\"> Podcasts</span>"
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.website_podcast_template
+#, fuzzy
+msgid ""
+"<span class=\"pr-2 podcast-header-text-1\">\n"
+"                                            Listen to it on:\n"
+"                                        </span>"
+msgstr ""
+"<span class=\"pr-2 podcast-header-text-1\">\n"
+"                                            Escúchalo en:\n"
+"                                        </span>"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__active
+#, fuzzy
+msgid "Active"
+msgstr "Activo"
+
+#. module: website_podcast
+#: model:ir.model.fields,help:website_podcast.field_website_podcast__apple_podcast_url
+msgid "Add complete url from Apple podcast"
+msgstr "Agregar url completa de Apple Podcast"
+
+#. module: website_podcast
+#: model:ir.model.fields,help:website_podcast.field_website_podcast__google_url
+msgid "Add complete url from Google podcast"
+msgstr "Agregar URL completa de Google Podcast"
+
+#. module: website_podcast
+#: model:ir.model.fields,help:website_podcast.field_website_podcast__spotify_url
+msgid "Add complete url from Spotify"
+msgstr "Agregar url completa de Spotify"
+
+#. module: website_podcast
+#: model:ir.model.fields,help:website_podcast.field_website_podcast__youtube_url
+msgid "Add complete url from Youtube"
+msgstr "Añadir url completa de YouTube"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__apple_podcast_url
+msgid "Apple podcast Url"
+msgstr "Apple Podcast Url"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__category_id
+#, fuzzy
+msgid "Category"
+msgstr "Categoría"
+
+#. module: website_podcast
+#: model_terms:ir.actions.act_window,help:website_podcast.action_website_podcast_act_window
+#, fuzzy
+msgid "Click to add new website podcast"
+msgstr "Haga clic para agregar un nuevo podcast del sitio web"
+
+#. module: website_podcast
+#: model_terms:ir.actions.act_window,help:website_podcast.action_website_podcast_category_act_window
+#, fuzzy
+msgid "Click to add new website podcast category"
+msgstr "Haga clic para agregar una nueva categoría de podcast del sitio web"
+
+#. module: website_podcast
+#: model:ir.model,name:website_podcast.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: website_podcast
+#: model_terms:ir.actions.act_window,help:website_podcast.action_contacts_podcast_host
+#, fuzzy
+msgid "Create a contact in your guest podcast"
+msgstr "Crear un contacto en tu podcast de invitado"
+
+#. module: website_podcast
+#: model_terms:ir.actions.act_window,help:website_podcast.action_contacts_podcast_guest
+#, fuzzy
+msgid "Create a contact in your host podcast"
+msgstr "Crear un contacto en el podcast de tu anfitrión"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__create_uid
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast_category__create_uid
+#, fuzzy
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__create_date
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast_category__create_date
+#, fuzzy
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__description
+#, fuzzy
+msgid "Description"
+msgstr "Descripción"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__display_name
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast_category__display_name
+#, fuzzy
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__duration
+#, fuzzy
+msgid "Duration"
+msgstr "Duración"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_res_partner__facebook
+#: model:ir.model.fields,field_description:website_podcast.field_res_users__facebook
+msgid "Facebook@"
+msgstr "Facebook@"
+
+#. module: website_podcast
+#: model:ir.model.fields,help:website_podcast.field_website_podcast__duration
+#, fuzzy
+msgid "Format -> Hours:Minutes"
+msgstr "Formato -> horas:Minutos"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__google_url
+#, fuzzy
+msgid "Google Url"
+msgstr "Google Url"
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.website_podcast_template
+#, fuzzy
+msgid "Guest"
+msgstr "Invitado"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__guest_count
+#, fuzzy
+msgid "Guest Count"
+msgstr "Número de invitados"
+
+#. module: website_podcast
+#: model:ir.actions.act_window,name:website_podcast.action_contacts_podcast_guest
+#: model:ir.actions.act_window,name:website_podcast.action_contacts_podcast_host
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__guest_ids
+#: model_terms:ir.ui.view,arch_db:website_podcast.website_podcast_template
+#, fuzzy
+msgid "Guests"
+msgstr "Invitados"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__header_image
+#, fuzzy
+msgid "Header Image"
+msgstr "Imagen de cabecera"
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.website_podcast_template
+#: model_terms:ir.ui.view,arch_db:website_podcast.website_podcasts_template
+msgid "Host"
+msgstr "Presentador"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__host_count
+#, fuzzy
+msgid "Host Count"
+msgstr "Número de hosts"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__host_ids
+#: model_terms:ir.ui.view,arch_db:website_podcast.website_podcast_template
+msgid "Hosts"
+msgstr "Presentadores"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__id
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast_category__id
+msgid "ID"
+msgstr "ID"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__image
+#, fuzzy
+msgid "Image"
+msgstr "Imagen"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_res_partner__instagram
+#: model:ir.model.fields,field_description:website_podcast.field_res_users__instagram
+msgid "Instagram@"
+msgstr "Instagram@"
+
+#. module: website_podcast
+#: model:ir.model.fields,help:website_podcast.field_res_partner__facebook
+#: model:ir.model.fields,help:website_podcast.field_res_partner__instagram
+#: model:ir.model.fields,help:website_podcast.field_res_partner__linkedin
+#: model:ir.model.fields,help:website_podcast.field_res_partner__twitter
+#: model:ir.model.fields,help:website_podcast.field_res_partner__youtube
+#: model:ir.model.fields,help:website_podcast.field_res_users__facebook
+#: model:ir.model.fields,help:website_podcast.field_res_users__instagram
+#: model:ir.model.fields,help:website_podcast.field_res_users__linkedin
+#: model:ir.model.fields,help:website_podcast.field_res_users__twitter
+#: model:ir.model.fields,help:website_podcast.field_res_users__youtube
+#, fuzzy
+msgid "Just add the social media name (not the full link)."
+msgstr "Simplemente agregue el nombre de la red social (no el enlace completo)."
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast____last_update
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast_category____last_update
+#, fuzzy
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__write_uid
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast_category__write_uid
+#, fuzzy
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__write_date
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast_category__write_date
+#, fuzzy
+msgid "Last Updated on"
+msgstr "Ultima actualización en"
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.website_podcasts_template
+#, fuzzy
+msgid "Learn to improve your finances dynamically."
+msgstr "Aprende a mejorar tus finanzas dinámicamente."
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_res_partner__linkedin
+#: model:ir.model.fields,field_description:website_podcast.field_res_users__linkedin
+#, fuzzy
+msgid "Linkedin@"
+msgstr "Linkedin@"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__name
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast_category__name
+#: model_terms:ir.ui.view,arch_db:website_podcast.website_podcasts_template
+#, fuzzy
+msgid "Name"
+msgstr "Nombre"
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.website_podcasts_template
+#, fuzzy
+msgid "No results were found."
+msgstr "No se han encontrado resultados para la búsqueda."
+
+#. module: website_podcast
+#: model:ir.ui.menu,name:website_podcast.menu_podcast_root
+#: model:ir.ui.menu,name:website_podcast.menu_website_podcast
+#, fuzzy
+msgid "Podcast"
+msgstr "Podcast"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast_category__podcast_count
+msgid "Podcast Count"
+msgstr "Cantidad de podcasts"
+
+#. module: website_podcast
+#: model:ir.ui.menu,name:website_podcast.menu_website_podcast_category
+#, fuzzy
+msgid "Podcast category"
+msgstr "Categoría Podcast"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast_category__podcast_ids
+#, fuzzy
+msgid "Podcasts"
+msgstr "Podcasts"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_res_partner__podcast_guest_ids
+#: model:ir.model.fields,field_description:website_podcast.field_res_users__podcast_guest_ids
+#, fuzzy
+msgid "Podcasts guest"
+msgstr "Podcasts invitados"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_res_partner__podcast_host_ids
+#: model:ir.model.fields,field_description:website_podcast.field_res_users__podcast_host_ids
+msgid "Podcasts hosted"
+msgstr "Podcasts presentadors"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__position
+#, fuzzy
+msgid "Position"
+msgstr "Posición"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__website_published
+#, fuzzy
+msgid "Published on Website"
+msgstr "Publicado en Sitio Web"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__related_podcast_ids
+#, fuzzy
+msgid "Related Podcasts"
+msgstr "Podcasts relacionados"
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.website_podcasts_template
+#, fuzzy
+msgid "Search"
+msgstr "Buscar"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__sequence
+#, fuzzy
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.view_res_partner_form
+#, fuzzy
+msgid "Social network"
+msgstr "Red social"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__spotify_url
+#, fuzzy
+msgid "Spotify Url"
+msgstr "Spotify Url"
+
+#. module: website_podcast
+#: model:ir.model.fields,help:website_podcast.field_website_podcast__website_url
+#, fuzzy
+msgid "The full URL to access the server action through the website."
+msgstr "La URL completa para acceder a la acción del servidor a través del sitio web."
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_res_partner__twitter
+#: model:ir.model.fields,field_description:website_podcast.field_res_users__twitter
+#, fuzzy
+msgid "Twitter@"
+msgstr "Twitter@"
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.view_website_podcast_form
+#, fuzzy
+msgid "URLS"
+msgstr "Direcciones URL"
+
+#. module: website_podcast
+#: model:ir.actions.act_window,name:website_podcast.action_website_podcast_act_window
+#: model:ir.model,name:website_podcast.model_website_podcast
+#, fuzzy
+msgid "Website Podcast"
+msgstr "Podcast del sitio web"
+
+#. module: website_podcast
+#: model:ir.model,name:website_podcast.model_website_podcast_category
+#, fuzzy
+msgid "Website Podcast Category"
+msgstr "Categoría de podcast del sitio web"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__website_url
+#, fuzzy
+msgid "Website Url"
+msgstr "Url de Página Web"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_website_podcast__youtube_url
+#, fuzzy
+msgid "Youtube Url"
+msgstr "Youtube Url"
+
+#. module: website_podcast
+#: model:ir.model.fields,field_description:website_podcast.field_res_partner__youtube
+#: model:ir.model.fields,field_description:website_podcast.field_res_users__youtube
+msgid "Youtube@"
+msgstr "Youtube@"
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.view_website_podcast_category_form
+#: model_terms:ir.ui.view,arch_db:website_podcast.view_website_podcast_form
+#, fuzzy
+msgid "name"
+msgstr "nombre"
+
+#. module: website_podcast
+#: model:ir.actions.act_window,name:website_podcast.action_website_podcast_category_act_window
+#, fuzzy
+msgid "website podcast category"
+msgstr "Categoría de podcast del sitio web"
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.view_website_podcast_category_form
+msgid "website_podcast_category_form"
+msgstr "Categoría de Podcasts"
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.view_website_podcast_category_search
+msgid "website_podcast_category_search"
+msgstr "Buscador de categoría de podcast"
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.view_website_podcast_category_tree
+msgid "website_podcast_category_tree"
+msgstr "Categoría de podcasts"
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.view_website_podcast_form
+msgid "website_podcast_form"
+msgstr "Podcast"
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.view_website_podcast_search
+msgid "website_podcast_search"
+msgstr "Buscador de podcast"
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.view_website_podcast_tree
+msgid "website_podcast_tree"
+msgstr "Lista de podcasts"
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.website_podcast_template
+#: model_terms:ir.ui.view,arch_db:website_podcast.website_podcasts_template
+msgid "Go back"
+msgstr "Volver atrás"
+
+#. module: website_podcast
+#: model_terms:ir.ui.view,arch_db:website_podcast.website_podcasts_template
+msgid ""
+"Listen to our episodes every month where you will learn the best practices "
+"for managing your personal finances"
+msgstr "Escucha todos los meses nuestros episodios en donde aprenderás las mejores prácticas para manejar tus finanzas personales."

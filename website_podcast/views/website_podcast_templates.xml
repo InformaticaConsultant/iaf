@@ -1,0 +1,395 @@
+<odoo>
+    <data>
+        <template id="website_podcasts_template" name="Podcasts">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <section class="banner podcast-header d-flex" style="background-image: url('website_podcast/static/src/img/podcast-header.jpg');">
+                        <div class="container">
+                            <div class="col-lg-7 d-flex flex-column h-100 justify-content-between">
+                                <a class="my-2" href="/" style="color:white;">
+                                    Home
+                                </a>
+                                <div>
+                                    <h1>Learn to improve your finances dynamically.</h1>
+                                    <p style="color: white !important">Listen to our episodes every month where you will learn the best practices for managing your personal finances</p>
+                                </div>
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="podcast-header-bar d-flex align-items-center">
+                        <div class="container">
+                            <a onclick="history.back()"><img src="/website_podcast/static/src/img/arrow-pointing-to-right.png"/> Go back</a>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="container p-3">
+                            <div class="d-flex justify-content-center p-5">
+                                <img src="website_podcast/static/src/img/popular-talks.webp" class="img-popular-talks"/>
+                            </div>
+                        </div>
+                    </section>
+                   <!-- <section>
+
+                        <form class="container d-flex flex-column-reverse flex-lg-row pb-1" id="podcast_search_form">
+                            <div class="position-relative podcast-search col-lg-9 pr-lg-0" >
+                                <input type="text" class="form-control rounded-pill px-5 podcast-input" placeholder="Search" id="search_term"/>
+                                <i class="fa fa-search position-absolute podcast-search-icon"></i>
+                            </div>
+                            <div class="col-lg-3 pb-2" >
+                                <select class="form-select rounded-pill custom-select podcast-input px-5" id="search_type">
+                                    <option value="host" selected="1">Host</option>
+                                    <option value="name">Name</option>
+                                </select>
+                            </div>
+                        </form>
+                    </section>-->
+                     <owl-component name="website_podcast.WebsitePodcastSearch" />
+                    <section>
+                        <div class="container podcast-list pb-5">
+                            <t t-call="website_podcast.website_podcast_list"/>
+                            <div id="podcast_no_results" t-attf-class="text-center p-5 d-none">
+                                <p>No results were found.</p>
+                            </div>
+                            <div class="text-center p-5 d-none" id="podcast_spinner">
+                                <p>
+                                    <div class="spinner-grow text-center podcast-spinner" role="status"/>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+            </t>
+        </template>
+
+        <template t-name="website_podcast_list" id="website_podcast_list">
+            <div id="podcast_list">
+                <div class="row justify-content-center" t-if="podcasts">
+                    <div class="col-md-6 p-0">
+                        <t t-foreach="podcasts" t-as="podcast">
+                            <t t-set="hours" t-value="int(podcast.duration)"/>
+                            <t t-set="minutes" t-value="int(round((podcast.duration - hours) * 60))"/>
+                            <t t-if="podcast.position % 2 != 0">
+                                <a t-attf-href="/podcasts/{{podcast.id}}/">
+                                    <div class="card podcast-animate-up px-md-1 py-1">
+                                        <img t-attf-src="/web/image?model=website.podcast&amp;id={{podcast.id}}&amp;field=image" class="card-img"/>
+                                        <div class="card-img-overlay d-flex flex-column justify-content-between">
+                                            <div>
+                                                <p class="badge badge-pill podcast-pill text-light px-3 py-2">
+                                                    <t t-esc="hours"/>:<t t-esc="'{:02d}'.format(minutes)"/>
+                                                </p>
+                                            </div>
+                                            <div class="mb-0 text-light d-flex align-items-center">
+                                                <div>
+                                                    <i class="fa fa-play-circle fa-4x mr-3"/>
+                                                </div>
+                                                <div>
+                                                    <t t-esc="podcast.name"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </t>
+                        </t>
+                    </div>
+                    <div class="col-md-6 p-0">
+                        <t t-foreach="podcasts" t-as="podcast">
+                            <t t-set="hours" t-value="int(podcast.duration)"/>
+                            <t t-set="minutes" t-value="int(round((podcast.duration - hours) * 60))"/>
+                            <t t-if="podcast.position % 2 == 0">
+                                <a t-attf-href="/podcasts/{{podcast.id}}/">
+                                    <div class="card podcast-animate-up px-md-1 py-1">
+                                        <img t-attf-src="/web/image?model=website.podcast&amp;id={{podcast.id}}&amp;field=image" class="card-img"/>
+                                        <div class="card-img-overlay d-flex flex-column justify-content-between">
+                                            <div>
+                                                <p class="badge badge-pill podcast-pill text-light px-3 py-2">
+                                                    <t t-esc="hours"/>:<t t-esc="'{:02d}'.format(minutes)"/>
+                                                </p>
+                                            </div>
+                                            <div class="mb-0 text-light d-flex align-items-center">
+                                                <div>
+                                                    <i class="fa fa-play-circle fa-4x mr-3"/>
+                                                </div>
+                                                <div>
+                                                    <t t-esc="podcast.name"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </t>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="website_podcast_template" name="Podcast">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <section class="banner podcast-header d-flex" t-attf-style="background-image: url('/web/image?model=website.podcast&amp;id={{podcast.id}}&amp;field=header_image'); if bodcast.header_image else ''">
+                        <div class="container">
+                            <div class="col-lg-7 d-flex flex-column h-100 justify-content-between">
+                                <div class="my-2">
+                                    <a href="/" class="text-white">Home</a> / <a href="/podcasts" class="text-white">Podcasts</a>
+                                </div>
+                                <h1 class="mt-5" t-field="podcast.name"/>
+                                <div class="mb-5 d-flex flex-column flex-md-row align-items-md-center">
+                                    <span class="pr-2 podcast-header-text-1">
+                                        Listen to it on:
+                                    </span>
+                                    <div class="d-flex flex-md-row">
+                                        <a t-if="podcast.spotify_url" t-attf-href="#{podcast.spotify_url}" class="badge badge-pill podcast-header-pills m-1 d-flex align-items-center px-2 py-1">
+                                            <i class="fa fa-spotify fa-2x pr-1"></i>Spotify
+                                        </a>
+                                        <a t-if="podcast.google_url" t-attf-href="#{podcast.google_url}" class="badge badge-pill podcast-header-pills m-1 d-flex align-items-center px-2 py-1">
+                                            <i class="fa fa-google fa-2x pr-1"></i>Google<br/>Podcast
+                                        </a>
+                                        <a t-if="podcast.apple_podcast_url" t-attf-href="#{podcast.apple_podcast_url}" class="badge badge-pill podcast-header-pills m-1 d-flex align-items-center px-2 py-1">
+                                            <i class="fa fa-podcast fa-2x pr-1"></i>Apple<br/>Podcast
+                                        </a>
+                                        <a t-if="podcast.youtube_url" t-attf-href="#{podcast.youtube_url}" class="badge badge-pill podcast-header-pills m-1 d-flex align-items-center px-2 py-1">
+                                            <i class="fa fa-youtube-play fa-2x pr-1"></i>YouTube
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="podcast-header-bar d-flex align-items-center">
+                        <div class="container">
+                            <a onclick="history.back()"><img src="/website_podcast/static/src/img/arrow-pointing-to-right.png"/> Go back</a>
+                        </div>
+                    </section>
+                    <section class="pt-5">
+                        <div class="container pt-5 pb-0">
+                            <p t-field="podcast.description"/>
+                        </div>
+                    </section>
+                    <section>
+                        <div class="container">
+                            <div class="py-5 d-flex align-items-center">
+                                <div>
+                                    <span class="font-weight-bold" t-if="len(podcast.guest_ids) == 1">Guest</span>
+                                    <span class="font-weight-bold" t-if="len(podcast.guest_ids) > 1">Guests</span>
+                                </div>
+                                <div class="col pl-2">
+                                    <hr/>
+                                </div>
+                            </div>
+                            <t t-foreach="podcast.guest_ids" t-as="guest">
+                                <div class="d-flex align-items-center flex-column flex-lg-row">
+                                    <div class="col-12 col-lg-2 text-center text-lg-left">
+                                        <img t-if='guest.image_1920' class="podcast-partner-img my-2" t-att-src="'data:image/png;base64,%s' % guest.image_1920.decode('utf-8')"/>
+                                    </div>
+                                    <div class="col-12 col-lg-10">
+                                        <p class="font-weight-bold podcast-partner-name text-center text-lg-left" t-field="guest.name"/>
+                                        <p t-field="guest.comment" />
+                                        <p>
+                                            <span class="p-1" t-if="guest.youtube">
+                                                <a  class="podcast-partner-social" t-att-href="'https://www.youtube.com/' + guest.youtube" ><i class="fa fa-youtube-play"></i></a>
+                                            </span>
+                                            <span class="p-1" t-if="guest.linkedin">
+                                                <a  class="podcast-partner-social" t-att-href="'https://www.linkedin.com/in/' + guest.linkedin"><i class="fa fa-linkedin" ></i></a>
+                                            </span>
+                                            <span class="p-1" t-if="guest.twitter">
+                                                <a  class="podcast-partner-social" t-att-href="'https://twitter.com/' + guest.twitter"><i class="fa fa-twitter"></i></a>
+                                            </span>
+                                            <span class="p-1" t-if="guest.facebook">
+                                                <a  class="podcast-partner-social" t-att-href="'https://www.facebook.com/' + guest.facebook"><i class="fa fa-facebook-f"></i></a>
+                                            </span>
+                                            <span class="p-1" t-if="guest.instagram">
+                                                <a  class="podcast-partner-social" t-att-href="'https://www.instagram.com/' + guest.instagram"><i class="fa fa-instagram"></i></a>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </t>
+                            <div class="py-5 d-flex align-items-center">
+                                <div>
+                                    <span class="font-weight-bold" t-if="len(podcast.host_ids) == 1">Host</span>
+                                    <span class="font-weight-bold" t-if="len(podcast.host_ids) > 1">Hosts</span>
+                                </div>
+                                <div class="col pl-2">
+                                    <hr/>
+                                </div>
+                            </div>
+                            <t t-foreach="podcast.host_ids" t-as="host">
+                                <div class="d-flex align-items-center flex-column flex-lg-row">
+                                    <div class="col-12 col-lg-2 text-center text-lg-left">
+                                        <img t-if='host.image_1920' class="podcast-partner-img my-2" t-att-src="'data:image/png;base64,%s' % host.image_1920.decode('utf-8')"/>
+                                    </div>
+                                    <div class="col-12 col-lg-10">
+                                        <p class="font-weight-bold podcast-partner-name  text-center text-lg-left" t-field="host.name"/>
+                                        <p t-field="host.comment"/>
+                                        <p>
+                                            <span class="p-1" t-if="host.youtube">
+                                                <a class="podcast-partner-social" t-att-href="'https://www.youtube.com/' + host.youtube"><i class="fa fa-youtube-play"></i></a>
+                                            </span>
+                                            <span class="p-1" t-if="host.linkedin">
+                                                <a class="podcast-partner-social" t-att-href="'https://www.linkedin.com/in/' + host.linkedin"><i class="fa fa-linkedin" ></i></a>
+                                            </span>
+                                            <span class="p-1" t-if="host.twitter">
+                                                <a class="podcast-partner-social" t-att-href="'https://twitter.com/' + host.twitter"><i class="fa fa-twitter"></i></a>
+                                            </span>
+                                            <span class="p-1" t-if="host.facebook">
+                                                <a class="podcast-partner-social" t-att-href="'https://www.facebook.com/' + host.facebook"><i class="fa fa-facebook-f"></i></a>
+                                            </span>
+                                            <span class="p-1" t-if="host.instagram">
+                                                <a class="podcast-partner-social" t-att-href="'https://www.instagram.com/' + host.instagram"><i class="fa fa-instagram"></i></a>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </section>
+                    <section class="pt-5">
+                        <div class="banner podcast-related-banner">
+                            <div class="container">
+                                <div class="row py-4 d-flex align-items-center">
+                                    <div>
+                                        <span class="font-weight-bold">You may also be interested in</span>
+                                    </div>
+                                    <div class="col pl-2">
+                                        <hr/>
+                                    </div>
+                                </div>
+                                <div class="row d-none d-sm-block">
+                                    <div class="d-flex align-items-center">
+                                        <t t-set="related_podcast_pages" t-value="podcast.get_pagination_related_podcast(4)"/>
+                                        <a href="#carouselRelatedPodcast" role="button" data-slide="prev" t-if="len(related_podcast_pages) > 1">
+                                            <span class="fa fa-chevron-left fa-3x" style="color:#00558C"></span>
+                                        </a>
+                                        <div id="carouselRelatedPodcast" class="carousel slide" data-interval="0" style="width: 90% !important;">
+                                            <div class="carousel-inner">
+                                                <t t-foreach="related_podcast_pages" t-as="related_podcast_page">
+                                                    <div t-att-class="'carousel-item active' if related_podcast_pages.index(related_podcast_page) == 0 else 'carousel-item'">
+                                                        <div class="d-flex">
+                                                            <t t-foreach="related_podcast_page" t-as="related_podcast">
+                                                                <t t-set="hours" t-value="int(related_podcast.duration)"/>
+                                                                <t t-set="minutes" t-value="int(round((related_podcast.duration - hours) * 60))"/>
+                                                                <div class="p-1 podcast-related-card">
+                                                                    <a t-attf-href="/podcasts/{{related_podcast.id}}/" class="text-decoration-none">
+                                                                        <div class="card">
+                                                                            <div class="position-relative">
+                                                                                <div class="d-flex justify-content-center">
+                                                                                    <img class="p-3 podcast-related-img" t-attf-src="/web/image?model=website.podcast&amp;id={{related_podcast.id}}&amp;field=image"/>
+                                                                                </div>
+                                                                                <div class="card-img-overlay d-flex flex-column justify-content-between">
+                                                                                    <div>
+                                                                                        <p class="badge podcast-related-time-pill text-light px-3 py-1">
+                                                                                            <t t-esc="hours"/>:<t t-esc="'{:02d}'.format(minutes)"/>
+                                                                                        </p>
+                                                                                    </div>
+                                                                                    <div class="mb-0 text-light d-flex align-items-center">
+                                                                                        <div>
+                                                                                            <i class="fa fa-play-circle fa-3x"/>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="card-body pt-0">
+                                                                                <div class="card-text p-1" style="color:#00C3D5;">
+                                                                                    <i class="fa fa-headphones"></i> <t t-esc="related_podcast.category_id.name"/>
+                                                                                </div>
+                                                                                <div class="card-text podcast-related-name">
+                                                                                    <t t-esc="related_podcast.name"/>
+                                                                                </div>
+                                                                                <div class="card-text">
+                                                                                    <small class="text-muted">
+                                                                                        <t t-foreach="related_podcast.host_ids" t-as="host">
+                                                                                            <t t-esc="host.name"/><br/>
+                                                                                        </t>
+                                                                                    </small>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </t>
+                                                        </div>
+                                                    </div>
+                                                </t>
+                                            </div>
+                                        </div>
+                                        <a href="#carouselRelatedPodcast" role="button" data-slide="next" t-if="len(related_podcast_pages) > 1">
+                                            <span class="fa fa-chevron-right fa-3x" style="color:#00558C"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row podcast-related-carousel">
+                                    <div class="d-flex align-items-center">
+                                        <t t-set="related_podcast_pages_mobile" t-value="podcast.get_pagination_related_podcast(1)"/>
+                                        <a href="#carouselRelatedPodcastMobile" role="button" data-slide="prev" t-if="len(related_podcast_pages_mobile) > 1">
+                                            <span class="fa fa-chevron-left fa-3x" style="color:#00558C"></span>
+                                        </a>
+                                        <div id="carouselRelatedPodcastMobile" class="carousel slide" data-interval="0" style="width: 90% !important;">
+                                            <div class="carousel-inner">
+                                                <t t-foreach="related_podcast_pages_mobile" t-as="related_podcast_page">
+                                                    <div t-att-class="'carousel-item active' if related_podcast_pages_mobile.index(related_podcast_page) == 0 else 'carousel-item'" style="width:112% !important">
+                                                        <div class="d-flex">
+                                                            <t t-foreach="related_podcast_page" t-as="related_podcast">
+                                                                <t t-set="hours" t-value="int(related_podcast.duration)"/>
+                                                                <t t-set="minutes" t-value="int(round((related_podcast.duration - hours) * 60))"/>
+                                                                <div class="p-1 podcast-related-card">
+                                                                    <a t-attf-href="/podcasts/{{related_podcast.id}}/" class="text-decoration-none">
+                                                                        <div class="card">
+                                                                            <div class="position-relative">
+                                                                                <div class="d-flex justify-content-center">
+                                                                                    <img class="p-3 podcast-related-img" t-attf-src="/web/image?model=website.podcast&amp;id={{related_podcast.id}}&amp;field=image"/>
+                                                                                </div>
+                                                                                <div class="card-img-overlay d-flex flex-column justify-content-between">
+                                                                                    <div>
+                                                                                        <p class="badge podcast-related-time-pill text-light px-3 py-1">
+                                                                                            <t t-esc="hours"/>:<t t-esc="'{:02d}'.format(minutes)"/>
+                                                                                        </p>
+                                                                                    </div>
+                                                                                    <div class="mb-0 text-light d-flex align-items-center">
+                                                                                        <div>
+                                                                                            <i class="fa fa-play-circle fa-3x"/>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="card-body pt-0">
+                                                                                <div class="card-text p-1" style="color:#00C3D5;">
+                                                                                    <i class="fa fa-headphones"></i> <t t-esc="related_podcast.category_id.name"/>
+                                                                                </div>
+                                                                                <div class="card-text podcast-related-name">
+                                                                                    <t t-esc="related_podcast.name"/>
+                                                                                </div>
+                                                                                <div class="card-text">
+                                                                                    <small class="text-muted">
+                                                                                        <t t-foreach="related_podcast.host_ids" t-as="host">
+                                                                                            <t t-esc="host.name"/><br/>
+                                                                                        </t>
+                                                                                    </small>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </t>
+                                                        </div>
+                                                    </div>
+                                                </t>
+                                            </div>
+                                        </div>
+                                        <a href="#carouselRelatedPodcastMobile" role="button" data-slide="next" t-if="len(related_podcast_pages_mobile) > 1">
+                                            <span class="fa fa-chevron-right fa-3x" style="color:#00558C"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

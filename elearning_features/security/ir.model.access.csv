@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_slide_teacher_follower,access_slide_teacher_follower,model_slide_teacher_follower,base.group_user,1,1,1,1
+access_suggest_bank_product,access_suggest_bank_product,model_suggest_bank_product,base.group_user,1,1,1,1
+access_suggest_bank_product_portal,access_suggest_bank_product_portal,model_suggest_bank_product,base.group_portal,1,1,0,0
+access_website_glosary,access_website_glosary,model_website_glosary,base.group_user,1,1,1,1
+access_azul_payment_report,access_azul_payment_report,model_azul_payment_report,base.group_user,1,1,1,1
+access_website_help_center_public,access_website_help_center_public,model_website_help_center,,1,1,1,1
+access_import_user,access_import_user,model_import_user,base.group_user,1,1,1,1
+access_res_country_city_user,access_res_country_city_user,model_res_country_city,,1,1,1,1
+access_res_country_town_user,access_res_country_town_user,model_res_country_town,,1,1,1,1

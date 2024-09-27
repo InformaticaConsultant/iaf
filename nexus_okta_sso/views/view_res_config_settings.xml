@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="res_config_settings_okta" model="ir.ui.view">
+        <field name="name">res.config.settings.okta</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='companies']" position="after">
+                <div id="nexus_okta_sso">
+                    <block title="nexus_okta_sso" name="nexus_okta_sso_setting_container">
+                        <setting id="nexus_okta_sso_setting" string="Okta SSO Configuration">
+                            <div class="content-group">
+                                <div class="mt16 row">
+                                    <label for="client_id" class="col-3 col-lg-3 o_light_label"/>
+                                    <field nolabel="1" name="client_id" class="oe_inline"/>
+                                </div>
+                                <div class="mt16 row">
+                                    <label for="client_secret" class="col-3 col-lg-3 o_light_label"/>
+                                    <field nolabel="1" name="client_secret" class="oe_inline"/>
+                                </div>
+                                <div class="mt16 row">
+                                    <label for="redirect_uri" class="col-3 col-lg-3 o_light_label"/>
+                                    <field nolabel="1" name="redirect_uri" class="oe_inline"/>
+                                    with traling slash eg.) /
+                                </div>
+                                <div class="mt16 row">
+                                    <label for="okta_auth_server_uri" class="col-3 col-lg-3 o_light_label"/>
+                                    <field nolabel="1" name="okta_auth_server_uri" class="oe_inline"/>
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

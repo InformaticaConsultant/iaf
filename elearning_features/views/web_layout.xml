@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	
+    <template id="chatbot" inherit_id="web.frontend_layout" name="BPD Livechat">
+
+<!--        TODO: MIGRAR JS 03 SEPT 2024 -->
+  <!--      <xpath expr="//head/script[@id='web.layout.odooscript'] | //head/script[last()]" position="after">
+            <script type="text/javascript">
+                $("#contBtn-Chat").click(function() {
+                    openwindow()
+                })
+                
+                function openwindow() {
+                    var e = window.innerHeight - 650
+                      , t = window.innerWidth - 500
+                      , a = window.innerWidth - 950
+                      , n = window.innerHeight - 20;
+                    window.open("https://chat.popular.com.do/webchat/", "Banco_Chat", "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=" + a + ",height=" + n + ", left=" + t + ", top=" + e)
+                }
+            </script>
+        </xpath>
+        -->
+        <xpath expr="//div[@id='wrapwrap']" position="inside">
+
+            <div id="contBtn-Chat" class="activo">
+                <a class="btn-chat" href="#"
+                    onclick="openwindow();">
+                    Chat
+                </a>
+            </div>
+        </xpath>
+
+        <xpath expr="//main" position="inside">
+
+
+            <!-- <t t-esc="pageName"/>
+            <br/>
+            <br/>
+            <br/>
+            <br/> -->
+            <t t-set="isHomePage" t-value="1"/>
+
+               <t t-if="pageName =='homepage'">
+<!--
+                      <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/home.css"/>
+-->
+               <main>
+        <!-- ########################### BANNER - FINANZAS CON PROPOSITO ########################### -->
+                <!-- <section class="banner-header">
+                    <div class="container">
+                        <h1>De soñar con finanzas saludables a lograrlo y organizar tus deudas hay un <span>primer paso.</span>
+                        </h1>
+                    </div>
+                </section> -->
+
+<!--                 <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/app.css"/>  -->
+
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+                crossorigin="anonymous"></script>
+
+
+        
+
+
+     
+      <!-- ########################### BANNER - FINANZAS CON PROPOSITO ########################### -->
+        <section class="banner-header">
+            <!-- <div class="container">
+                <h1><span>Aprende a </span>adquirir tu primera vivienda</h1>
+            </div> -->
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <h1><span>Aprende a </span>adquirir tu primera vivienda</h1>
+                        <img src="/elearning_features/static/src/img/home/banners/Banner-Principal-1920px-x-370px-sin-texto_Mesa-de-trabajo-1.png" class="d-block w-100" alt="..."/>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <h1><span>Aprende a </span>manejar tus deudas</h1>
+                        <img src="/elearning_features/static/src/img/home/banners/Banner-Principal-1920px-x-370px-sin-texto-02.png" class="d-block w-100" alt="..."/>
+                    </div>
+                    <div class="carousel-item">
+                        <h1><span>Aprende a </span>manejar la tarjeta de crédito, su propósitto de uso y beneficios</h1>
+                        <img src="/elearning_features/static/src/img/home/banners/Banner-Principal-1920px-x-370px-sin-texto-03.png" class="d-block w-100" alt="..."/>
+                    </div>
+                    <div class="carousel-item">
+                        <h1><span>Aprende los </span>primeros pasos para un emprendimiento</h1>
+                        <img src="/elearning_features/static/src/img/home/banners/Banner-Principal-1920px-x-370px-sin-texto-04.png" class="d-block w-100" alt="..."/>
+                    </div>
+                    <div class="carousel-item">
+                        <h1><span>Aprende las </span>4 reglas de educación financiera que tus hijos deben conocer</h1>
+                        <img src="/elearning_features/static/src/img/home/banners/Banner-Principal-1920px-x-370px-sin-texto-05.png" class="d-block w-100" alt="..."/>
+                    </div>
+                    <div class="carousel-item">
+                        <h1><span>Aprende a </span>construir el retiro que deseas</h1>
+                        <img src="/elearning_features/static/src/img/home/banners/Banner-Principal-1920px-x-370px-sin-texto-06.png" class="d-block w-100" alt="..."/>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+            </div>
+        </section>
+
+
+
+
+<!-- ################## SECCION EMPODERA TUS FINANZAS CON PROPOSITO ################## -->
+        <article class="empodera">
+            <div class="container">
+                <section class="head">
+                    <h3>Empodera tus finanzas con propósito</h3>
+                    <p>El proposito de tus finanzas nunca ha sido mas importante que en estos momentos. Nosotros te
+                        brindamos la
+                        oportunidad de aplicarle propósito a tus finanzas para que las finanzas tengan el propósito
+                        necesario
+                        para brindarte el éxito necesario en tu ambiente financiero.</p>
+                </section>
+                <section class="body">
+                    <div class="item">
+                        <img src="/elearning_features/static/src/img/recursos-icon.png" alt="Icono de graficos"/>
+                        <h4>Portafolio de cursos</h4>
+                        <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento
+                            de las finanzas personales.</p>
+                        <a class="more-btn" href="https://academiapopular-staging-2160494.dev.odoo.com/cursos/todos">
+                            <!-- Flecha apuntando a la derecha -->
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
+                                class="svg-inline--fa fa-chevron-right fa-w-10" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <path fill="currentColor"
+                                    d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                                </path>
+                            </svg>Conocer más
+                        </a>
+                    </div>
+    
+                    <div class="item">
+                        <img src="/elearning_features/static/src/img/guia-icon.png" alt="Icono de texto"/>
+                        <h4>Guía y plantillas financieras</h4>
+                        <p>Conoce los acontecimientos relevantes en torno a la economía, identifica posibles mejoras y
+                            aprende de la experiencia de otros.</p>
+                        <a class="more-btn" href="https://academiapopular-staging-2160494.dev.odoo.com/documentos">
+                            <!-- Flecha apuntando a la derecha -->
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
+                                class="svg-inline--fa fa-chevron-right fa-w-10" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <path fill="currentColor"
+                                    d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                                </path>
+                            </svg>Conocer más
+                        </a>
+                    </div>
+    
+                    <div class="item">
+                        <img src="/elearning_features/static/src/img/calculadora-icon.png" alt="Icono de calculadora"/>
+                        <h4>Calculadoras</h4>
+                        <p>Maneja productos para aplicar conocimientos adquiridos. Práctica una nueva forma de
+                            administración para el futuro.</p>
+                        <a class="more-btn" href="#">
+                            <!-- Flecha apuntando a la derecha -->
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
+                                class="svg-inline--fa fa-chevron-right fa-w-10" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <path fill="currentColor"
+                                    d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                                </path>
+                            </svg>Conocer más
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </article>
+
+
+
+        <!-- ########################### BANNER - CONSTRUYENDO EL RETIRO QUE DESEO ########################### -->
+        <article class="banner-finanzas">
+            <div class="container">
+                <div class="content">
+                    <span class="banner-date">Septiembre</span>
+                    <h3 class="banner-title">CONSTRUYENDO EL RETIRO QUE DESEO</h3>
+                    <P class="banner-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam eos rem quae pariatur? In, sequi veniam similique nesciunt voluptatibus facere!</P>
+                    <p class="banner-orador"><span>Impartido por</span> Diego Sosa</p>
+
+                    <a class="btn btn-mamey" href="#">Unirse</a>
+                    <a class="more-btn" href="#">
+                        <!-- Flecha apuntando a la derecha -->
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                            <path fill="currentColor"
+                                d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                            </path>
+                        </svg>Conocer más
+                    </a>
+                </div>
+            </div>
+        </article>
+
+
+    
+
+          <!-- ########################### SECCION DE PROXIMOS CURSOS ########################### -->
+        <article class="cursos">
+            <div class="container">
+                <section class="section-header">
+                    <h3>Próximos cursos</h3>
+                    <hr/>
+                    <a class="more-btn" href="https://academiapopular-staging-2160494.dev.odoo.com/cursos/todos">
+                        <!-- Flecha apuntando a la derecha -->
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
+                            class="svg-inline--fa fa-chevron-right fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 320 512">
+                            <path fill="currentColor"
+                                d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                            </path>
+                        </svg>
+                        Ver todos los cursos
+                    </a>
+                </section>
+    
+                <section class="publicidad">
+                      <div class="item">
+                        <div class="img">
+                    <img    src="/elearning_features/static/src/img/publicidad.jpg" alt="Publicidad"/></div>
+                    </div>
+                </section>
+    
+                <section class="curso">
+                   
+
+                    <t t-foreach="website.get_last_slide(3)" t-as="slide">
+                   
+                     <t t-set="course_image" t-value="website.image_url(slide, 'image_1024')"/>
+                    <div class="item">
+                        <div class="img">
+                            <img t-attf-src="#{course_image}"  t-attf-href="/cursos/#{slug(slide)}" alt="Curso"/>
+                        </div>
+                        <div class="details">
+                            <div class="details-header">
+                                <span class="segmento"> <t t-esc="slide.segment"/></span>
+                                <t t-set="date_format" t-value="website.get_slide_date_format(slide)"/>
+                                <span class="fecha"><t t-esc="date_format"/> </span>
+                            </div>
+    
+                            <div class="details-body">
+                                <h4><t t-esc="slide.name"/></h4>
+                                <p class="details-body-description">
+                                <t t-esc="slide.description"/></p>
+                                <p class="details-body-category">
+
+                                        <t t-foreach="slide.tag_ids" t-as="tag">
+                                          <span>  <a t-att-href="'/cursos/todos?channel_tag_id=%s' % tag.id" class="badge badge-light" t-esc="tag.name"/></span>
+                                        </t>
+                                </p>
+                            </div>
+    
+                            <div class="details-footer">
+                                <span class="details-footer-orador">
+                                    <span class="orador">Impartido por:</span> <span><t t-esc="slide.sudo().user_id.name"/></span>
+                                </span>
+    
+                                <span class="footer-btn">
+                                    <a class="btn btn-mamey" t-attf-href="/cursos/#{slug(slide)}">Unirse</a>
+                                    <a class="more-btn" t-attf-href="/cursos/#{slug(slide)}">
+                                        <!-- Flecha apuntando a la derecha -->
+                                        <svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                            data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-w-10"
+                                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                            <path fill="currentColor"
+                                                d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                                            </path>
+                                        </svg>
+                                        Conocer más
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    </t>
+                </section>
+            </div>
+        </article>
+
+
+
+<!-- ########################### SECCION DE CÁPSULAS FINANCIERAS ########################### -->
+        <article class="capsulas">
+            <div class="container">
+                <section class="section-header">
+                    <h3>Cápsulas financieras</h3>
+                    <hr/>
+                    <a class="more-btn" href=" https://academiapopular-staging-2160494.dev.odoo.com/videos">
+                        <!-- Flecha apuntando a la derecha -->
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
+                            class="svg-inline--fa fa-chevron-right fa-w-10" role="img"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                            <path fill="currentColor"
+                                d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                            </path>
+                        </svg>
+                        Ver más cápsulas financieras
+                    </a>
+                </section>
+
+                <section class="video-active">
+                    <div class="video">
+                        <!--Video comentado
+                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/S0NmU_VVdW8"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen="1"></iframe>-->
+                    </div>
+                    <div class="video-details">
+                        <h4>Video título</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem veniam accusamus veritatis
+                            voluptas atque a nemo maiores, modi iure? Qui fugit exercitationem natus assumenda veritatis
+                            inventore, corporis quis.</p>
+                        <a class="more-btn f-right" href="#">
+                            <!-- Flecha apuntando a la derecha -->
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
+                                class="svg-inline--fa fa-chevron-right fa-w-10" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <path fill="currentColor"
+                                    d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                                </path>
+                            </svg>Conocer más
+                        </a>
+                    </div>
+                </section>
+
+                <section class="video-list">
+                    <div class="item">
+                       <!-- <div class="video">
+                            Video comentado
+                            <iframe width="1280" height="675" src="https://www.youtube.com/embed/w04nza1DscE"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen="1"></iframe>
+                        </div>-->
+                        <div class="details">
+                            <h4>Lorem ipsum dolor sit amet consectetur adipisicing.</h4>
+                            <a class="more-btn f-right" href="#">
+                                <!-- Flecha apuntando a la derecha -->
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
+                                    class="svg-inline--fa fa-chevron-right fa-w-10" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                        d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                                    </path>
+                                </svg>Conocer más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                       <!-- <div class="video">
+                            Video comentado
+                            <iframe width="1280" height="675" src="https://www.youtube.com/embed/w04nza1DscE"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen="1"></iframe>
+                        </div>-->
+                        <div class="details">
+                            <h4>Lorem ipsum dolor sit amet consectetur adipisicing.</h4>
+                            <a class="more-btn f-right" href="#">
+                                <!-- Flecha apuntando a la derecha -->
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
+                                    class="svg-inline--fa fa-chevron-right fa-w-10" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                        d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                                    </path>
+                                </svg>Conocer más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                       <!-- <div class="video">
+                            Video comentado
+                            <iframe width="1280" height="675" src="https://www.youtube.com/embed/w04nza1DscE"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen="1"></iframe>
+                        </div>-->
+                        <div class="details">
+                            <h4>Lorem ipsum dolor sit amet consectetur adipisicing.</h4>
+                            <a class="more-btn f-right" href="#">
+                                <!-- Flecha apuntando a la derecha -->
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
+                                    class="svg-inline--fa fa-chevron-right fa-w-10" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                        d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                                    </path>
+                                </svg>Conocer más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <!--<div class="video">
+                            Video comentado
+                            <iframe width="1280" height="675" src="https://www.youtube.com/embed/w04nza1DscE"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen="1"></iframe>
+                        </div>-->
+                        <div class="details">
+                            <h4>Lorem ipsum dolor sit amet consectetur adipisicing.</h4>
+                            <a class="more-btn f-right" href="#">
+                                <!-- Flecha apuntando a la derecha -->
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
+                                    class="svg-inline--fa fa-chevron-right fa-w-10" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                        d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                                    </path>
+                                </svg>Conocer más
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </article>
+
+<!-- ###################### SECCION GUIAS Y PLANTILLAS FINACIERAS ####################### -->
+        <article class="guias">
+            <div class="container">
+                <section class="section-header">
+                    <h3>Guías y plantillas financieras</h3>
+                    <hr/>
+                    <a class="more-btn" href="https://academiapopular-staging-2160494.dev.odoo.com/attachment/download?document_id=8">
+                        <!-- Flecha apuntando a la derecha -->
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
+                            class="svg-inline--fa fa-chevron-right fa-w-10" role="img"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                            <path fill="currentColor"
+                                d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                            </path>
+                        </svg>
+                        Ver todas
+                    </a>
+                </section>
+
+                <section class="plantillas">
+                    <div class="item">
+                        <div class="header">
+                            <img src="/elearning_features/static/src/img/plantilla-icon.png" alt="Icono de plantilla"/>
+                            <a href="https://academiapopular-staging-2160494.dev.odoo.com/attachment/download?document_id=8" class="btn btn-mamey">Descargar</a>
+                        </div>
+                        <div class="body">
+                            <span class="details"><span class="type">PLANTILLA FINANCIERA</span><span class="size">193 KB</span></span>
+                            <h4>Banco popular dominicano, kit de organización</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur labore accusamus iure odit, earum quo veritatis odio. Debitis, deleniti doloribus.</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="header">
+                            <img src="/elearning_features/static/src/img/plantilla-icon.png" alt="Icono de plantilla"/>
+                            <a href="https://academiapopular-staging-2160494.dev.odoo.com/attachment/download?document_id=8" class="btn btn-mamey">Descargar</a>
+                        </div>
+                        <div class="body">
+                            <span class="details"><span class="type">PLANTILLA FINANCIERA</span><span class="size">193 KB</span></span>
+                            <h4>Banco popular dominicano, kit de organización</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur labore accusamus iure odit, earum quo veritatis odio. Debitis, deleniti doloribus.</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="header">
+                            <img src="/elearning_features/static/src/img/guia-icon2.png" alt="Icono de plantilla"/>
+                            <a href="https://academiapopular-staging-2160494.dev.odoo.com/attachment/download?document_id=8" class="btn btn-mamey">Descargar</a>
+                        </div>
+                        <div class="body">
+                            <span class="details"><span class="type">GUÍA FINANCIERA</span><span class="size">193 KB</span></span>
+                            <h4>Banco popular dominicano, kit de organización</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur labore accusamus iure odit, earum quo veritatis odio. Debitis, deleniti doloribus.</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="header">
+                            <img src="/elearning_features/static/src/img/guia-icon2.png" alt="Icono de plantilla"/>
+                            <a href="https://academiapopular-staging-2160494.dev.odoo.com/attachment/download?document_id=8" class="btn btn-mamey">Descargar</a>
+                        </div>
+                        <div class="body">
+                            <span class="details"><span class="type">GUÍA FINANCIERA</span><span class="size">193 KB</span></span>
+                            <h4>Banco popular dominicano, kit de organización</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur labore accusamus iure odit, earum quo veritatis odio. Debitis, deleniti doloribus.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </article>
+
+<!-- ########################### SECCION DE ARTICULOS RELEVANTES ########################### -->
+        <article class="articulos">
+            <div class="container">
+                <section class="section-header">
+                    <h3>Artículos relevantes</h3>
+                    <hr/>
+                    <a class="more-btn" href="https://academiapopular-staging-2160494.dev.odoo.com/blog">
+                        <!-- Flecha apuntando a la derecha -->
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
+                            class="svg-inline--fa fa-chevron-right fa-w-10" role="img"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                            <path fill="currentColor"
+                                d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                            </path>
+                        </svg>
+                        Ver más artículos
+                    </a>
+                </section>
+
+                <section class="articulo-active">
+                    <div class="img">
+                        <img src="/elearning_features/static/src/img/articulo.jpg" alt=""/>
+                    </div>
+                    <div class="articulo-details">
+                        <h4>Aprendiendo a utilizar tus recursos financieros</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem veniam accusamus veritatis voluptas atque a nemo maiores, modi iure? Qui fugit exercitationem natus assumenda veritatis inventore, corporis quis.</p>
+                        <a class="more-btn f-right" href="https://academiapopular-staging-2160494.dev.odoo.com/blog/emprendimiento-3/post/empresa-social-1">
+                            <!-- Flecha apuntando a la derecha -->
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
+                                class="svg-inline--fa fa-chevron-right fa-w-10" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <path fill="currentColor"
+                                    d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                                </path>
+                            </svg>
+                            Conocer más
+                        </a>
+                    </div>
+                </section>
+
+                <section class="articulo-list">
+                    <div class="item">
+                        <div class="img">
+                            <img src="/elearning_features/static/src/img/articulo.jpg" alt=""/>
+                        </div>
+                        <div class="details">
+                            <h4>Aprendiendo a utilizar tus recursos financieros</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nihil molestias voluptate?</p>
+                            <a class="more-btn f-right" href="https://academiapopular-staging-2160494.dev.odoo.com/blog/emprendimiento-3/post/empresa-social-1">
+                                <!-- Flecha apuntando a la derecha -->
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
+                                    class="svg-inline--fa fa-chevron-right fa-w-10" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                        d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                                    </path>
+                                </svg>
+                                Conocer más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="img">
+                            <img src="/elearning_features/static/src/img/articulo.jpg" alt=""/>
+                        </div>
+                        <div class="details">
+                            <h4>Aprendiendo a utilizar tus recursos financieros</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nihil molestias voluptate?</p>
+                            <a class="more-btn f-right" href="https://academiapopular-staging-2160494.dev.odoo.com/blog/emprendimiento-3/post/empresa-social-1">
+                                <!-- Flecha apuntando a la derecha -->
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
+                                    class="svg-inline--fa fa-chevron-right fa-w-10" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                        d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                                    </path>
+                                </svg>
+                                Conocer más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="img">
+                            <img src="/elearning_features/static/src/img/articulo.jpg" alt=""/>
+                        </div>
+                        <div class="details">
+                            <h4>Aprendiendo a utilizar tus recursos financieros</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nihil molestias voluptate?</p>
+                            <a class="more-btn f-right" href="https://academiapopular-staging-2160494.dev.odoo.com/blog/emprendimiento-3/post/empresa-social-1">
+                                <!-- Flecha apuntando a la derecha -->
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
+                                    class="svg-inline--fa fa-chevron-right fa-w-10" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                        d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                                    </path>
+                                </svg>
+                                Conocer más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="img">
+                            <img src="/elearning_features/static/src/img/articulo.jpg" alt=""/>
+                        </div>
+                        <div class="details">
+                            <h4>Aprendiendo a utilizar tus recursos financieros</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum nihil molestias voluptate?</p>
+                            <a class="more-btn f-right" href="https://academiapopular-staging-2160494.dev.odoo.com/blog/emprendimiento-3/post/empresa-social-1">
+                                <!-- Flecha apuntando a la derecha -->
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
+                                    class="svg-inline--fa fa-chevron-right fa-w-10" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                        d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                                    </path>
+                                </svg>
+                                Conocer más
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </article>
+    </main>
+             
+                </t>
+          
+        </xpath>
+    </template>
+
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_frontend" name="website_podcast assets" inherit_id="website.assets_frontend">
+        <xpath expr=".">            
+            <script type="text/javascript" src="/website_podcast/static/src/js/podcast.js"/>
+            <link rel="stylesheet" type="text/scss" href="/website_podcast/static/src/css/styles.css"/>
+        </xpath>
+    </template>
+</odoo>

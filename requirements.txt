@@ -1,0 +1,4 @@
+pytube==10.7.2
+pandas==0.22.0
+zoomus
+paramiko==2.7.2

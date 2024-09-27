@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    
+    <record id="azul_tree_view" model="ir.ui.view">
+        <field name="name">azul.report.tree</field>
+        <field name="model">azul.payment.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="report_date"/>
+                <field name="report_type"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="azul_report_form_view" model="ir.ui.view">
+        <field name="name">azul.report.form</field>
+        <field name="model">azul.payment.report</field>
+        <field name="arch" type="xml">
+            <form string="Reportes">
+                <header>
+                    <button name="action_report" string="Generar reportes" class="oe_highlight" type="object" invisible="state not in ['draft']"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,cancel"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    
+                    <group>
+                        <group>
+                            <field name="report_date"/>
+                            <field name="report_type"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="ncf_file" filename="ncf_filename" readonly="1" invisible="report_type!='ncf'"/>
+                            <field name="payment_file" filename="payment_filename" readonly="1" invisible="report_type!='payment'"/>
+                            <field name="access_file" filename="access_filename" readonly="1" invisible="report_type!='access'"/>
+                            <field name="payment_without_access_file" filename="payment_without_access_filename" readonly="1" invisible="report_type!='payment_without_access'"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_azul_payment" model="ir.actions.act_window">
+        <field name="name">Reportes Azul</field>
+        <field name="res_model">azul.payment.report</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="azul_tree_view"/>
+    </record>
+    
+    <menuitem
+        id="popular_finance_report_menu"
+        parent="account.menu_finance_entries"
+        action="action_azul_payment"
+        groups="account.group_account_manager"
+        sequence="4"
+    />
+    
+
+</odoo>

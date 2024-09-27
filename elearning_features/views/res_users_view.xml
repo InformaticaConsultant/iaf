@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="view_users_tree_inherit" model="ir.ui.view">
+        <field name="name">res.users.tree.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='lang']" position="after">
+				<field name="lastname"/>
+				<field name="birthday"/>
+				<field name="age"/>
+				<field name="gender"/>
+				<field name="street"/>
+				<field name="sector"/>
+                <field name="distritos_municipales"/>
+                <field name="municipio"/>
+                <field name="town_id"/>
+                <field name="provincia"/>
+                <field name="city"/>
+                <field name="country_id"/>
+                <field name="phone"/>
+                <field name="mobile"/>
+                <field name="workplace"/>
+            </xpath>
+            <xpath expr="//field[@name='lang']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+	
+	<record id="view_users_form_inherit" model="ir.ui.view">
+        <field name="name">res.users.form.inherit.profile</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[1]" position="after">
+                <page string="Academy">
+                    <group string="Información personal" name="goals">
+                        <field name="user_only_name"/>
+                        <field name="user_last_name"/>
+                        <field name="birthday"/>
+                        <field name="gender"/>
+                        <field name="sector"/>
+                        <field name="workplace"/>
+                    </group>
+                    <group string="Metas personales" name="goals">
+                        <field name="goals_first"/>
+                        <field name="goals_second"/>
+                        <field name="goals_third"/>
+                    </group>
+                    <group string="Metas financieras" name="goals financial">
+                        <field name="goals_financial_first"/>
+                        <field name="goals_financial_second"/>
+                        <field name="goals_financial_third"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    
+</odoo>

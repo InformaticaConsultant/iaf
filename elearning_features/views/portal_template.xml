@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	
+	<template id="frontend_layout_inherit" inherit_id="portal.side_content">
+		<xpath expr="//a[@href='/my/account']" position="replace">
+			User ID: <span t-field="user_id.id"/>
+			<h4>Detalles <a role="button" t-att-href="'/profile/edit?user_id=%d' % user_id.id"  class="btn btn-sm btn-link"><i class="fa fa-pencil"/> Editar</a></h4>
+	    </xpath>
+	</template>
+
+</odoo>

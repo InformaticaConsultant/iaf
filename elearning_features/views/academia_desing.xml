@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <template id="academia_innova_blog_detalle">
+
+<!--    <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/app_for_desing.css"/> -->
+<!--    <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/blog_detalle.css"/> -->
+
+    
+
+
+          <section id="o_wblog_post_top">
+            <div id="title" class="blog_header" t-ignore="True">
+                <t t-call="website.record_cover">
+                    <t t-set="_record" t-value="blog_post"/>
+                    <t t-set="use_filters" t-value="True"/>
+                    <t t-set="use_size" t-value="True"/>
+                    <t t-set="use_text_size" t-value="True"/>
+                    <t t-set="additionnal_classes" t-value="'o_wblog_post_page_cover'"/>
+
+                    <div class="container text-center position-relative h-100 d-flex flex-column flex-grow-1 justify-content-around">
+                        <div t-attf-class="o_wblog_post_title #{opt_blog_post_select_to_tweet and 'js_tweet'} #{opt_blog_post_select_to_comment and 'js_comment'}">
+                            <div t-field="blog_post.name" id="o_wblog_post_name" data-oe-expression="blog_post.name" t-att-data-blog-id="blog_post.id" placeholder="Blog Post Title"/>
+                            <div t-field="blog_post.subtitle" id="o_wblog_post_subtitle"  placeholder="Subtitle"/>
+                        </div>
+                        <a id="o_wblog_post_content_jump" href="#o_wblog_post_main" class="css_editable_mode_hidden justify-content-center align-items-center rounded-circle mx-auto text-decoration-none">
+                            <i class="fa fa-angle-down fa-3x text-white" aria-label="To blog content" title="To blog content"/>
+                        </a>
+                    </div>
+                </t>
+            </div>
+        </section>
+
+<!-- ########################### HEADER BAR ########################### -->
+        <section class="header-bar blog-detalles">
+            <div class="container ">
+                <span class="goback">
+                    <a href="#">
+                        <img src="/elearning_features/static/src/img/arrow-pointing-to-right.png"/>
+                        Volver atrás
+                    </a>
+                </span>
+            </div>
+        </section>
+
+
+<!-- ########################### Content ########################### -->
+        <div class="full-container">
+            <div class="container blog-detalles">
+
+                <!-- ########################### Seccion main ########################### -->
+                <main class="main">
+                    <setion class="content">
+                        <h3> <t t-esc="blog_post.name"/></h3>
+
+                            <div t-field="blog_post.content"
+                                data-editor-message="WRITE HERE OR DRAG BUILDING BLOCKS"
+                                t-attf-class="o_wblog_post_content_field #{'js_tweet' if opt_blog_post_select_to_tweet else ''} #{'js_comment' if opt_blog_post_select_to_comment else ''} #{'o_wblog_read_text' if opt_blog_post_readable else ''}"/>
+<!-- 
+                            <div t-if="len(blogs) > 1 or len(blog_post.tag_ids) > 0" class="css_editable_mode_hidden text-muted">
+                                <div t-if="len(blogs) > 1">in <a t-attf-href="#{blog_url(blog=blog_post.blog_id)}"><b t-field="blog.name"/></a></div>
+                                <div t-if="len(blog_post.tag_ids) > 0">#
+                                    <t t-foreach="blog_post.tag_ids" t-as="one_tag">
+                                        <a class="badge border mr-1" t-attf-href="#{blog_url(tag=slug(one_tag), date_begin=False, date_end=False)}" t-esc="one_tag.name"/>
+                                    </t>
+                                </div>
+                            </div> -->
+
+                      
+                    </setion>
+
+
+
+               
+
+                    <setion class="footer">
+                        <div class="redes">
+                            <span>Compartir</span>
+                            <a href="#" target="_blank">
+                                <img src="/elearning_features/static/src/img/blog/facebook.png" alt=""/>
+                            </a>
+
+                            <a href="#" target="_blank">
+                                <img src="/elearning_features/static/src/img/blog/linkedin.png" alt=""/>
+                            </a>
+
+                            <a href="#" target="_blank">
+                                <img src="/elearning_features/static/src/img/blog/twitter.png" alt=""/>
+                            </a>
+
+                            <a href="#" target="_blank">
+                                <img src="/elearning_features/static/src/img/blog/whatsapp.png" alt=""/>
+                            </a>
+
+                            <a href="#" target="_blank">
+                                <img src="/elearning_features/static/src/img/blog/letter.png" alt=""/>
+                            </a>
+                        </div>
+
+                        <div class="link">
+                            <a href="#" target="_blank">
+                                <img src="/elearning_features/static/src/img/blog/right.png" alt=""/>
+                            </a>
+                        </div>
+                    </setion>
+                </main>
+
+<!-- ########################### SECCION ASIDE ########################### -->
+                <aside class="aside-blog-detalles">
+                    <section class="sugerencias">
+                        <h3>Artículos Relacionados</h3>
+                        <div>
+
+                             <t t-foreach="related_posts" t-as="article">
+        
+                                    <a class="more-btn" t-attf-href="/blog/#{slug(article.blog_id)}/post/#{slug(article)}" >
+
+                            
+                                    <!-- Flecha apuntando a la derecha -->
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
+                                        class="svg-inline--fa fa-chevron-right fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 320 512">
+                                        <path fill="currentColor"
+                                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                                        </path>
+                                    </svg><t t-esc="article.name"/>
+                                </a>
+                                    
+                                
+                            </t>
+
+
+                            
+                        </div>
+                    </section>
+
+
+                    <section class="publicidad"><!-- Publicidad 300x250 -->   
+                        <img src="/elearning_features/static/src/img/publicidad-small.png" alt=""/>
+                    </section>
+                </aside>
+
+<!-- ########################### OTRAS PUBLICACIONES ########################### -->
+            <section class="sugerencias blog-detalles">
+                <section class="section-header">
+                    <h3>Otras publicaciones</h3>
+                    <hr/>
+                </section>
+
+                <section class="list-items">
+                    <div class="item">
+                        <div class="img">
+                            <img src="/elearning_features/static/src/img/blog/portada6.jpg" alt=""/>
+                        </div>
+
+                        <div class="body">
+                            <h4>Aprendiendo a utilizar tus recursos financieros</h4>
+                            <p class="text">Aquí puedes iniciar tu aventura educativa, conoceras los conceptos básicos necesarios para dominar el mundo financiero. Aquí puedes iniciar.</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="img">
+                            <img src="/elearning_features/static/src/img/blog/portada2.jpg" alt=""/>
+                        </div>
+
+                        <div class="body">
+                            <h4>Aprendiendo a utilizar tus recursos financieros</h4>
+                            <p class="text">Aquí puedes iniciar tu aventura educativa, conoceras los conceptos básicos necesarios para dominar el mundo financiero. Aquí puedes iniciar.</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="img">
+                            <img src="/elearning_features/static/src/img/blog/portada5.jpg" alt=""/>
+                        </div>
+
+                        <div class="body">
+                            <h4>Aprendiendo a utilizar tus recursos financieros</h4>
+                            <p class="text">Aquí puedes iniciar tu aventura educativa, conoceras los conceptos básicos necesarios para dominar el mundo financiero. Aquí puedes iniciar.</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="img">
+                            <img src="/elearning_features/static/src/img/blog/portada6.jpg" alt=""/>
+                        </div>
+
+                        <div class="body">
+                            <h4>Aprendiendo a utilizar tus recursos financieros</h4>
+                            <p class="text">Aquí puedes iniciar tu aventura educativa, conoceras los conceptos básicos necesarios para dominar el mundo financiero. Aquí puedes iniciar.</p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            </div>
+        </div>
+      
+    </template>
+</odoo>

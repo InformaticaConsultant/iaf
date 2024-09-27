@@ -1,0 +1,36 @@
+.calculator.formularioUno .form1 {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.calculator.formularioUno .form1 section {
+    display: grid;
+    grid-template-columns: max-content auto;
+}
+
+.calculator.formularioUno .form1 section h4 {
+    width: max-content;
+    margin: 0;
+}
+
+.calculator.formularioUno .form1 section input {
+    width: 85% !important;
+    margin: 0;
+    justify-self: right;
+    max-width: 222px;
+}
+
+main .resultado.calculator {
+    display: grid;
+    grid-template-columns: max-content auto;
+    align-items: center;
+    grid-gap: 20px;
+}
+
+main .resultado.calculator input {
+    margin: 0;
+}
+
+main .resultado.calculator h4 {
+    grid-column: 1;
+}

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- SLIDE.CHANNEL VIEWS -->
+        <record model="ir.ui.view" id="view_suggest_bank_product_form">
+            <field name="name">suggest.bank.product.view.form</field>
+            <field name="model">suggest.bank.product</field>
+            <field name="arch" type="xml">
+                <form string="Suggest bank products">
+                    <sheet>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active==True"/>
+                        
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only" string="Name"/>
+                            <h1><field name="name" default_focus="1" placeholder="Product name"/></h1>
+                        </div>
+                        <div>
+                            <field name="active" invisible="1"/>
+                        </div>
+                        <group>
+                            <field name="benefit"/>
+                            <field name="url"/>
+                        </group>
+                        <div>
+                            <field name="description" widget="html" placeholder="Description"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="suggest_bank_product_view_tree" model="ir.ui.view">
+            <field name="name">suggest.bank.product.view.tree</field>
+            <field name="model">suggest.bank.product</field>
+            <field name="arch" type="xml">
+                <tree string="Suggest products">
+                    <field name="name"/>
+                    <field name="benefit"/>
+                    <field name="active" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="suggest_bank_product_view_search" model="ir.ui.view">
+            <field name="name">suggest.bank.product.view.search</field>
+            <field name="model">suggest.bank.product</field>
+            <field name="arch" type="xml">
+                <search string="Suggest products">
+                    <field name="name" string="Product"/>
+                    <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="suggest_bank_product_action" model="ir.actions.act_window">
+            <field name="name">Bank products</field>
+            <field name="res_model">suggest.bank.product</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="suggest_bank_product_view_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a bank product
+                </p>
+            </field>
+        </record>
+        
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="suggest_bank_product" name="Bank products" parent="website_sale.menu_catalog" action="suggest_bank_product_action" sequence="3"/>
+
+    </data>
+</odoo>

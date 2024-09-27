@@ -1,0 +1,36 @@
+<odoo>
+    
+    <!-- VIEWS: "Res partner" 
+    
+        - Model·········: res_partner
+        - Base Addons···: base    
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+    
+    <!-- Form view for "res_partner" -->
+    <record id="view_res_partner_form" model="ir.ui.view">
+        <field name="name">view.res_partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Social network">
+                    <group>
+                        <group>
+                            <field name="youtube"/>
+                            <field name="linkedin"/>
+                            <field name="twitter"/>
+                        </group>
+                        <group>
+                            <field name="facebook"/>
+                            <field name="instagram"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
+    
+    

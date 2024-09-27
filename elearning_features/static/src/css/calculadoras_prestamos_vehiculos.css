@@ -1,0 +1,597 @@
+/* ////////////////// PAGINA CALCULADORA DE PRESTAMOS PERSONALES ///////////////////// */
+
+.container.cal-pre-pers {
+    flex-wrap: wrap;
+}
+
+main {
+    align-content: flex-start;
+}
+
+
+/* #################### BAR HEADER #################### */
+
+.banner-cal-pre-pers .container h1 {
+    max-width: none;
+}
+
+.header-bar {
+    height: 60px;
+    background-color: var(--entremar-4);
+}
+
+.bar-cal-pre-pers .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bar-cal-pre-pers .container .goback a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.bar-cal-pre-pers .container .goback a img {
+    vertical-align: middle;
+}
+
+.bar-cal-pre-pers .container select {
+    min-width: 220px;
+    border-radius: 0;
+    border: none;
+    outline: none;
+    padding: 5px 0 5px 10px;
+    position: relative;
+    font-weight: 500;
+    appearance: none;
+    background-image: url(../images/arrow-down.png);
+    background-position: 95% center;
+    background-repeat: no-repeat;
+    background-size: 8px;
+    background-color: white;
+}
+
+.bar-cal-pre-pers .container select option {
+    color: var(--entremar-5);
+}
+
+.container.cal-pre-pers h4,
+.container.cal-pre-pers .section-header p {
+    font-size: 18px;
+}
+
+
+/* #################### Formulario #################### */
+
+main form.cal-pre-pers {
+    width: 100%;
+}
+
+main form.cal-pre-pers .form1 {
+    background-color: white;
+    width: 100%;
+    border-radius: 5px;
+    padding: 30px 40px;
+    box-sizing: border-box;
+}
+
+.calculator.formularioUno .form1 section .textbox.campoTexto50 {
+    width: 95% !important;
+    margin: 0;
+    justify-self: right;
+    max-width: 259px;
+    box-sizing: border-box;
+}
+
+main form.cal-pre-pers label {
+    font-weight: 700;
+    cursor: pointer;
+}
+
+main form.cal-pre-pers .cliente {
+    margin-bottom: 20px;
+}
+
+main form.cal-pre-pers .cliente h4 {
+    margin-bottom: 20px;
+}
+
+main form.cal-pre-pers .cliente label:nth-last-of-type(1) {
+    margin-left: 30px;
+}
+
+main form.cal-pre-pers .cliente [type="radio"] {
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: var(--arena);
+    margin-left: 2px;
+    line-height: 0;
+    cursor: pointer;
+}
+
+main form.cal-pre-pers .cliente [type="radio"]:checked {
+    background-color: var(--mamey);
+}
+
+main form.cal-pre-pers .interes,
+main form.cal-pre-pers .cuotas,
+main form.cal-pre-pers .monto {
+    margin-bottom: 30px;
+}
+
+main form.cal-pre-pers .interes h4,
+main form.cal-pre-pers .cuotas h4,
+main form.cal-pre-pers .monto h4 {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+main form.cal-pre-pers .interes select,
+main form.cal-pre-pers .cuotas select {
+    min-width: 100px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding: 5px 0 5px 10px;
+    font-weight: 500;
+    appearance: none;
+    background-image: url(../images/arrow-down.png);
+    background-position: 90% center;
+    background-repeat: no-repeat;
+    background-size: 8px;
+    background-color: #e3e5e9;
+    font-weight: 500;
+}
+
+main form.cal-pre-pers .monto input[type="text"] {
+    border: none;
+    outline: none;
+    background-color: #e3e5e9;
+    border-radius: 5px;
+    height: 30px;
+    padding: 0 10px;
+    width: 106px;
+    position: relative;
+}
+
+main form.cal-pre-pers .monto input[type="text"]::before {
+    content: "$";
+    left: -30px;
+    color: rgb(158, 24, 24);
+    display: block;
+}
+
+main form.cal-pre-pers .interes .range,
+main form.cal-pre-pers .cuotas .range,
+main form.cal-pre-pers .monto .range {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+}
+
+main form.cal-pre-pers .interes .range input[type="range"],
+main form.cal-pre-pers .cuotas .range input[type="range"],
+main form.cal-pre-pers .monto .range input[type="range"] {
+    flex-grow: 1;
+    margin: 0 10px;
+    appearance: none;
+    height: 8px;
+    background-color: #f5f5f5;
+}
+
+main form.cal-pre-pers .interes .range input[type="range"]::-moz-range-thumb,
+main form.cal-pre-pers .cuotas .range input[type="range"]::-moz-range-thumb,
+main form.cal-pre-pers .monto .range input[type="range"]::-moz-range-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background-color: var(--mamey);
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+main form.cal-pre-pers .interes .range input[type="range"]::-webkit-slider-thumb,
+main form.cal-pre-pers .cuotas .range input[type="range"]::-webkit-slider-thumb,
+main form.cal-pre-pers .monto .range input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background-color: var(--mamey);
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+main form.cal-pre-pers .interes .range input[type="range"]::-ms-thumb,
+main form.cal-pre-pers .cuotas .range input[type="range"]::-ms-thumb,
+main form.cal-pre-pers .monto .range input[type="range"]::-ms-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background-color: var(--mamey);
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+main form.cal-pre-pers .finalidad {
+    margin-bottom: 50px;
+}
+
+main form.cal-pre-pers .finalidad h4 {
+    margin-bottom: 10px;
+}
+
+main form.cal-pre-pers .finalidad .radio {
+    display: flex;
+}
+
+main form.cal-pre-pers .finalidad .radio label {
+    display: inline-block;
+    width: 23%;
+    height: 100px;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-right: 5px;
+    box-sizing: border-box;
+}
+
+main form.cal-pre-pers .finalidad .radio label svg {
+    width: 50px;
+    height: auto;
+    margin: 0 auto;
+}
+
+main form.cal-pre-pers .finalidad .radio input[type="radio"]:checked+label {
+    border: 1px solid var(--mamey);
+}
+
+main form.cal-pre-pers .finalidad .radio input[type="radio"] {
+    display: none;
+}
+
+main form.cal-pre-pers .cuotas {
+    margin-bottom: 50px;
+}
+
+main form.cal-pre-pers [type="button"] {
+    appearance: none;
+    width: 100%;
+    background-color: var(--mamey);
+    padding: 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    margin: 10px 0;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+main form.cal-pre-pers [type="submit"] {
+    appearance: none;
+    width: 100%;
+    background-color: var(--mamey);
+    padding: 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    margin: 10px 0;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+main form.cal-pre-pers .resultado.cal-pre-pers {
+    width: 100%;
+    padding: 40px 20px;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+}
+
+main form.formularioUno .resultado.calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: unset;
+}
+
+main form.formularioUno .resultado.calculator .result-option {
+    display: flex;
+    justify-content: space-between;
+}
+
+main form.formularioUno .resultado.calculator .result-option:last-of-type {
+    display: grid;
+    grid-template-columns: max-content auto;
+}
+
+.seguro-deudor {
+    margin-bottom: 10px;
+}
+
+.seguro-deudor .result-option {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+main form.formularioUno .resultado.calculator .result-option:last-of-type h4 {
+    margin-right: 15px;
+}
+
+main form.formularioUno .resultado.calculator .result-option input {
+    max-width: 265px;
+}
+
+main .resultado.calculator {
+    padding: 10px 20px;
+}
+
+.info-extra {
+    width: 100%;
+}
+
+.info-container {
+    width: 93%;
+}
+
+.table-container {
+    width: 100%;
+    overflow: auto;
+}
+
+#CalcForm2 {
+    width: 100%;
+}
+
+#extraordinarios {
+    cursor: pointer;
+}
+
+#detallado {
+    cursor: pointer;
+}
+
+main .resultado.cal-pre-pers .alert {
+    color: rgb(158, 24, 24);
+    font-weight: 500;
+    margin-right: 15px;
+}
+
+main .resultado.cal-pre-pers input {
+    appearance: none;
+    background-color: #e7e7e7;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 40px;
+    margin: 10px 0 20px;
+    border-radius: 5px;
+    padding-left: 20px;
+    font-size: 16px;
+    font-weight: 700;
+    box-sizing: border-box;
+}
+
+main .detallado,
+main .extraordinarios {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 40px 35px;
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+main .detallado h3,
+main .extraordinarios h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+main .detallado table,
+main .extraordinarios table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    font-weight: 500;
+    display: none;
+    margin-top: 30px;
+}
+
+main .detallado table th,
+main .extraordinarios table th {
+    background-color: var(--larimar);
+    padding: 10px 0;
+    color: white;
+    flex-grow: 1;
+}
+
+main .detallado table tr,
+main .extraordinarios table tr {
+    display: flex;
+}
+
+main .detallado table tr td,
+main .detallado table tr th,
+main .extraordinarios table tr td,
+main .extraordinarios table tr th {
+    width: 100%;
+}
+
+main .detallado table td,
+main .extraordinarios table td {
+    background-color: #e7e7e7;
+    padding: 10px 0 10px 10px;
+    border-bottom: 10px solid #ffff;
+}
+
+main .extraordinarios table td:nth-of-type(1),
+main .extraordinarios table td:nth-of-type(2) {
+    border-right: 10px solid #ffff;
+}
+
+main .nota {
+    position: relative;
+    margin-top: 10px;
+}
+
+main .nota p {
+    font-size: 18px;
+    margin-left: 14px;
+}
+
+main .nota svg {
+    top: 5px;
+    width: 8px;
+    height: auto;
+    color: var(--larimar);
+    position: absolute;
+}
+
+.aside.cal-pre-pers {
+    width: 300px;
+    margin-bottom: 80px;
+}
+
+.aside.cal-pre-pers .terminos,
+.aside.cal-pre-pers .video {
+    width: 100%;
+    padding: 30px 20px 5px;
+    background-color: white;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.aside.cal-pre-pers .video {
+    padding: 0;
+    line-height: 0;
+}
+
+.aside.cal-pre-pers .video iframe {
+    width: 100%;
+    height: 200px;
+    line-height: 0;
+}
+
+.aside.cal-pre-pers .terminos h3 {
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.aside.cal-pre-pers .terminos .item p {
+    line-height: 24px;
+    font-weight: 500;
+}
+
+.aside.cal-pre-pers .terminos .item h4 {
+    font-size: 16px;
+}
+
+.aside.cal-pre-pers .terminos .item {
+    margin-bottom: 30px;
+}
+
+.productos.cal-pre-pers {
+    width: 100%;
+    padding-bottom: 50px;
+}
+
+.productos.cal-pre-pers .list-items {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.productos.cal-pre-pers .list-items .item {
+    width: 24%;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px 10px;
+    box-sizing: border-box;
+}
+
+.productos.cal-pre-pers .list-items .item img {
+    margin-bottom: 15px;
+}
+
+.productos.cal-pre-pers .list-items .item p,
+.productos.cal-pre-pers .list-items .item h4 {
+    margin-bottom: 10px;
+}
+
+.productos.cal-pre-pers .list-items .item .more-btn {
+    display: block;
+    margin-top: 10px;
+}
+
+
+/* //////////////////////////////  MEDIA QUERYS  ////////////////////////////// */
+
+@media screen and (max-width: 992px) {
+    .productos.cal-pre-pers .list-items .item {
+        margin-bottom: 15px;
+        width: 49%;
+    }
+    aside.cal-pre-pers {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 638px) {
+    main form.cal-pre-pers .finalidad .radio {
+        flex-wrap: wrap;
+    }
+    main form.cal-pre-pers .finalidad .radio label {
+        width: 48%;
+        margin-bottom: 5px;
+    }
+}
+
+@media screen and (max-width: 515px) {
+    .productos.cal-pre-pers .list-items .item {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto 15px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    main form.cal-pre-pers .interes h4,
+    main form.cal-pre-pers .cuotas h4,
+    main form.cal-pre-pers .monto h4 {
+        display: block;
+    }
+    main form.cal-pre-pers .interes select,
+    main form.cal-pre-pers .cuotas select,
+    main form.cal-pre-pers .monto input[type="text"] {
+        margin-bottom: 20px;
+    }
+    main form.cal-pre-pers .finalidad .radio label {
+        width: 100%;
+        margin-bottom: 5px;
+        margin-right: 0;
+    }
+}

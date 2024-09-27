@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- MAIN FORUM MENU -->
+        <menuitem name="Help Center" id="menu_website_help_center"
+            parent="website.menu_website_configuration" sequence="47" groups="website.group_website_designer"/>
+
+        <menuitem name="Help Center" id="menu_website_help_center_global"
+            parent="website.menu_website_global_configuration" sequence="167" groups="website.group_website_designer"/>
+
+        <!-- Help Center VIEWS -->
+        <record id="view_help_center_list" model="ir.ui.view">
+            <field name="name">website.help.center.list</field>
+            <field name="model">website.help.center</field>
+            <field name="arch" type="xml">
+                <tree string="Help Center">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="website_id" groups="website.group_multi_website"/>
+                    <field name="active" widget="toggle_button"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_help_center_form" model="ir.ui.view">
+            <field name="name">website.help.center.form</field>
+            <field name="model">website.help.center</field>
+            <field name="arch" type="xml">
+                <form string="Help Center">
+                    <sheet>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active==True"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                            <field name="active"/>
+                        </div>
+                        <group>
+                            <field name="website_id" options="{'no_create': True}" groups="website.group_multi_website"/>
+                        </group>
+                        <notebook>
+                            <page name="Description" string="Description">
+                                <field name="faq" nolabel="1" widget="html"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="help_center_view_search" model="ir.ui.view">
+            <field name="name">website.help.center.search</field>
+            <field name="model">website.help.center</field>
+            <field name="arch" type="xml">
+                <search string="Help Center">
+                    <field name="name"/>
+                    <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_help_center" model="ir.actions.act_window">
+            <field name="name">Help Center</field>
+            <field name="res_model">website.help.center</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_help_center_global" parent="menu_website_help_center_global" name="Help Center" action="action_help_center" sequence="1"/>
+
+    </data>
+</odoo>

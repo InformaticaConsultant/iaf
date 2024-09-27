@@ -1,0 +1,600 @@
+/* ////////////////// PAGINA CALCULADORA DE PRESTAMOS PERSONALES ///////////////////// */
+
+.container.calculator {
+    flex-wrap: wrap;
+}
+
+
+/* #################### BAR HEADER #################### */
+
+.banner-cal-pre-pers .container h1 {
+    max-width: none;
+}
+
+.header-bar {
+    height: 50px;
+    background-color: var(--entremar-4);
+}
+
+.cal-description {
+    margin-bottom: 30px;
+}
+
+.bar-calculator .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bar-calculator .container .goback a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.bar-calculator .container .goback a img {
+    vertical-align: middle;
+}
+
+.bar-calculator .container select {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 0;
+    border: none;
+    outline: none;
+    padding: 5px 0 5px 10px;
+    position: relative;
+    font-weight: 500;
+    appearance: none;
+    background-image: url(../images/arrow-down.png);
+    background-position: 95% center;
+    background-repeat: no-repeat;
+    background-size: 8px;
+    background-color: white;
+}
+
+.bar-calculator .container select option {
+    color: var(--entremar-5);
+}
+
+.container.calculator h4 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.container.calculator .section-header p {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+
+/* #################### Image-side #################### */
+
+main .image-side {
+    width: 22.5vw;
+    height: 30.94vw;
+    max-width: 320px;
+    max-height: 440px;
+    margin-right: 15px;
+}
+
+main .image-side img {
+    border-radius: 5px;
+    width: 100%;
+}
+
+
+/* #################### Main #################### */
+
+.container .main {
+    display: grid;
+    grid-template-columns: max-content auto;
+    width: calc(100% - 300px) !important;
+    box-sizing: border-box;
+    justify-content: unset;
+    margin-bottom: 0;
+}
+
+
+/* #################### Formulario #################### */
+
+main form.calculator {
+    /* width: fit-content; */
+    height: max-content;
+}
+
+main form.calculator .form1 {
+    background-color: white;
+    width: 100%;
+    border-radius: 5px;
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+
+main form.calculator .form1 h4 {
+    margin-right: 5%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.calculator.formularioUno .form1 {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.calculator.formularioUno .form1 section {
+    display: grid;
+    grid-template-columns: max-content auto;
+}
+
+.calculator.formularioUno .form1 section h4 {
+    width: max-content;
+    margin: 0;
+}
+
+.calculator.formularioUno .form1 section input {
+    width: 85% !important;
+    margin: 0;
+    justify-self: right;
+    max-width: 222px;
+    box-sizing: border-box;
+}
+
+main .resultado.calculator {
+    display: grid;
+    grid-template-columns: max-content auto;
+    align-items: center;
+    grid-gap: 20px;
+}
+
+main .resultado.calculator input {
+    margin: 0;
+}
+
+main .resultado.calculator h4 {
+    grid-column: 1;
+    padding: 5px 0px;
+}
+
+main form.calculator label {
+    font-weight: 700;
+    cursor: pointer;
+}
+
+main form.calculator .cliente {
+    margin-bottom: 20px;
+}
+
+main form.calculator .cliente h4 {
+    margin-bottom: 20px;
+}
+
+main form.calculator .cliente label:nth-last-of-type(1) {
+    margin-left: 30px;
+}
+
+main form.calculator .cliente [type="radio"] {
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: var(--arena);
+    margin-left: 2px;
+    line-height: 0;
+    cursor: pointer;
+}
+
+main form.calculator .cliente [type="radio"]:checked {
+    background-color: var(--mamey);
+}
+
+main form.calculator .form-section h4,
+main form.calculator .interes h4,
+main form.calculator .cuotas h4,
+main form.calculator .monto h4,
+main form.calculator .cantidad_actual h4,
+main form.calculator .ahorro_mensual h4 {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+main form.calculator .interes select,
+main form.calculator .cuotas select {
+    min-width: 100px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding: 5px 0 5px 10px;
+    font-weight: 500;
+    appearance: none;
+    background-image: url(../images/arrow-down.png);
+    background-position: 90% center;
+    background-repeat: no-repeat;
+    background-size: 8px;
+    background-color: #e3e5e9;
+    font-weight: 500;
+}
+
+main form.calculator .monto input[type="text"],
+.input-text {
+    border: none;
+    outline: none;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    height: 30px;
+    padding: 0 10px;
+    width: 60px;
+    position: relative;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+main form.calculator .monto input[type="text"]::before {
+    content: "$";
+    left: -30px;
+    color: rgb(158, 24, 24);
+    display: block;
+}
+
+main form.calculator .interes .range,
+main form.calculator .cuotas .range,
+main form.calculator .monto .range {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+}
+
+main form.calculator .interes .range input[type="range"],
+main form.calculator .cuotas .range input[type="range"],
+main form.calculator .monto .range input[type="range"] {
+    flex-grow: 1;
+    margin: 0 10px;
+    appearance: none;
+    height: 8px;
+    background-color: #f5f5f5;
+}
+
+main form.calculator .interes .range input[type="range"]::-moz-range-thumb,
+main form.calculator .cuotas .range input[type="range"]::-moz-range-thumb,
+main form.calculator .monto .range input[type="range"]::-moz-range-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background-color: var(--mamey);
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+main form.calculator .interes .range input[type="range"]::-webkit-slider-thumb,
+main form.calculator .cuotas .range input[type="range"]::-webkit-slider-thumb,
+main form.calculator .monto .range input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background-color: var(--mamey);
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+main form.calculator .interes .range input[type="range"]::-ms-thumb,
+main form.calculator .cuotas .range input[type="range"]::-ms-thumb,
+main form.calculator .monto .range input[type="range"]::-ms-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background-color: var(--mamey);
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+main form.calculator .finalidad {
+    margin-bottom: 50px;
+}
+
+main form.calculator .finalidad h4 {
+    margin-bottom: 10px;
+}
+
+main form.calculator .finalidad .radio {
+    display: flex;
+}
+
+main form.calculator .finalidad .radio label {
+    display: inline-block;
+    width: 23%;
+    height: 100px;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-right: 5px;
+    box-sizing: border-box;
+}
+
+main form.calculator .finalidad .radio label svg {
+    width: 50px;
+    height: auto;
+    margin: 0 auto;
+}
+
+main form.calculator .finalidad .radio input[type="radio"]:checked+label {
+    border: 1px solid var(--mamey);
+}
+
+main form.calculator .finalidad .radio input[type="radio"] {
+    display: none;
+}
+
+main form.calculator [type="submit"],
+main form.calculator [type="button"] {
+    appearance: none;
+    width: 100%;
+    background-color: var(--mamey);
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    margin: 5px 0;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+main .resultado.calculator {
+    padding: 30px 20px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+main .resultado.calculator .alert {
+    color: rgb(158, 24, 24);
+    font-weight: 500;
+    padding: 0;
+    margin: 0 9% auto auto;
+}
+
+main .resultado.calculator input {
+    appearance: none;
+    background-color: #e7e7e7;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    padding-left: 20px;
+    font-size: 16px;
+    font-weight: 700;
+    box-sizing: border-box;
+}
+
+main .nota {
+    position: relative;
+    margin-top: 10px;
+}
+
+main .nota p {
+    font-size: 18px;
+    margin-left: 14px;
+}
+
+main .nota svg {
+    top: 5px;
+    width: 8px;
+    height: auto;
+    color: var(--larimar);
+    position: absolute;
+}
+
+.chevron {
+    width: 30px !important;
+    height: 30px;
+    cursor: pointer;
+}
+
+.aside.calculator {
+    width: 300px;
+    margin-bottom: 80px;
+}
+
+.aside.calculator .terminos,
+.aside.calculator .video {
+    width: 100%;
+    padding: 30px 20px 5px;
+    background-color: white;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.aside.calculator .terminos .glosario-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.aside.calculator .terminos ul {
+    display: none;
+    list-style: none;
+}
+
+.aside.calculator .video {
+    padding: 30px 20px;
+    line-height: 0;
+}
+
+.aside.calculator .video iframe {
+    width: 100%;
+    height: 200px;
+    line-height: 0;
+}
+
+.aside.calculator .terminos h3 {
+    font-size: 20px;
+}
+
+.aside.calculator .terminos .item p {
+    line-height: 24px;
+    font-weight: 500;
+}
+
+.aside.calculator .terminos .item h4 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.aside.calculator .terminos .item {
+    margin-bottom: 30px;
+}
+
+.productos.calculator {
+    width: 100%;
+    padding: 75px 0px;
+}
+
+.productos.calculator .list-items {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.productos.calculator .list-items .item {
+    width: 24.5%;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px 10px;
+    box-sizing: border-box;
+}
+
+.productos.calculator .list-items .item img {
+    width: 52px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.productos.calculator .list-items .item p,
+.productos.calculator .list-items .item h4 {
+    margin-bottom: 10px;
+}
+
+.productos.calculator .list-items .item .item-options {
+    display: flex;
+    justify-content: center;
+}
+
+.productos.calculator .list-items .item .more-btn {
+    display: block;
+    margin-top: 10px;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+
+/* //////////////////////////////  MEDIA QUERYS  ////////////////////////////// */
+
+@media screen and (max-width: 1200px) {
+    /* .container .main {
+        width: 68% !important;
+    } */
+    /* main form.calculator {
+        width: 58%;
+    } */
+    .calculator.formularioUno .form1 section {
+        display: flex;
+        flex-wrap: wrap;
+        /* justify-content: center; */
+    }
+    main .resultado.calculator .alert {
+        margin-right: 0;
+        text-align: center;
+    }
+    main form.formularioUno .resultado.calculator .result-option {
+        display: flex !important;
+        flex-wrap: wrap;
+        justify-content: center !important;
+        width: 100%;
+    }
+    main .resultado.calculator h4 {
+        width: 100%;
+        text-align: center;
+        margin-right: 0 !important;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .productos.calculator .list-items .item {
+        margin-bottom: 15px;
+        width: 49%;
+    }
+    aside.calculator {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 638px) {
+    main form.calculator .finalidad .radio {
+        flex-wrap: wrap;
+    }
+    main form.calculator .finalidad .radio label {
+        width: 48%;
+        margin-bottom: 5px;
+    }
+    main form.calculator .form1 {
+        padding: 4%;
+    }
+    main form.calculator .form1 section {
+        text-align: center;
+    }
+    .form1 input {
+        display: block;
+        margin: auto;
+        width: auto !important;
+    }
+    .form1 h4 {
+        display: block;
+        margin: auto;
+        margin-right: 0 !important;
+    }
+}
+
+@media screen and (max-width: 515px) {
+    .productos.calculator .list-items .item {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto 15px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    main form.calculator .form-section h4,
+    main form.calculator .interes h4,
+    main form.calculator .cuotas h4,
+    main form.calculator .monto h4,
+    main form.calculator .cantidad_actual h4,
+    main form.calculator .ahorro_mensual h4 {
+        display: block;
+    }
+    main form.calculator .interes select,
+    main form.calculator .cuotas select,
+    main form.calculator .monto input[type="text"] {
+        margin-bottom: 20px;
+    }
+    main form.calculator .finalidad .radio label {
+        width: 100%;
+        margin-bottom: 5px;
+        margin-right: 0;
+    }
+}

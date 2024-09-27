@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="affix_top_menu" inherit_id="website.layout" name="Fixed Top Menu">
+        <xpath expr="//header" position="attributes">
+            <!-- <attribute name="style" add="display:none;" separator=" "/> Este no funciona-->
+            <!-- <attribute name="t-attf-class" add="d-none" separator=" "/> Este si -->
+        </xpath>
+
+        <!-- Esto tambien sirve para ocultar el header (el original)...que buen servicio.jpg -->
+        <xpath expr="//header" position="before">
+            <t t-set="no_header" t-value="True"/>
+        </xpath>
+        
+
+        <xpath expr="//header" position="after">
+
+
+
+
+
+            <header t-if="not no_elearning_header">
+                <section class="action-bar">
+                    <div class="container">
+                        <a href="#">
+                            <img src="/elearning_features/static/src/img/ayuda-icon.png" alt="Icono de ayuda" style="display: inline-block;"/>
+                            <span>CENTRO DE AYUDA</span>
+                        </a>
+                        <form action="#" method="GET">
+                            <input class="search" type="search" name="search" id="search" placeholder="Buscar cursos"/>
+                            <label class="label-search" for="submit">
+                                <img src="/elearning_features/static/src/img/lupa-icon.png" alt="Icono de lupa"/>
+                            </label>
+                            <input class="submit-search" type="submit" id="submit" value=""/>
+                        </form>
+                    </div>
+                </section>
+
+                <nav class="menu">
+                    <div class="container">
+                        <div class="logo">
+                        <!-- Intentar que suba -->
+                            <a href="/"><img src="/elearning_features/static/src/img/FCP-logo.svg"    alt="Logo FinancieraMente"/></a>
+                        </div>
+
+                        <ul class="main-menu">
+                            <li>
+                                <a href="/cursos">CURSOS</a>
+                            </li>
+                            <li>
+                                <a href="/blog">BLOG</a>
+                            </li>
+                            <li id="tools">
+                                <span>HERRAMIENTAS</span>
+                                <div class="dropdown">
+                                    <div class="container">
+                                        <ul>
+                                            <li>Calculadoras</li>
+                                            <li>
+                                                <a href="/calculadora_prestamos_personales">Préstamos</a>
+                                            </li>
+                                            <li>
+                                                <a href="/calculadora_certificado">Inversión</a>
+                                            </li>
+                                            <li>
+                                                <a href="/calculadora_fondo_emergencia">Fondos de emergencia</a>
+                                            </li>
+                                            <li>
+                                                <a href="/calculadora_metas_de_ahorro">Meta ahorro</a>
+                                            </li>
+                                            <li>
+                                                <a href="/calculadora_pension">Plan de retiro</a>
+                                            </li>
+                                            <li>
+                                                <a class="enlace" href="#">
+                                                    <!-- Flecha apuntando a la derecha -->
+                                                Ver todas
+                                                </a>
+                                            </li>
+                                        </ul>
+
+                                        <ul>
+                                            <li>Guías y plantillas financieras</li>
+                                            <li>
+                                                <a href="/documentos">Plan para manejar mi presupuesto de viaje para hacer turismo interno</a>
+                                            </li>
+                                            <li>
+                                                <a href="/documentos">Plan de ahorro para comprar mi primer vehículo</a>
+                                            </li>
+                                            <li>
+                                                <a href="/documentos">Guia para comprar mi primera vivienda</a>
+                                            </li>
+                                            <li>
+                                                <a href="/documentos">Plan para manejar mi presupuesto y llegar a fin de mes</a>
+                                            </li>
+                                            <li>
+                                                <a href="/documentos">Plan de ahorro para crear un fondo de emergencia</a>
+                                            </li>
+                                            <li>
+                                                <a class="enlace" href="/documentos">
+                                                    <!-- Flecha apuntando a la derecha -->
+                                                Ver todas
+                                                </a>
+                                            </li>
+                                        </ul>
+
+                                      
+
+                                        <ul>
+                                            <li>Video cápsulas financieras</li>
+                                            <li>
+                                                <a href="/videos">Opción 1</a>
+                                            </li>
+                                            <li>
+                                                <a href="/videos">Opción 2</a>
+                                            </li>
+                                            <li>
+                                                <a href="/videos">Opción 3</a>
+                                            </li>
+                                            <li>
+                                                <a href="/videos">Opción 4</a>
+                                            </li>
+                                            <li>
+                                                <a href="/videos">Opción 5</a>
+                                            </li>
+                                            <li>
+                                                <a class="enlace" href="/videos">
+                                                    <!-- Flecha apuntando a la derecha -->
+                                                Ver todas
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="/eventos">EVENTOS</a>
+                            </li>
+                            <li>
+                                <a href="/productos">PRODUCTOS</a>
+                            </li>
+                        </ul>
+
+                        <div class="call-action">
+                            <a class="call-btn d-none" href="/web/signup?">CREAR CUENTA</a>
+                            <a class="call-btn call-btn-blue" t-attf-href="/web/login?redirect=#{request.httprequest.url}">ACCEDER</a>
+                            <a style="width: 200px;color: #FFFFFF !important;background-color: #ed8b00;border: #ffffff;" 
+                               class="call-btn call-btn-blue" href="/aventura">AVENTURA FINANCIERA</a>
+                        </div>
+
+                        <div class="movil" id="main-movil">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" class="svg-inline--fa fa-bars fa-w-14" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path>
+                            </svg>
+
+                            <ul class="movil-main-menu">
+                                <li>
+                                    <a href="/cursos">CURSOS</a>
+                                </li>
+                                <li>
+                                    <a href="/blog">BLOG</a>
+                                </li>
+                                <li>
+                                    <a href="#">HERRAMIENTAS</a>
+                                </li>
+                                <li>
+                                    <a href="/eventos">EVENTOS</a>
+                                </li>
+                                <li>
+                                    <a href="/productos">PRODUCTOS</a>
+                                </li>
+                                <a class="ayuda" href="/help-center">CENTRO DE AYUDA</a>
+                                <div class="call-action">
+                                    <a class="call-btn d-none" href="#">CREAR CUENTA</a>
+                                    <a class="call-btn call-btn-blue" href="#">ACCEDER</a>
+                                    <a style="width: 200px;color: #FFFFFF !important;background-color: #ed8b00;border: #ffffff;" 
+                                       class="call-btn call-btn-blue" href="/aventura">AVENTURA FINANCIERA</a>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+
+        </xpath>
+        <!--  -->
+    </template>
+
+
+</odoo>

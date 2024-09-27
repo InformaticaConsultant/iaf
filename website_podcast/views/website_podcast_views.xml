@@ -1,0 +1,282 @@
+<odoo>
+    <data>
+
+        <record id="action_contacts_podcast_guest" model="ir.actions.act_window">
+            <field name="name">Guests</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,tree,form,activity</field>
+            <field name="search_view_id" ref="base.view_res_partner_filter"/>
+            <field name="domain">[('podcast_guest_ids', 'in', [active_id])]</field>
+            <field name="context">{'default_podcast_guest_ids': [(4, active_id)]}</field>
+            <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a contact in your host podcast
+            </p>
+            </field>
+        </record>
+
+        <record id="action_contacts_podcast_host" model="ir.actions.act_window">
+            <field name="name">Guests</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,tree,form,activity</field>
+            <field name="search_view_id" ref="base.view_res_partner_filter"/>
+            <field name="domain">[('podcast_host_ids', 'in', [active_id])]</field>
+            <field name="context">{'default_podcast_host_ids': [(4, active_id)]}</field>
+            <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a contact in your guest podcast
+            </p>
+            </field>
+        </record>
+        
+        <!-- VIEWS: "Website podcast"
+        
+            - Model·········: website_podcast
+            - _rec_name·····: name
+            - Domain········: []
+            - Context·······: \{}
+            - Parent menu ··: base.menu_custom
+            - View priority·: 16    
+            - Sequence····..: 10
+            - Action help···: Create new podcast
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+        
+        <!-- Tree view for "website_podcast" -->
+        <record id="view_website_podcast_tree" model="ir.ui.view">
+            <field name="name">view.website_podcast.tree</field>
+            <field name="model">website.podcast</field>
+            <field name="type">tree</field>
+            <field name="mode">primary</field>
+            <field name="priority" eval="16" />
+            <field name="active" eval="True" />
+            <field name="arch" type="xml">
+                <tree string="website_podcast_tree" create="true" delete="true" edit="true">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="category_id"/>
+                    <field name="duration"  widget="float_time"/>
+                    <field name="host_ids" widget="many2many_tags_avatar"/>
+                    <field name="guest_ids" widget="many2many_tags_avatar"/>
+                    <field name="website_published" widget="boolean_toggle"/>
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Form view for "website_podcast" -->
+        <record id="view_website_podcast_form" model="ir.ui.view">
+            <field name="name">view.website_podcast.form</field>
+            <field name="model">website.podcast</field>
+            <field name="type">form</field>
+            <field name="mode">primary</field>
+            <field name="priority" eval="16" />
+            <field name="active" eval="True" />
+            <field name="arch" type="xml">
+                <form string="website_podcast_form" create="true" delete="true" edit="true">
+                    <header>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button"
+                                name="%(action_contacts_podcast_guest)d"
+                                icon="fa-user"
+                                context="{'search_default_podcast_guest_ids': active_id, 'default_podcast_guest_ids': active_id}"
+                                type="action">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_value"><field name="guest_count"/></span>
+                                    <span class="o_stat_text"> Guest</span>
+                                </div>
+                            </button>
+                            <button class="oe_stat_button"
+                                name="%(action_contacts_podcast_host)d"
+                                icon="fa-user"
+                                type="action">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_value"><field name="host_count"/></span>
+                                    <span class="o_stat_text"> Hosts</span>
+                                </div>
+                            </button>
+                            <field name="website_published" widget="website_redirect_button"/>
+                            <field name="website_url" invisible="1"/>
+                        </div>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1>
+                                <field name="name" placeholder="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="category_id"/>
+                                <field name="duration" widget="float_time"/>
+                                <field name="description"/>
+                                <field name="guest_ids" widget="many2many_tags_avatar"/>
+                                <field name="host_ids" widget="many2many_tags_avatar"/>
+                                <field name="related_podcast_ids" widget="many2many_tags" domain="[('id', '!=', active_id)]"/>
+                            </group>        
+                            <group>
+                                <field name="image" widget="image"/>
+                            </group>
+                            <group string="URLS">
+                                <field name="spotify_url" widget="url"/>
+                                <field name="google_url" widget="url"/>
+                                <field name="apple_podcast_url" widget="url"/>
+                                <field name="youtube_url" widget="url"/>
+                            </group> 
+                            <group>
+                                <field name="header_image" widget="image"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- Search view for "website_podcast" -->
+        <record id="view_website_podcast_search" model="ir.ui.view">
+            <field name="name">view.website_podcast.search</field>
+            <field name="model">website.podcast</field>
+            <field name="type">search</field>
+            <field name="mode">primary</field>
+            <field name="priority" eval="16" />
+            <field name="active" eval="True" />
+            <field name="arch" type="xml">
+                <search string="website_podcast_search">
+                    <field name="name"/>
+                    <field name="category_id"/>
+                    <field name="host_ids"/>
+                    <field name="guest_ids"/>
+                </search>
+            </field>
+        </record>
+        
+        <!-- Main window action for "website_podcast" -->
+        <record id="action_website_podcast_act_window" model="ir.actions.act_window">
+            <field name="type">ir.actions.act_window</field>
+            <field name="name">Website Podcast</field>
+            <field name="res_model">website.podcast</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+            <field name="search_view_id" ref="view_website_podcast_search" />
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add new website podcast
+                </p>
+            </field>
+        </record>
+        
+        <!-- Main menu for "website_podcast" -->
+        <!-- <record id="menu_website_podcast" model="ir.ui.menu" >
+            <field name="name">Website podcast</field>
+            <field name="sequence" eval="10" />
+            <field name="action" ref="action_website_podcast_act_window"/>
+            <field name="parent_id" ref="base"/>
+        </record> -->
+
+        
+        <!-- VIEWS: "Website podcast category"
+        
+            - Model·········: website_podcast_category
+            - _rec_name·····: name
+            - Domain········: []
+            - Context·······: \{}
+            - Parent menu ··: menu_podcast_root
+            - View priority·: 16    
+            - Sequence····..: 10
+            - Action help···: Create new podcast category
+        - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+        
+        <!-- Tree view for "website_podcast_category" -->
+        <record id="view_website_podcast_category_tree" model="ir.ui.view">
+            <field name="name">view.website_podcast_category.tree</field>
+            <field name="model">website.podcast.category</field>
+            <field name="type">tree</field>
+            <field name="mode">primary</field>
+            <field name="priority" eval="16" />
+            <field name="active" eval="True" />
+            <field name="arch" type="xml">
+                <tree string="website_podcast_category_tree" create="true" delete="true" edit="true">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Form view for "website_podcast_category" -->
+        <record id="view_website_podcast_category_form" model="ir.ui.view">
+            <field name="name">view.website_podcast_category.form</field>
+            <field name="model">website.podcast.category</field>
+            <field name="type">form</field>
+            <field name="mode">primary</field>
+            <field name="priority" eval="16" />
+            <field name="active" eval="True" />
+            <field name="arch" type="xml">
+                <form string="website_podcast_category_form" create="true" delete="true" edit="true">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button"
+                                name="%(action_website_podcast_act_window)d"
+                                icon="fa-th-list"
+                                type="action"
+                                context="{'search_default_category_id': active_id, 'default_category_id': active_id}">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_value"><field name="podcast_count"/></span>
+                                    <span class="o_stat_text"> Podcasts</span>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only" />
+                            <h1>
+                                <field name="name" class="oe_inline" placeholder="name"/>
+                            </h1>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- Search view for "website_podcast_category" -->
+        <record id="view_website_podcast_category_search" model="ir.ui.view">
+            <field name="name">view.website_podcast_category.search</field>
+            <field name="model">website.podcast.category</field>
+            <field name="type">search</field>
+            <field name="mode">primary</field>
+            <field name="priority" eval="16" />
+            <field name="active" eval="True" />
+            <field name="arch" type="xml">
+                <search string="website_podcast_category_search">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+        
+        <!-- Main window action for "website_podcast_category" -->
+        <record id="action_website_podcast_category_act_window" model="ir.actions.act_window">
+            <field name="type">ir.actions.act_window</field>
+            <field name="name">website podcast category</field>
+            <field name="res_model">website.podcast.category</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+            <field name="search_view_id" ref="view_website_podcast_category_search" />
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add new website podcast category
+                </p>
+            </field>
+        </record>
+        
+        <!-- Main menu for "website_podcast_category" -->
+        <!-- <record id="menu_website_podcast_category" model="ir.ui.menu" >
+            <field name="name">website podcast category</field>
+            <field name="sequence" eval="10" />
+            <field name="action" ref="action_website_podcast_category_act_window" />
+            <field name="parent_id" ref="menu_podcast_root" />
+        </record> -->
+
+        <menuitem id="menu_podcast_root" name="Podcast" sequence="10" web_icon="website_podcast,static/description/icon.png" groups="website.group_website_designer"/>
+        <menuitem id="menu_website_podcast" name="Podcast" parent="menu_podcast_root" action="action_website_podcast_act_window" sequence="1"/>
+        <menuitem id="menu_website_podcast_category" name="Podcast category" parent="menu_podcast_root" action="action_website_podcast_category_act_window" sequence="2"/>
+
+    </data>
+</odoo>

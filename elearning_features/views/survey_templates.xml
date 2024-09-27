@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="elearning_survey_init" inherit_id="survey.survey_fill_form_start" name="Survey">
+            <xpath expr="//div[hasclass('wrap')]" position="replace">
+                <div class="wrap">
+                    <div class="oe_structure" id="oe_structure_survey_init_1"/>
+                    <div class="container">
+                        <t t-if="answer.test_entry" t-call="survey.back"/>
+                        <div class="jumbotron mt32">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center pull-left">
+                                <img src="/elearning_features/static/src/img/encuesta/survey01_clean.jpg" class="finish_survey_image"/>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-right">
+                                <div>
+                                    <h1><b>Excelente, validarás todo lo aprendido.</b></h1>
+                                    <small><span t-esc="survey.title"/></small>
+                                </div>
+                                <hr/>
+                                <div>
+                                    <ul>
+                                        <li>Puedes presentar el examen tantas veces como quieras.</li>
+                                        <li>Necesitas <span t-esc="survey.passing_score"/> puntos para aprobar el curso.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div t-if="survey.is_time_limited">
+                                <p>
+                                    <span>Time limit for this survey: </span>
+                                    <span class="font-weight-bold text-danger" t-field="survey.time_limit" t-options="{'widget': 'duration', 'unit': 'minute'}"/>
+                                </p>
+                            </div>
+                            <a role="button" class="btn btn-primary btn-lg" t-att-href="'/survey/fill/%s/%s' % (survey.access_token, answer.token)">
+                                <t t-if="survey.certificate">
+                                    Iniciar certificación
+                                </t>
+                                <t t-else="">
+                                    Iniciar encuesta
+                                </t>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="oe_structure" id="oe_structure_survey_init_2"/>
+                </div>
+            </xpath>
+        </template>
+
+        <!-- "Thank you" message when the survey is completed -->
+        <template id="elearning_survey_sfinished" inherit_id="survey.survey_fill_form_done" name="Survey Finished">
+            <xpath expr="//div[hasclass('wrap')]" position="replace">
+                <div class="wrap">
+                    <div class="container">
+                        <t t-if="survey.academy_survey">
+                            <div class="jumbotron mt32">
+                                <h1>¡Gracias por dar el paso que lo cambia todo en tus finanzas!</h1>
+                                <section class="section-header">
+                                  <h3>Los siguientes programas formativos le ayudarán a elevar su conocimiento sobre las finanzas!</h3>
+                                  <hr/>
+                                </section>
+                               <a class="btn btn-mamey encuestas-out" href="/cursos">Ver programas formativos</a>
+                            </div>
+                        </t>
+                        <t t-else="">
+                            <t t-if="answer.test_entry" t-call="survey.back"/>
+                            <div class="jumbotron mt32">
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center pull-left">
+                                    <img src="/elearning_features/static/src/img/encuesta/survey01_clean.jpg" class="finish_survey_image"/>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pull-right">
+                                    <div class="row">
+                                        <div class="col">
+                                            <t t-if="survey.scoring_type != 'no_scoring'">
+                                                <t t-if="answer.quizz_passed">
+                                                    <div>
+                                                        <h1>Gracias, has aprobado el examen con un <t t-esc="int(answer.quizz_score)"/>% de calificación.</h1>
+                                                        <small><span t-esc="survey.title"/></small>
+                                                    </div>
+                                                    <hr/>
+                                                    <div>
+                                                        <ul>
+                                                            <li>Has aprobado el examen de manera exitosa, si estás conforme o tienes alguna observación,
+                                                            puedes <a t-att-href="'/survey/print/%s?answer_token=%s&amp;review=True' % (survey.access_token, answer.token)">dejar tu review respecto a la evaluación.</a></li>
+                                                            
+                                                        </ul>
+                                                        <t t-call="survey.retake_survey_button"/>
+                                                        <div t-if="survey.certificate" class="mt16 mb16">
+                                                            <a role="button" class="btn btn-primary btn-lg pull-left" t-att-href="'/survey/%s/get_certification' % survey.id">
+                                                                <i class="fa fa-fw fa-trophy" role="img" aria-label="Descargar certificación" title="Descargar certificación"/>
+                                                            Descargar certificación
+                                                            </a>
+                                                            <a t-att-href="survey.get_channel_url() + '?active_tab=review'" class="s_finish_comment">> Dejar el comentario</a>
+                                                        </div>
+                                                    </div>
+                                                </t>
+                                                <t t-else="">
+                                                    <div>
+                                                        <h1>Gracias, has reprobado el examen con un <t t-esc="int(answer.quizz_score)"/>% de calificación.</h1>
+                                                        <small><span t-esc="survey.title"/></small>
+                                                    </div>
+                                                    <hr/>
+                                                    <div>
+                                                        <ul>
+                                                            <li>Desafortunadamente no pasó la prueba, pero la buena noticia es que
+                                                            puedes volver a tomarla cuando quieras.</li>
+                                                            <li>
+                                                                <div t-if="survey.scoring_type != 'scoring_without_answers'">
+                                                                   Si quiere, puede  <a t-att-href="'/survey/print/%s?answer_token=%s&amp;review=True' % (survey.access_token, answer.token)">revisar sus respuestas</a>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                        <t t-call="survey.retake_survey_button"/>
+                                                    </div>
+                                                </t>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                    <div class="container js_surveyresult p-4" t-if="graph_data">
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active survey_graph" t-att-quizz-score="answer.quizz_score" t-att-id="'graph_question_%d' % answer.id" t-att-data-question_id="answer.id" data-graph_type="doughnut" t-att-graph-data="graph_data">
+                                <canvas id="doughnut_chart"/>
+                                <span class="o_overall_performance"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="oe_structure"/>
+                </div>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

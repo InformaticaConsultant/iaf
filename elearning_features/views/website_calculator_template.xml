@@ -1,0 +1,1903 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    
+    
+
+    <!-- Main Calculators Prestamos Page Template -->
+    <template id="calculator_metas_de_ahorro" name="Calculadora: Meta de Ahorro">
+        <t t-call="website.layout">
+
+            <t t-set="pageName" t-value="'Calculadoras: Meta de Ahorro'" />
+            <div id="wrap" class="oe_structure oe_empty">
+
+<!--        <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/app.css"/>  -->
+<!--        &lt;!&ndash; <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/home.css"/> &ndash;&gt;-->
+<!--        <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/cal-generic.css"/>-->
+<!--         <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/calculadoras_meta_de_ahorro.css"/>-->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+        
+
+         <!-- ######################### BANNER - HEADER  ##################### -->
+     <!-- ######################### BANNER - HEADER  ##################### -->
+    <section class="banner-global banner-calculator" style="background-image: url(/elearning_features/static/src/img/calculadoras/banner-FCP-academia-CALCULADORAS.jpg);">
+        <div class="container">
+            <h1>CALCULADORA DE AHORRO</h1>
+            <h2>El ahorro representa una meta importante en tus finanzas personales, ya sea para administrarlo de manera correcta o para mantenerlo de manera regular, independientemente de la situación.</h2>
+        </div>
+    </section>
+
+    <!-- ########################### HEADER BAR ########################### -->
+    <section class="header-bar bar-calculator">
+        <div class="container ">
+            <span class="goback"><a href="#"><img src="/elearning_features/static/src/img/arrow-pointing-to-right.png"/>
+                    Volver atrás</a></span>
+            <select id="categoria" name="categoria">
+                <option>Préstamos personales</option>
+                <option>Inversión</option>
+                <option>Fondos de emergencia</option>
+                <option selected="1">Meta de ahorro</option>
+                <option>Plan de retiro</option>
+            </select>
+        </div>
+    </section>
+
+    <!-- ########################### SECCION DEL MAIN ########################### -->
+
+  
+
+    <div class="full-container">
+        <div class="container calculator">
+          
+
+    <section class="section-header calculator">
+                    <p class="p-calculator">Ahorrar es un hábito y como tal <a href="https://www.popularenlinea.com/Personas/blog/Pages/Como-reorganizar-el-presupuesto-familiar-cuando-no-producimos.aspx">se construye</a> cuando realmente tienes la intención de hacerlo y lo cumples.
+                        Depende completamente de ti. <br/>Con esta calculadora podrás tener la cuota estimada de ahorro que debes guardar todos los meses para lograr la meta que deseas alcanzar.
+                    </p>
+                    <ul>
+                        <p> Aquí tienes algunas buenas prácticas para incrementar tu nivel de ahorro:</p>
+                        <li>
+                            Ahorra siempre con un propósito claro
+                        </li>
+                        <li>
+                            Fija una misma cantidad para tus ahorros
+                        </li>
+                        <li>
+                            Aparta tu ahorro antes de empezar a gastar
+                        </li>
+                        <li>
+                            Utiliza cuentas de ahorro programado
+                        </li>
+                    </ul>
+            </section>
+
+              <main class="main">
+                <div class="image-side">
+                    <img src="/elearning_features/static/src/img/calculadoras/Imagenes-calculadoras-320x440px/Calculadora-Meta-ahorro-320x440.jpg" alt="image-side"/>
+                </div>
+                <form class="calculator formularioUno" action="#" method="get">
+                    <div class="form1">
+
+                        <section class="monto">
+                            <h4>Meta de ahorro</h4>
+                            <input type="text" name="monto" id="meta_ahorro" onChange="formatNumerico('a')" onkeydown="return numberValidator(event, true)"/>
+                        </section>
+
+                        <section class="cuotas">
+                            <h4>Plazo (meses)</h4>
+                            <input type="text" name="meses" id="plazo_meses" onChange="formatNumerico('b')" class="input-text" onkeydown="return numberValidator(event, false)"/>
+                        </section>
+
+                        <section class="interes">
+                            <h4>Tasa de interés</h4>
+                            <input type="text" name="interes" id="tasa_interes" onChange="formatNumerico('c')" class="input-text" onkeydown="return numberValidator(event, true)"/>                         
+                        </section>
+
+                        <section class="cantidad_actual">
+                            <h4>¿Cuánto tienes?</h4>
+                            <input type="text" name="cantidad_actual" id="cantidad_actual" onChange="formatNumerico('e')" class="input-text" onkeydown="return numberValidator(event, true)"/>
+                        </section>
+
+                        
+                    </div>
+                    
+                    <input type="button" value="Calcular" id="enviarCalculoCuantoDebo" onclick="deboAhorrar()"/>
+                    <section class="resultado calculator">
+                        <h4>Ahorro mensual</h4>
+                        <input type="text" value="" id="ahorro_mensual" class="input-text" disabled="1"/>
+                    </section>
+                </form>
+
+            </main>
+
+      
+                     <!-- ########################### SECCION ASIDE ########################### -->
+            <aside class="aside calculator">
+                <section class="video">
+                  <!--  Video comentado
+                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/ouIi90VRNfo?list=PLt39WTGH5y0i2clwSrDxgaEJ_4o-pvQib" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen="1"></iframe>-->
+                </section>
+
+                <section class="terminos">
+                    <div class="glosario-title">
+                        <h3>Glosario de términos</h3>
+                        <img class="chevron" src="/elearning_features/static/src/img/chevron-down.svg" alt="chevron-down"/>
+                    </div>
+
+                    <ul>
+                        <li class="item">
+                            <h4>Meta de ahorro</h4>
+                            <p>Es el monto que desea tener ahorrado.</p>
+                        </li>
+                        <li class="item">
+                            <h4>Plazo (meses)</h4>
+                            <p>Es el tiempo que estarás ahorrando para lograr tu meta.</p>
+                        </li>
+                        <li class="item">
+                            <h4>Tasa de interés</h4>
+                            <p>Es la tasa de interés que recibirá tu ahorro durante el tiempo que estés ahorrando.</p>
+                        </li>
+                        <li class="item">
+                            <h4>Ahorro mensual</h4>
+                            <p>Es la cuota que debes ahorrar todos los meses para lograr la meta.</p>
+                        </li>
+                    </ul>
+                </section>
+
+             <section class="publicidad">
+                    <a href="https://www.popularenlinea.com/finanzasconproposito"> <img width="300" src="/elearning_features/static/src/img/banners/banners-publicitarios/ANUNCIO-300X250.jpg" alt=""/> </a>
+                </section>
+            </aside>
+
+
+
+            <!-- ########################### SECCION LISTA DE PRODUCTOS ########################### -->
+            <section class="productos calculator">
+                <section class="section-header">
+                    <h3>Productos relacionados</h3>
+                    <hr/>
+                </section>
+
+                <section class="list-items">
+                    <div class="item">
+                        <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos" />
+                        <h4>Portafolio de cursos</h4>
+                        <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+
+                        <div class="item-options">
+                            <a class="btn btn-azul" href="#">Solicita</a>
+                            <a class="more-btn" href="#">
+                                <!-- Flecha apuntando a la derecha -->
+                                Conocer más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos" />
+                        <h4>Portafolio de cursos</h4>
+                        <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+
+                        <div class="item-options">
+                            <a class="btn btn-azul" href="#">Solicita</a>
+                            <a class="more-btn" href="#">
+                                <!-- Flecha apuntando a la derecha -->
+                                Conocer más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos" />
+                        <h4>Portafolio de cursos</h4>
+                        <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+
+                        <div class="item-options">
+                            <a class="btn btn-azul" href="#">Solicita</a>
+                            <a class="more-btn" href="#">
+                                <!-- Flecha apuntando a la derecha -->
+                                Conocer más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos" />
+                        <h4>Portafolio de cursos</h4>
+                        <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+
+                        <div class="item-options">
+                            <a class="btn btn-azul" href="#">Solicita</a>
+                            <a class="more-btn" href="#">
+                                <!-- Flecha apuntando a la derecha -->
+                                Conocer más
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+        </div>
+    </div>
+
+              
+<!--            <script src="/elearning_features/static/src/js/calculadoras_metas.js"></script>-->
+            </div>
+        </t>
+    </template>
+
+
+
+    <!-- Main Calculators Page Prestamos Template -->
+    <template id="calculator_pension" name="Calculadora: 
+       Pension ">
+        <t t-call="website.layout">
+
+            <t t-set="pageName" t-value="'Calculadoras: Pension'" />
+            <div id="wrap" class="oe_structure oe_empty">
+
+         <!--        <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/app.css"/>
+                &lt;!&ndash; <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/home.css"/> &ndash;&gt;
+                <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/cal-generic.css"/>
+                <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/calculadora_pension.css"/>-->
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+                                <style>
+                    .sliderButtons:hover {
+                        background: gray;
+                    }
+                    .sliderButtons {
+                        font-size: 30px;
+                        padding: 10px;
+                        background: #a5a5a5;
+                        display: inline-block;
+                        height: 10px;
+                        color: white;
+                        margin: auto;
+                        line-height: 10px;
+                        border-radius: 3px;
+                        cursor: pointer;
+                        -webkit-touch-callout: none;
+                        -webkit-user-select: none;
+                        -khtml-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                        user-select: none;
+                    }
+
+                    #results {
+                        margin-bottom: 10px;
+                    }
+
+                    .obligatorio {
+                        color: red;
+                    }
+                </style>
+
+                        <!-- ######################### BANNER - HEADER  ##################### -->
+                <section class="banner-global banner-calculator" style="background-image: url(   /elearning_features/static/src/img/calculadoras/banner-FCP-academia-CALCULADORAS.jpg);">
+                    <div class="container">
+                        <h1>CALCULADORA DE PENSIÓN</h1>
+                        <h2>Calcula tu pensión pública, planifica las aportaciones a un plan de pensiones y descubre tu ahorro fiscal</h2>
+                    </div>
+                </section>
+
+                <!-- ########################### HEADER BAR ########################### -->
+                <section class="header-bar bar-calculator">
+                    <div class="container ">
+                        <span class="goback"><a href="#"><img src="/elearning_features/static/src/img/arrow-pointing-to-right.png"/>
+                                Volver atrás</a></span>
+                        <select id="categoria" name="categoria">
+                            <option>Préstamos personales</option>
+                            <option>Inversión</option>
+                            <option>Fondos de emergencia</option>
+                            <option>Meta de ahorro</option>
+                            <option selected="1">Plan de retiro</option>
+                        </select>
+                    </div>
+                </section>
+
+                
+
+                <!-- ########################### SECCION DEL MAIN ########################### -->
+                <div class="full-container">
+
+                    <div class="container calculator">
+
+                <section class="section-header calculator">
+                    <p class="p-calculator">
+                        La administración del sistema de pensiones se sustenta en la capitalización individual, que se caracteriza por la aplicación del interés compuesto a los montos acumulados en la cuenta individual propiedad exclusiva del afiliado, conformada tanto por los aportes obligatorios y voluntarios realizados por el trabajador y el empleador, como por la rentabilidad que se genera como consecuencia de las inversiones de los Fondos de Pensiones. <br/>
+                        <br/>Calcula tu pensión utilizando la siguiente calculadora:
+                    </p>
+                </section>
+                
+                            
+                      
+                            <main class="main">
+                <div class="image-side">
+                    <img src="/elearning_features/static/src/img/calculadoras/Imagenes-calculadoras-320x440px/Calculadora-Plan-de-retiro-320x440.jpg" alt="image-side"/>
+                </div>
+                <form class="calculator formularioUno" action="#" method="get">
+                    <div class="form1">
+                        <section class="monto obligatorio">
+                            <h4>Monto acumulado CCI<span class="obligatorio">*</span></h4>
+                            <input class="campoTexto placeHolderColor" id="montoAcumuladoCCI" placeholder="" onkeydown="return numberValidator(event)" onChange="formatNumerico('a')" name="" type="text"/>
+                        </section>
+
+                        <section class="monto obligatorio">
+                            <h4>Salario actual<span class="obligatorio">*</span></h4>
+                            <input class="campoTexto placeHolderColor" id="salarioActual" placeholder="" onkeydown="return numberValidator(event)" onChange="formatNumerico('b')" name="" type="text" />
+                        </section>
+
+                        <section class="monto">
+                            <h4>Porcentaje extra</h4>
+                            <input class="campoTexto placeHolderColor" id="porcentajeExtra" placeholder="" onkeydown="return numberValidator(event)" onChange="formatNumerico('c')" name="" type="text"/>
+
+                        </section>
+
+                        <section class="monto">
+                            <h4>Aporte voluntario</h4>
+                            <input class="campoTexto placeHolderColor" id="aporteVoluntario" placeholder="" onkeydown="return numberValidator(event)" onChange="formatNumerico('d')" name="" type="text"/>
+                            
+                        </section>
+                        
+                        <section class="monto obligatorio">
+                            <h4>Edad actual<span class="obligatorio">*</span></h4>
+                            <input class="campoTexto placeHolderColor" id="edadActual" placeholder="" name="" type="text" onkeydown="return numberValidator(event, false)"/>
+                            <!-- <div class="slidecontainer">
+                                <span class="sliderButtons" onclick="sliderAdd('edadActual', -1)">-</span>
+                                <input type="range" min="18" max="120" value="30" class="slider" id="edadActual">
+                                <span class="sliderButtons" onclick="sliderAdd('edadActual', 1)">+</span>
+                                <span class="sliderVal" id="edadActualVal"></span>
+                            </div> -->
+                        </section>
+
+                        <section class="monto">
+                            <h4>Edad de retiro<span class="obligatorio">*</span>: </h4>
+                            <input class="campoTexto placeHolderColor" id="edadRetiro" placeholder="" name="" type="text" onkeydown="return numberValidator(event, false)"/>
+                            <!-- <div class="slidecontainer">
+                                <span class="sliderButtons" onclick="sliderAdd('edadRetiro', -1)">-</span>
+                                <input type="range" min="18" max="120" value="60" class="slider" id="edadRetiro">
+                                <span class="sliderButtons" onclick="sliderAdd('edadRetiro', 1)">+</span>
+                                <span class="sliderVal" id="edadretiroVal"></span>
+                            </div> -->
+                        </section>
+                    </div>
+
+                    <input class="boton" id="enviarCalculoCertificado" onclick="enviarDatos()" name="" type="button" value="Calcular"/>
+                    <section class="resultado calculator">
+                        <h3 id="results">Resultados</h3>
+                        <h4>Año pensión</h4>
+                        <input class="campoTextoDesabilitado placeHolderColor" id="rañoPension" disabled="disabled" name="" type="text"/>
+
+                        <h4>Monto constitutivo</h4>
+                        <input class="campoTextoDesabilitado placeHolderColor" id="rmontoConstitutivo" disabled="disabled" name="" type="text" />
+
+                        <h4>Monto constitutivo <br/><span class="subInfo">(Aportes voluntarios)</span></h4>
+                        <input class="campoTextoDesabilitado placeHolderColor" id="rmontoConstitutivoAV" disabled="disabled" name="" type="text"/>
+
+                        <h4>Último salario</h4>
+                        <input class="campoTextoDesabilitado placeHolderColor" id="rultimoSalario" disabled="disabled" name="" type="text"/>
+
+                        <h4>Pensión mensual</h4>
+                        <input class="campoTextoDesabilitado placeHolderColor" id="rpensionMensual" disabled="disabled" name="" type="text"/>
+
+                        <h4>Pensión mensual <br/><span class="subInfo">(Aportes voluntarios)</span></h4>
+                        <input class="campoTextoDesabilitado placeHolderColor" id="rpensionMensualAV" disabled="disabled" name="" type="text"/>
+
+                        <h4>Tasa de reemplazo %</h4>
+                        <input class="campoTextoDesabilitado placeHolderColor" id="rtasaReemplazos" disabled="disabled" name="" type="text"/>
+
+                        <h4>Tasa de reemplazo % <br/><span class="subInfo">(Aportes voluntarios)</span></h4>
+                        <input class="campoTextoDesabilitado placeHolderColor" id="rtasaReemplazosAV" disabled="disabled" name="" type="text"/>
+                        
+                    </section>
+                </form>
+
+
+                <!-- <section class="nota">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline fa fa-chevron-right fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                        <path fill="currentColor"
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                        </path>
+                    </svg>
+                </section> -->
+            </main>
+
+
+                       <!-- ########################### SECCION ASIDE ########################### -->
+                    <aside class="aside calculator">
+                        <section class="video">
+                            <!--Video comentado
+                            <iframe width="1280" height="720" src="https://www.youtube.com/embed/ouIi90VRNfo?list=PLt39WTGH5y0i2clwSrDxgaEJ_4o-pvQib" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen="1"></iframe>-->
+                        </section>
+
+                        <!-- <section class="terminos">
+                            <h3>Glosario de términos</h3>
+
+                            <div class="item">
+                                <h4>Monto de préstamos</h4>
+                                            <p>Cantidad de dinero solicitado por cliente.</p>
+                            </div>
+
+                            <div class="item">
+                                <h4>Cantidad de cuotas mensuales</h4>
+                            <p>Es la cantidad de pagos en que el cliente se compromete saldar la deuda contraída en calidad de préstamo.</p>
+                            </div>
+
+                            <div class="item">
+                                    <h4>Tasa de interés anual</h4>
+                                    <p>Es el costo a pagar por el capital prestado.</p>
+                            </div>
+
+                            <div class="item">
+                                        <h4>Seguro deudor</h4>
+                                    <p>Seguro que cubre el préstamo o en caso de pérdida involuntaria del empleo. El cliente recibirá durante cuatro (4) meses el pago de la cuota mensual de su préstamo, en la eventualidad de una perdida involuntaria del empleo.</p>
+                            </div>
+
+                            <div class="item">
+                                <h4>Pagos extraordinarios</h4>
+                                    <p>Selección de fechas y montos para programar pagos a capital antes del desembolso. Una cuota extraordinaria por año, hasta un máximo de cuatro cuotas por la vigencia del préstamo, las mismas deberán ser iguales y consecutivas
+                                        en un período no mayor a 12 meses para la primera cuota.</p>
+                                    <br/>
+                                    <p>El monto acorrespondiente a pagos extraordinarios a realizar nunca deberá exceder el 40% del monto a financiar.</p>
+                            </div>
+                        </section> -->
+
+                             <section class="publicidad">
+                                <a href="https://www.popularenlinea.com/finanzasconproposito"> <img width="300" src="/elearning_features/static/src/img/banners/banners-publicitarios/ANUNCIO-300X250.jpg" alt=""/> </a>
+                            </section>
+                    </aside>
+
+
+                        <!-- ########################### SECCION LISTA DE PRODUCTOS ########################### -->
+                        <section class="productos calculator">
+                            <section class="section-header">
+                                <h3>Productos relacionados</h3>
+                                <hr/>
+                            </section>
+
+                            <section class="list-items">
+                                <div class="item">
+                                    <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos"/>
+                                    <h4>Portafolio de cursos</h4>
+                                    <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+                                    <div class="item-options">
+                                        <a class="btn btn-azul" href="#">Solicita</a>
+                                        <a class="more-btn" href="#">
+                                            <!-- Flecha apuntando a la derecha -->
+                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                                <path fill="currentColor"
+                                                    d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                                                </path>
+                                            </svg>Conocer más
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos"/>
+                                    <h4>Portafolio de cursos</h4>
+                                    <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+
+                                    <div class="item-options">
+                                        <a class="btn btn-azul" href="#">Solicita</a>
+                                        <a class="more-btn" href="#">
+                                            <!-- Flecha apuntando a la derecha -->
+                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                                <path fill="currentColor"
+                                                    d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                                                </path>
+                                            </svg>Conocer más
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos"/>
+                                    <h4>Portafolio de cursos</h4>
+                                    <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+
+                                    <div class="item-options">
+                                        <a class="btn btn-azul" href="#">Solicita</a>
+                                        <a class="more-btn" href="#">
+                                            <!-- Flecha apuntando a la derecha -->
+                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                                <path fill="currentColor"
+                                                    d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                                                </path>
+                                            </svg>Conocer más
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos"/>
+                                    <h4>Portafolio de cursos</h4>
+                                    <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+
+                                    <div class="item-options">
+                                        <a class="btn btn-azul" href="#">Solicita</a>
+                                        <a class="more-btn" href="#">
+                                            <!-- Flecha apuntando a la derecha -->
+                                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right" class="svg-inline--fa fa-chevron-right fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                                <path fill="currentColor"
+                                                    d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z">
+                                                </path>
+                                            </svg>Conocer más
+                                        </a>
+                                    </div> 
+                                </div>
+                            </section>
+                        </section>
+
+                    </div>
+                </div>
+
+                
+                            
+                        
+                    
+
+
+
+<!--                <script src="/elearning_features/static/src/js/calculadora_pension.js"></script>-->
+            </div>
+        </t>
+
+
+
+    </template>
+
+
+
+    <!-- Main Calculators Prestamos Page Template -->
+    <template id="calculator_certificado" name="Calculadoras Certificado">
+        
+        <t t-call="website.layout">
+
+        <t t-set="pageName" t-value="'Calculadoras: Certificado'" />
+            <div id="wrap" class="oe_structure oe_empty">
+
+  
+<!--        <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/app.css"/>
+        &lt;!&ndash; <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/home.css"/> &ndash;&gt;
+        <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/cal-generic.css"/>
+        <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/calculadoras_certificado.css"/>-->
+
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+        
+
+         
+
+                 <section class="banner-global banner-calculator"
+                    style="background-image: url(/elearning_features/static/src/img/calculadoras/banner-FCP-academia-CALCULADORAS.jpg);">
+                    <div class="container">
+                        <h1>CALCULADORA DE INVERSIÓN</h1>
+                        <h2>Estimación de las ganancias de tu inversión.</h2>
+                        <h2>Planificación financiera de tu dinero.</h2>
+                        <h2>Comparación de los diferentes productos de inversión.</h2>
+                    </div>
+                </section>
+
+                <!-- ########################### HEADER BAR ########################### -->
+                <section class="header-bar bar-calculator">
+                    <div class="container ">
+                        <span class="goback"><a href="#"><img src="/elearning_features/static/src/img/arrow-pointing-to-right.png"/>
+                                Volver atrás</a></span>
+                        <select id="categoria" name="categoria">
+                            <option>Préstamos personales</option>
+                            <option selected="1">Inversión</option>
+                            <option>Fondos de emergencia</option>
+                            <option>Meta de ahorro</option>
+                            <option>Plan de retio</option>
+                        </select>
+                    </div>
+                </section>
+
+                <!-- ########################### SECCION DEL MAIN ########################### -->
+                <div class="full-container">
+                    <div class="container calculator">
+
+                   
+                    <section class="section-header calculator">
+                        <p class="p-calculator">
+                            ¡Calcula el rendimiento de tus inversiones! <br/><br/>
+                            Usa esta calculadora de inversión para determinar cuánto pueden crecer tus inversiones. <br/>
+                            Esta herramienta es un simulador de inversiones en línea que te ayudará a analizar y tomar mejores
+                            decisiones para tu futuro.
+                        </p>
+                    </section>
+
+
+                        <main class="main">
+                <div class="image-side">
+                    <img src="/elearning_features/static/src/img/calculadoras/Imagenes-calculadoras-320x440px/Calculadora-Inversion-320x440.jpg" alt="image-side"/>
+                </div>
+                <form class="calculator formularioUno" action="#" method="get">
+                    <div class="form1">
+                        <section class="monto">
+                            <h4>Monto a invertir</h4>
+                            <input class="campoTexto placeHolderColor" id="textUnoCertificado" placeholder=""
+                                onChange="formatNumerico('a')" name="" onkeydown="return numberValidator(event)" type="text"/>
+                        </section>
+
+                        <section class="monto">
+                            <h4>Plazo (meses)</h4>
+                            <input class="campoTexto placeHolderColor" id="textDosCertificado" placeholder=""
+                                onChange="formatNumerico('b')" name="" type="text" onkeydown="return numberValidator(event, false)"/>
+                        </section>
+
+                        <section class="monto">
+                            <h4>Tasa anual</h4>
+                            <input class="campoTexto placeHolderColor" id="textTresCertificado" placeholder=""
+                                onChange="formatNumerico('c')" name="" type="text" onkeydown="return numberValidator(event)"/>
+
+                        </section>
+                    </div>
+
+                    <input class="boton" id="enviarCalculoCertificado" onclick="deboAhorrar()" name="" type="button"
+                        value="Calcular"/>
+                    <section class="resultado calculator">
+
+
+                        <h4>Total acumulado</h4>
+                        <input class="campoTextoDesabilitado placeHolderColor" id="textResultadosCertificado"
+                            disabled="disabled" name="" type="text"/>
+
+                        <h4>Rentabilidad</h4>
+                        <input class="campoTextoDesabilitado placeHolderColor" id="textResultadosDosCertificado"
+                            disabled="disabled" name="" type="text" />
+
+
+                    </section>
+
+                </form>
+                
+                <!-- <section class="section-header calculator">
+                    <p class="p-calculator">
+                        Estos son valores aproximados, para mayor detalle visite nuestro Puesto de Bolsa, Inversiones Popular, S.A. <br/><br/>
+                        Este cálculo no incluye el impuesto de retención de las inversiones por ley. <br/>
+                        Las estimaciones que se obtienen con esta herramienta se elaboran bajo supuestos, y no necesariamente, corresponderá en forma exacta al resultado que se obtendrá. <br/>
+                        Los datos que resultan de estos cálculos deben considerarse como una estimación probable. <br/>
+                        Es el monto a recibir al vencimiento de tu inversión que incluye el capital invertido y el rendimiento generado.
+                    </p>
+                </section> -->
+
+            </main>
+
+                         <aside class="aside calculator">
+                <section class="video">
+                    <!--Video comentado
+                    <iframe width="1280" height="720"
+                        src="https://www.youtube.com/embed/ouIi90VRNfo?list=PLt39WTGH5y0i2clwSrDxgaEJ_4o-pvQib"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen="1"></iframe>-->
+                </section>
+
+                <section class="terminos">
+                    <div class="glosario-title">
+                        <h3>Glosario de términos</h3>
+                        <img class="chevron" src="/elearning_features/static/src/img/chevron-down.svg" alt="chevron-down"/>
+                    </div>
+
+                    <ul>
+                        <li class="item">
+                            <h4>Monto a invertir</h4>
+                            <p>Es la cantidad de dinero total que tienes disponible para realizar la inversión. Cuánto
+                                dinero tienes previsto invertir.</p>
+                        </li>
+                        <li class="item">
+                            <h4>Plazo (meses)</h4>
+                            <p>Es el período de tiempo que permanecerá tu inversión. Durante cuánto tiempo tienes
+                                previsto mantener tu inversión.</p>
+                        </li>
+                        <li class="item">
+                            <h4>Tasa anual</h4>
+                            <p>Es la tasa de rendimiento que obtendrás de tu inversión por el período de tiempo
+                                establecido. Es la tasa compuesta anual de rendimiento que usted prevé lograr con su
+                                inversión.</p>
+                        </li>
+                        <li class="item">
+                            <h4>Total acumulado</h4>
+                            <p>Es el monto a recibir al vencimiento de tu inversión que incluye el capital invertido y
+                                el rendimiento generado.</p>
+                        </li>
+                        <li class="item">
+                            <h4>Rentabilidad</h4>
+                            <p>Beneficio que obtendrás de tu inversión. Es la ganancia que obtendrás de la inversión.
+                            </p>
+                        </li>
+                    </ul>
+                </section>
+
+             <section class="publicidad">
+                    <a href="https://www.popularenlinea.com/finanzasconproposito"> <img width="300" src="/elearning_features/static/src/img/banners/banners-publicitarios/ANUNCIO-300X250.jpg" alt=""/> </a>
+                </section>
+
+               
+            </aside>
+
+
+
+                        <!-- ########################### SECCION LISTA DE PRODUCTOS ########################### -->
+                        <section class="productos calculator">
+                            <section class="section-header">
+                                <h3>Productos relacionados</h3>
+                                <hr/>
+                            </section>
+
+                            <section class="list-items">
+                                <div class="item">
+                                    <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos"/>
+                                    <h4>Portafolio de cursos</h4>
+                                    <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+
+                                    <div class="item-options">
+                                        <a class="btn btn-azul" href="#">Solicita</a>
+                                        <a class="more-btn" href="#">
+                                            <!-- Flecha apuntando a la derecha -->
+                                            Conocer más
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos"/>
+                                    <h4>Portafolio de cursos</h4>
+                                    <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+
+                                    <div class="item-options">
+                                        <a class="btn btn-azul" href="#">Solicita</a>
+                                        <a class="more-btn" href="#">
+                                            <!-- Flecha apuntando a la derecha -->
+                                            Conocer más
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos"/>
+                                    <h4>Portafolio de cursos</h4>
+                                    <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+
+                                    <div class="item-options">
+                                        <a class="btn btn-azul" href="#">Solicita</a>
+                                        <a class="more-btn" href="#">
+                                            <!-- Flecha apuntando a la derecha -->
+                                            Conocer más
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos"/>
+                                    <h4>Portafolio de cursos</h4>
+                                    <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+
+                                    <div class="item-options">
+                                        <a class="btn btn-azul" href="#">Solicita</a>
+                                        <a class="more-btn" href="#">
+                                            <!-- Flecha apuntando a la derecha -->
+                                            Conocer más
+                                        </a>
+                                    </div>
+                                </div>
+                            </section>
+                        </section>
+
+                    </div>
+                </div>
+        
+                    <br/>
+                    <!--<script src="/elearning_features/static/src/js/calculadoras_certificado.js"></script>-->
+                </div>
+            </t>
+    </template>
+
+
+    <!-- Main Calculators Prestamos Page Template -->
+    <template id="calculator_prestamos_personales" name="Calculadoras Prestamos Personales">
+        <t t-call="website.layout">
+            
+ 
+            <t t-set="pageName" t-value="'Calculadoras: Préstamos Personales'" />
+            <div id="wrap" class="oe_structure oe_empty">
+
+
+  
+            <!--<link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/app.css"/>
+            <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/cal-generic.css"/>
+            <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/calculadoras_personales.css"/>-->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+             <!-- <script src="/elearning_features/static/src/js/app.js"></script> -->
+<!--             <script src="/elearning_features/static/src/js/calculadora_personales_header.js"></script>-->
+
+
+
+                 <!-- ######################### BANNER - HEADER  ##################### -->
+           
+        
+                 
+    <section class="banner-global banner-cal-pre-pers" style="background-image: url(   /elearning_features/static/src/img/calculadoras/banner-FCP-academia-CALCULADORAS.jpg);">
+        <div class="container">
+            <h1>CALCULADORA DE PRÉSTAMOS PERSONALES</h1>
+            <h2>Préstamos para un electrodomestico, viajar o cualquier otro propósito impotante</h2>
+        </div>
+    </section>
+
+    <!-- ########################### HEADER BAR ########################### -->
+    <section class="header-bar bar-cal-pre-pers">
+        <div class="container ">
+            <span class="goback"><a href="#"><img src="/elearning_features/static/src/img/arrow-pointing-to-right.png"/>
+                    Volver atrás</a></span>
+            <select id="categoria" name="categoria">
+                <option selected="1">Préstamos personales</option>
+                <option>Inversión</option>
+                <option>Fondos de emergencia</option>
+                <option>Meta de ahorro</option>
+                <option>Plan de retiro</option>
+            </select>
+        </div>
+    </section>
+
+    <!-- ########################### SECCION DEL MAIN ########################### -->
+    <div class="full-container">
+        <div class="container cal-pre-pers">
+
+            <section class="section-header cal-pre-pers">
+                <p class="p-cal-pre-pers">La calculadora permite establecer el valor de la cuota de un préstamo a partir de la información digitada por el usuario que corresponden al monto, la tasa de interés anual y el plazo solicitado expresados en meses.
+                    <br/><br/> Según el tipo de préstamo, puede utilizarse para facilidades de consumo, hipotecario, vehículos y comerciales.
+                </p>
+            </section>
+
+            <main class="main">
+
+                <div class="image-side">
+                    <img src="/elearning_features/static/src/img/calculadoras/Imagenes-calculadoras-320x440px/Calculadora-Prestamos-320x440.jpg" alt="image-side"/>
+                </div>
+                <form name="CalcForm" id="CalcForm" class="calculator formularioUno" action="#" method="post"  onsubmit="return false;">
+                    <input type="hidden" name="selectedDate" value="0" />
+                    <div class="form1">
+                        <!--<section class="cliente">
+                            <h4>¿Es cliente del Banco Popular Dominicano?</h4>
+                            <label for="cliente-si">Sí
+                                <input type="radio" name="cliente" value="si" id="cliente-si">
+                            </label>
+
+                            <label for="cliente-no">No
+                                <input type="radio" name="cliente" value="no" id="cliente-no">
+                            </label>
+                        </section>-->
+
+                        <section class="monto">
+                            <h4>Monto del préstamo</h4>
+                            <input name="ValorVehiculo" type="text" id="ValorVehiculo" class="textbox campoTexto50" DESIGNTIMEDRAGDROP="2590" onblur="ChangeMontoVehiculo();" onkeydown="return numberValidator(event, true)"/>
+
+                            <!--  <div class="range">
+                                <span>Mín. $15,000</span>
+                                <input type="range" id="monto-range" minlength="15000" maxlength="150000">
+                                <span>Max. $150,000</span>
+                            </div>-->
+                        </section>
+
+                        <!-- <section class="finalidad">
+                            <h4>¿Cuál es la finalidad de su préstamo?</h4>
+                            <div class="radio">
+                                <input type="radio" name="finalidad" id="option1">
+                                <label for="option1">
+                              
+                                    <svg height="512pt" viewBox="0 0 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg"><path d="m503.871094 231.433594-236.800782-226.984375c-6.183593-5.933594-15.957031-5.933594-22.140624 0l-237.035157 227.21875c-5.015625 5.015625-7.894531 11.925781-7.894531 18.988281 0 14.699219 11.96875 26.667969 26.667969 26.667969h37.332031v192c0 23.570312 19.09375 42.664062 42.667969 42.664062h298.664062c23.574219 0 42.667969-19.09375 42.667969-42.664062v-192h37.332031c14.699219 0 26.667969-11.96875 26.667969-26.667969 0-7.0625-2.878906-13.972656-8.128906-19.222656zm0 0" fill="#D6D7DA"/></svg>
+                                    <span>xxx</span>
+                                </label>
+
+                                <input type="radio" name="finalidad" id="option2">
+                                <label for="option2">
+                                   
+                                    <svg height="512pt" viewBox="0 0 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg"><path d="m503.871094 231.433594-236.800782-226.984375c-6.183593-5.933594-15.957031-5.933594-22.140624 0l-237.035157 227.21875c-5.015625 5.015625-7.894531 11.925781-7.894531 18.988281 0 14.699219 11.96875 26.667969 26.667969 26.667969h37.332031v192c0 23.570312 19.09375 42.664062 42.667969 42.664062h298.664062c23.574219 0 42.667969-19.09375 42.667969-42.664062v-192h37.332031c14.699219 0 26.667969-11.96875 26.667969-26.667969 0-7.0625-2.878906-13.972656-8.128906-19.222656zm0 0" fill="#D6D7DA"/></svg>
+                                    <span>xxx</span>
+                                </label>
+
+                                <input type="radio" name="finalidad" id="option3">
+                                <label for="option3">
+                                  
+                                    <svg height="512pt" viewBox="0 0 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg"><path d="m503.871094 231.433594-236.800782-226.984375c-6.183593-5.933594-15.957031-5.933594-22.140624 0l-237.035157 227.21875c-5.015625 5.015625-7.894531 11.925781-7.894531 18.988281 0 14.699219 11.96875 26.667969 26.667969 26.667969h37.332031v192c0 23.570312 19.09375 42.664062 42.667969 42.664062h298.664062c23.574219 0 42.667969-19.09375 42.667969-42.664062v-192h37.332031c14.699219 0 26.667969-11.96875 26.667969-26.667969 0-7.0625-2.878906-13.972656-8.128906-19.222656zm0 0" fill="#D6D7DA"/></svg>
+                                    <span>xxx</span>
+                                </label>
+
+                                <input type="radio" name="finalidad" id="option4">
+                                <label for="option4">
+                                   
+                                    <svg height="512pt" viewBox="0 0 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg"><path d="m503.871094 231.433594-236.800782-226.984375c-6.183593-5.933594-15.957031-5.933594-22.140624 0l-237.035157 227.21875c-5.015625 5.015625-7.894531 11.925781-7.894531 18.988281 0 14.699219 11.96875 26.667969 26.667969 26.667969h37.332031v192c0 23.570312 19.09375 42.664062 42.667969 42.664062h298.664062c23.574219 0 42.667969-19.09375 42.667969-42.664062v-192h37.332031c14.699219 0 26.667969-11.96875 26.667969-26.667969 0-7.0625-2.878906-13.972656-8.128906-19.222656zm0 0" fill="#D6D7DA"/></svg>
+                                    <span>xxx</span>
+                                </label>
+                            </div>
+                        </section>-->
+
+                        <section class="cuotas">
+                            <h4>Plazo (meses)</h4>
+                            <select name="NoCuotas" id="NoCuotas" class="textbox campoTexto50" onChange="ChangeStartDate();">
+                            
+                                <option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option><option value="47">47</option><option value="48">48</option><option value="49">49</option><option value="50">50</option><option value="51">51</option><option value="52">52</option><option value="53">53</option><option value="54">54</option><option value="55">55</option><option value="56">56</option><option value="57">57</option><option value="58">58</option><option value="59">59</option><option  selected="selected" value="60">60</option>
+                            </select>
+                                       
+                       
+                        </section>
+
+
+                        <section class="monto">
+                            <h4>Tasa de interés</h4>
+                            <input name="TasaInteres" id="TasaInteres" class="textbox campoTexto50" onkeydown="return numberValidator(event, true)" onchange="ChangeInteres();" type="text" onblur="format(this.value, this)"/>
+
+                            <!--  <div class="range">
+                                <span>xxx</span>
+                                <input type="range" id="interes-range" min="6" max="60">
+                                <span>xxx</span>
+                            </div>-->
+                        </section>
+                    </div>
+                    <TABLE id="Table10" cellSpacing="0" cellPadding="5" width="532" border="0" style="DISPLAY: none">
+                        <TR>
+                            <TD style="WIDTH: 48px; HEIGHT: 274px" vAlign="top" width="48">
+                                <TABLE id="Table2" style="DISPLAY: none" cellSpacing="1" cellPadding="1" width="290" border="0">
+                                    <TR>
+                                        <TD align="left"><span id="Label5" class="label">
+                                                <font color="Black">Fecha Desembolso</font>
+                                            </span></TD>
+                                        <TD><input name="FechaDesembolso" type="text" id="FechaDesembolso" class="textbox" onChange="ChangeStartDate();" /></TD>
+                                    </TR>
+                                    <TR>
+                                        <TD style="WIDTH: 126px" align="left"><span id="Label6" class="label">
+                                                <font color="Black">Fecha Cancelación</font>
+                                            </span></TD>
+                                        <TD style="WIDTH: 151px"><input name="FechaCancelacion" type="text" readonly="readonly" id="FechaCancelacion" class="textbox" /></TD>
+                                    </TR>
+                                </TABLE>
+                                <TABLE id="Table3" cellSpacing="1" cellPadding="1" width="290" border="0">
+                                    <TR>
+                                        <TD style="WIDTH: 735px" align="left"><span id="Label9" class="label">
+                                                <font color="Black">Tipo de Vehículo</font>
+                                            </span></TD>
+                                        <TD><select name="Categoria" id="Categoria" class="textbox" onChange="ChangeCategory();">
+                                                <option selected="selected" value="1">Autom&#243;vil/Jeep</option>
+                                                <option value="2">Pesados</option>
+                                                <option value="3">Camionetas</option>
+
+                                            </select></TD>
+                                        <TD style="WIDTH: 47px" align="right"><span id="Label10" class="label">
+                                                <font color="Black">Año</font>
+                                            </span></TD>
+                                        <TD><input name="Ano" type="text" id="Ano" class="textbox" /></TD>
+                                    </TR>
+                                </TABLE>
+                                <br/>
+                                <TABLE id="Table1" style="WIDTH: 290px" cellSpacing="1" cellPadding="1" border="0">
+                                    <TR>
+                                        <TD style="WIDTH: 248px" align="left"><span id="Label1" class="label">
+                                                <font color="Black">Valor del Vehículo</font>
+                                            </span></TD>
+                                        <TD style="WIDTH: 121px; HEIGHT: 23px"></TD>
+                                        <TD style="HEIGHT: 23px"></TD>
+                                    </TR>
+                                    <TR>
+                                        <TD style="WIDTH: 248px" align="left" width="248"><span id="Label2" class="label">
+                                                <font color="Black">Monto desea Financiar</font>
+                                            </span></TD>
+                                        <TD style="WIDTH: 121px"><input name="MontoFinanciar" type="text" id="MontoFinanciar" class="textbox" onblur="ChangeMontoVehiculo();" style="TEXT-ALIGN: right" /></TD>
+                                        <TD align="left"><input name="PCMontoFinanciar" type="text" value="%" readonly="readonly" id="PCMontoFinanciar" class="label" style="width: 40px; text-align: right; border: 0px;" /></TD>
+                                    </TR>
+                                    <TR>
+                                        <TD style="WIDTH: 248px" align="left" width="248"><span id="Label3" class="label">
+                                                <font color="Black">Monto del Financiamiento</font>
+                                            </span></TD>
+                                        <TD style="WIDTH: 121px"><input name="MontoFinanciamiento" type="text" readonly="readonly" id="MontoFinanciamiento" class="textbox" style="TEXT-ALIGN: right" /></TD>
+                                        <TD align="left"><input name="PCMontoFinanciamiento" type="text" value="%" readonly="readonly" id="PCMontoFinanciamiento" class="label" style="width: 40px; text-align: right; border: 0px;" /></TD>
+                                        <TR>
+                                            <TD style="WIDTH: 248px" align="left" width="248"><span id="Label4" class="label">
+                                                <font color="Black">Inicial a Pagar</font>
+                                            </span></TD>
+                                            <TD style="WIDTH: 121px"><input name="InicialPagar" type="text" readonly="readonly" id="InicialPagar" class="textbox" style="TEXT-ALIGN: right" /></TD>
+                                            <TD align="left"><input name="PCInicialPagar" type="text" value="%" readonly="readonly" id="PCInicialPagar" class="label" style="width: 40px; text-align: right; border: 0px;" /></TD>
+                                        </TR>
+                                        <TR>
+                                            <TD style="WIDTH: 248px" align="left" width="248"><span id="Label30" class="label">
+                                                <font color="Black">Pago Inmediato</font>
+                                            </span></TD>
+                                            <TD style="WIDTH: 121px"><input name="PagoInmediato" type="text" readonly="readonly" id="PagoInmediato" class="textbox" style="TEXT-ALIGN: right" /></TD>
+                                            <TD align="left"></TD>
+                                        </TR>
+                                         </TR>
+                                </TABLE>
+                                <br/>
+                                <TABLE id="Table5" style="WIDTH: 251px; HEIGHT: 82px" cellSpacing="1" cellPadding="1" width="251" border="0">
+                                    <TR>
+                                        <TD style="WIDTH: 126px"><span id="Label22" class="label">
+                                                <font color="Black">Cuota Mensual</font>
+                                            </span></TD>
+                                        <TD colSpan="3"></TD>
+                                    </TR>
+                                    <TR>
+                                        <TD style="WIDTH: 126px"><span id="Label23" class="label">
+                                                <font color="Black">Diferencia</font>
+                                            </span></TD>
+                                        <TD colSpan="3"></TD>
+                                    </TR>
+                                    <TR>
+                                        <TD style="WIDTH: 126px"><span id="Label21" class="label">
+                                                <font color="Black">Cuota con pagos Ext.</font>
+                                            </span></TD>
+                                        <TD style="WIDTH: 76px"></TD>
+                                    </TR>
+                                </TABLE>
+                            </TD>
+                            <TD style="HEIGHT: 274px" vAlign="top">
+                                <TABLE id="Table4" cellSpacing="1" cellPadding="1" width="210" border="0">
+                                    <TR>
+                                        <TD style="WIDTH: 123px" align="left"><span id="Label12" class="label">
+                                                <font color="Black">Cantidad de Cuotas</font>
+                                            </span></TD>
+                                        <TD></TD>
+                                    </TR>
+                                    <TR>
+                                        <TD style="WIDTH: 123px" align="left"><span id="Label11" class="label">
+                                                <font color="Black">Tasa de Interés</font>
+                                            </span></TD>
+                                        <TD></TD>
+                                    </TR>
+                                    <TR>
+                                        <TD style="WIDTH: 123px" align="left"><span id="Label14" class="label">
+                                                <font color="Black">Gastos Legales</font>
+                                            </span></TD>
+                                        <TD><input name="GastosInscripcion" type="text" readonly="readonly" id="GastosInscripcion" class="textbox" style="TEXT-ALIGN: right" /></TD>
+                                    </TR>
+                                    <TR>
+                                        <TD style="WIDTH: 123px" align="left"><span id="Label15" class="label">
+                                                <font color="Black">Cuota sin Seguro</font>
+                                            </span></TD>
+                                        <TD><input name="CuotaFinanciamiento" type="text" readonly="readonly" id="CuotaFinanciamiento" class="textbox" style="TEXT-ALIGN: right" />
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD class="thblock" align="left" bgColor="#e7e7f7" colSpan="2">Cuota Mensual del Seguro
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD style="WIDTH: 123px" align="left"><span id="Label17" class="label">
+                                                <font color="Black">1er. Año</font>
+                                            </span></TD>
+                                        <TD><input name="SAno1" type="text" readonly="readonly" id="SAno1" class="textbox" style="TEXT-ALIGN: right" /></TD>
+                                    </TR>
+                                    <TR>
+                                        <TD style="WIDTH: 123px" align="left"><span id="Label18" class="label">
+                                                <font color="Black">2do. Año</font>
+                                            </span></TD>
+                                        <TD><input name="SAno2" type="text" readonly="readonly" id="SAno2" class="textbox" style="TEXT-ALIGN: right" /></TD>
+                                    </TR>
+                                    <TR>
+                                        <TD style="WIDTH: 123px" align="left"><span id="Label19" class="label">
+                                                <font color="Black">3er. Año</font>
+                                            </span></TD>
+                                        <TD><input name="SAno3" type="text" readonly="readonly" id="SAno3" class="textbox" style="TEXT-ALIGN: right" /></TD>
+                                    </TR>
+                                    <TR>
+                                        <TD style="WIDTH: 123px" align="left"><span id="Label20" class="label">
+                                                <font color="Black">4to. Año</font>
+                                            </span></TD>
+                                        <TD><input name="SAno4" type="text" readonly="readonly" id="SAno4" class="textbox" style="TEXT-ALIGN: right" /></TD>
+                                    </TR>
+                                    <TR>
+                                        <TD style="WIDTH: 123px" align="left"><span id="Label29" class="label">
+                                                <font color="Black">5to. Año</font>
+                                            </span></TD>
+                                        <TD><input name="SAno5" type="text" readonly="readonly" id="SAno5" class="textbox" style="TEXT-ALIGN: right" /></TD>
+                                    </TR>
+                                </TABLE>
+                            </TD>
+                            </TR>
+                            <TR>
+                                <TD vAlign="top" align="center" width="3%" colSpan="2">
+                                </TD>
+                            </TR>
+                    </TABLE>
+
+                    <input type="button" value="CALCULAR" onclick="ChangeMontoVehiculo()"/>
+
+
+
+
+
+
+                  <section class="resultado calculator">
+
+                        <div class="result-option">
+                            <h4>Seguro deudor</h4>
+                            <input name="SeguroDeudor1" disabled="1" type="text" readonly="readonly" id="SeguroDeudor1" class="textbox campoTexto50"/>
+                        <span class="alert f-right">Aplica solo hasta RD$3,000,000.00</span>
+                        </div>
+                                                
+                        <div class="result-option">
+                            <h4>Cuota mensual</h4>
+                            <input name="CuotaFinanciamientoTradicional" disabled="1" type="text" readonly="readonly" id="CuotaFinanciamientoTradicional" class="textbox campoTexto50" DESIGNTIMEDRAGDROP="2629"/>
+                        </div>
+                        <div class="result-option">
+                            <h4>Cuota cómoda</h4>
+                            <input name="CuotaPagosExtraordinarios" disabled="1" type="text" readonly="readonly" id="CuotaPagosExtraordinarios" class="textbox campoTexto50"/>
+                        </div>
+                        <div class="result-option">
+                            <h4>Diferencia</h4>
+                            <input name="Diferencia" type="text" disabled="1" readonly="readonly" id="Diferencia" class="textbox campoTexto50"/>
+                        </div>
+                        <div class="result-option">
+                            <h4>Límite anual de pagos extraordinarios</h4>
+                            <input name="LimiteAnualFinanciamiento" disabled="1" type="text" readonly="readonly" id="LimiteAnualFinanciamiento" class="textbox campoTexto50"/>
+                        </div>
+
+
+
+
+                    </section>
+
+                    
+                    
+                </form>
+               
+
+                 <form name="CalcForm2" id="CalcForm2" onsubmit="return false">
+                    <div class="info-extra">
+
+                        <section class="extraordinarios" id="extraordinarios">
+                            <div class="info-container">
+                                <h3>Pagos extraordinarios</h3>
+
+                                <div class="table-container">
+                                    <TABLE id="Table6">
+                                        <!-- <script>
+                                            //NEORIS: Se valida si el tipo es diferente a Extracrédito, mostrar los pagos extraordinarios.
+                                            if (tipo == "4") {
+                                                document.getElementById("Table6").style.display = "none";
+                                            }
+                                        </script> -->
+                                        <thead>
+                                            <TR>
+                                                <th>
+                                                    Fecha
+                                                    <th>
+                                                        Monto Extraordinario
+                                                    </th>
+                                                    <th>
+                                                        Monto Cuota
+                                                    </th>
+                                                    <th align="center"></th>
+                                                    </th>
+                                            </TR>
+                                        </thead>
+                                        <TR>
+                                            <TD>
+                                                <select name="DateSelector" id="DateSelector" class="textbox" onChange="ChangeDateSelector();">
+                                                
+                                                <!-- <select name="DateSelector" id="DateSelector" class="textbox" onchange="ChangeDateSelector();"><option value="7/1/2021">Julio - 2021</option><option value="8/1/2021">Agosto - 2021</option><option value="9/1/2021">Septiembre - 2021</option><option value="10/1/2021">Octubre - 2021</option><option value="11/1/2021">Noviembre - 2021</option><option value="12/1/2021">Diciembre - 2021</option><option value="1/1/2022">Enero - 2022</option><option value="2/1/2022">Febrero - 2022</option><option value="3/1/2022">Marzo - 2022</option><option value="4/1/2022">Abril - 2022</option><option value="5/1/2022">Mayo - 2022</option><option value="6/1/2022">Junio - 2022</option><option value="7/1/2022">Julio - 2022</option><option value="8/1/2022">Agosto - 2022</option><option value="9/1/2022">Septiembre - 2022</option><option value="10/1/2022">Octubre - 2022</option><option value="11/1/2022">Noviembre - 2022</option><option value="12/1/2022">Diciembre - 2022</option><option value="1/1/2023">Enero - 2023</option><option value="2/1/2023">Febrero - 2023</option><option value="3/1/2023">Marzo - 2023</option><option value="4/1/2023">Abril - 2023</option><option value="5/1/2023">Mayo - 2023</option><option value="6/1/2023">Junio - 2023</option><option value="7/1/2023">Julio - 2023</option><option value="8/1/2023">Agosto - 2023</option><option value="9/1/2023">Septiembre - 2023</option><option value="10/1/2023">Octubre - 2023</option><option value="11/1/2023">Noviembre - 2023</option><option value="12/1/2023">Diciembre - 2023</option><option value="1/1/2024">Enero - 2024</option><option value="2/1/2024">Febrero - 2024</option><option value="3/1/2024">Marzo - 2024</option><option value="4/1/2024">Abril - 2024</option><option value="5/1/2024">Mayo - 2024</option><option value="6/1/2024">Junio - 2024</option><option value="7/1/2024">Julio - 2024</option><option value="8/1/2024">Agosto - 2024</option><option value="9/1/2024">Septiembre - 2024</option><option value="10/1/2024">Octubre - 2024</option><option value="11/1/2024">Noviembre - 2024</option><option value="12/1/2024">Diciembre - 2024</option><option value="1/1/2025">Enero - 2025</option><option value="2/1/2025">Febrero - 2025</option><option value="3/1/2025">Marzo - 2025</option><option value="4/1/2025">Abril - 2025</option><option value="5/1/2025">Mayo - 2025</option><option value="6/1/2025">Junio - 2025</option><option value="7/1/2025">Julio - 2025</option><option value="8/1/2025">Agosto - 2025</option><option value="9/1/2025">Septiembre - 2025</option><option value="10/1/2025">Octubre - 2025</option><option value="11/1/2025">Noviembre - 2025</option><option value="12/1/2025">Diciembre - 2025</option><option value="1/1/2026">Enero - 2026</option><option value="2/1/2026">Febrero - 2026</option><option value="3/1/2026">Marzo - 2026</option><option value="4/1/2026">Abril - 2026</option><option value="5/1/2026">Mayo - 2026</option><option value="6/1/2026">Junio - 2026</option></select> -->
+
+
+                                                </select>
+                                            </TD>
+                                            <TD><input name="ExtraPay" type="text" id="ExtraPay" class="textbox" onblur="ChangeExtraPay();" />
+                                            </TD>
+                                            <TD><input name="ExtraCuota" type="text" readonly="readonly" id="ExtraCuota" class="textbox" />
+                                            </TD>
+                                            <TD></TD>
+                                        </TR>
+                                        <TR>
+                                            <TD><input name="DateSelector2" type="text" readonly="readonly" id="DateSelector2" class="textbox" style="border:none; background-color:#e2ded7; color:#57423a; text-align:left; width:95%; height:25px; margin-left:2.5%; margin-bottom:2.5%; margin-top:2px; margin-bottom:2px; padding:0px;"
+                                                />
+                                            </TD>
+                                            <TD><input name="ExtraPay2" type="text" readonly="readonly" id="ExtraPay2" class="textbox" />
+                                            </TD>
+                                            <TD><input name="ExtraCuota2" type="text" readonly="readonly" id="ExtraCuota2" class="textbox" />
+                                            </TD>
+                                            <TD><span class="" onClick="ChangeExtraPay();" style="width:80px; float:left; height:20px; font-size:12px; color:#57423a"><input
+                                                        id="Extra2" type="checkbox" name="Extra2" /><label for="Extra2" class=""
+                                                        style="margin-left:1px; margin-right:1px;">Pagar</label></span></TD>
+                                        </TR>
+                                        <TR>
+                                            <TD><input name="DateSelector3" type="text" readonly="readonly" id="DateSelector3" class="textbox" style="border:none; background-color:#e2ded7; color:#57423a; text-align:left; width:95%; height:25px; margin-left:2.5%; margin-bottom:2.5%; margin-top:2px; margin-bottom:2px; padding:0px;"
+                                                />
+                                            </TD>
+                                            <TD><input name="ExtraPay3" type="text" readonly="readonly" id="ExtraPay3" class="textbox" />
+                                            </TD>
+                                            <TD><input name="ExtraCuota3" type="text" readonly="readonly" id="ExtraCuota3" class="textbox" />
+                                            </TD>
+                                            <TD><span class="" onClick="ChangeExtraPay();" style="width:80px; float:left; height:20px; font-size:12px; color:#57423a"><input
+                                                        id="Extra3" type="checkbox" name="Extra3" /><label for="Extra3" class=""
+                                                        style="margin-left:1px; margin-right:1px;">Pagar</label></span></TD>
+                                        </TR>
+                                        <TR>
+                                            <TD><input name="DateSelector4" type="text" readonly="readonly" id="DateSelector4" class="textbox" style="border:none; background-color:#e2ded7; color:#57423a; text-align:left; width:95%; height:25px; margin-left:2.5%; margin-bottom:2.5%; margin-top:2px; margin-bottom:2px; padding:0px;"
+                                                />
+                                            </TD>
+                                            <TD><input name="ExtraPay4" type="text" readonly="readonly" id="ExtraPay4" class="textbox" />
+                                            </TD>
+                                            <TD><input name="ExtraCuota4" type="text" readonly="readonly" id="ExtraCuota4" class="textbox" />
+                                            </TD>
+                                            <TD><span class="" onClick="ChangeExtraPay();"><input
+                                                        id="Extra4" type="checkbox" name="Extra4" /><label for="Extra4" class=""
+                                                        >Pagar</label></span></TD>
+                                        </TR>
+                                        <!--
+                                <TR>
+                                    <TD style="WIDTH: 124px"><input name="DateSelector5" type="text" readonly="readonly" id="DateSelector5" class="textbox" /></TD>
+                                    <TD style="WIDTH: 153px" align="middle"><input name="ExtraPay5" type="text" readonly="readonly" id="ExtraPay5" class="textbox" style="TEXT-ALIGN: right" /></TD>
+                                    <TD style="WIDTH: 134px"><input name="ExtraCuota5" type="text" readonly="readonly" id="ExtraCuota5" class="textbox" style="TEXT-ALIGN: right" /></TD>
+                                    <TD><span class="label"><input id="Extra5" type="checkbox" name="Extra5" /><label for="Extra5">Pagar</label></span></TD>
+                                </TR>
+                                -->
+                                    </TABLE>
+                                </div>
+
+                            </div>
+
+
+                            <img class="chevron" src="/elearning_features/static/src/img/chevron-down.svg" alt="chevron-down"/>
+
+
+                            <!--  <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Monto extraordinario</th>
+                                        <th>Monto cuota</th>
+                                    </tr>
+                                </thead>
+    
+                                <tbody>
+                                    <tr>
+                                        <td>Lorem, ipsum.</td>
+                                        <td>Lorem, ipsum.</td>
+                                        <td>Lorem, ipsum.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lorem, ipsum.</td>
+                                        <td>Lorem, ipsum.</td>
+                                        <td>Lorem, ipsum.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lorem, ipsum.</td>
+                                        <td>Lorem, ipsum.</td>
+                                        <td>Lorem, ipsum.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lorem, ipsum.</td>
+                                        <td>Lorem, ipsum.</td>
+                                        <td>Lorem, ipsum.</td>
+                                    </tr>
+                                </tbody>
+    
+                            </table>-->
+                        </section>
+                        <section class="detallado" id="detallado">
+                            <div class="info-container">
+
+                                <h3>Resumen detallado</h3>
+                                <!-- <div id="DetalleResumido" style="DISPLAY: none; overflow-x:scroll; width:100%;"> -->
+                                <div class="table-container">
+                                    <table>
+                                        <tr>
+                                            <th class="thblock" colSpan="6" style="text-align:center;">
+                                                Detalle Resumido</th>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                            </th>
+                                            <th bgcolor="#000066">
+                                                <font color="#ffffff">1er año</font>
+                                            </th>
+                                            <th bgcolor="#000066">
+                                                <font color="#ffffff">2do año</font>
+                                            </th>
+                                            <th bgcolor="#000066">
+                                                <font color="#ffffff">3er año</font>
+                                            </th>
+                                            <th bgcolor="#000066">
+                                                <font color="#ffffff">4to año</font>
+                                            </th>
+                                            <th bgcolor="#000066">
+                                                <font color="#ffffff">5to año</font>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">Financiamiento:</td>
+                                            <td>
+                                                <input name="cf01" id="cf01" class="bo" type="text" readonly="1"/>
+                                            </td>
+                                            <td>
+                                                <input name="cf02" id="cf02" class="bo" type="text" readonly="1"/>
+                                            </td>
+                                            <td>
+                                                <input name="cf03" id="cf043" class="bo" type="text" readonly="1"/>
+                                            </td>
+                                            <td>
+                                                <input name="cf04" id="cf04" class="bo" type="text" readonly="1"/>
+                                            </td>
+                                            <td>
+                                                <input name="cf05" id="cf05" class="bo" type="text" readonly="1"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">Cuota Seguro:</td>
+                                            <td>
+                                                <input name="cs01" id="cs01" class="bo" type="text" readonly="1"/>
+                                            </td>
+                                            <td>
+                                                <input name="cs02" id="cs02" class="bo" type="text" readonly="1"/>
+                                            </td>
+                                            <td>
+                                                <input name="cs03" id="cs03" class="bo" type="text" readonly="1"/>
+                                            </td>
+                                            <td>
+                                                <input name="cs04" id="cs04" class="bo" type="text" readonly="1"/>
+                                            </td>
+                                            <td>
+                                                <input name="cs05" id="cs05" class="bo" type="text" readonly="1"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right">Total a Pagar:</td>
+                                            <td>
+                                                <input name="tp01" id="tp01" class="bo" type="text" readonly="1"/>
+                                            </td>
+                                            <td>
+                                                <input name="tp02" id="tp02" class="bo" type="text" readonly="1"/>
+                                            </td>
+                                            <td>
+                                                <input name="tp03" id="tp03" class="bo" type="text" readonly="1"/>
+                                            </td>
+                                            <td>
+                                                <input name="tp04" id="tp04" class="bo" type="text" readonly="1"/>
+                                            </td>
+                                            <td>
+                                                <input name="tp05" id="tp05" class="bo" type="text" readonly="1"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                            <img class="chevron" src="/elearning_features/static/src/img/chevron-down.svg" alt="chevron-down"/>
+
+                            <!-- </div> -->
+                    
+                        <!-- <div id="DetalleResumido" style="DISPLAY: none; overflow-x:scroll; width:100%;">
+                            <br/>
+                            <table>
+                                <tr>
+                                    <th class="thblock" colSpan="6" style="text-align:center;">
+                                        Detalle Resumido</th>
+                                </tr>
+                                <tr>
+                                    <th>
+                                    </th>
+                                    <th bgcolor="#000066">
+                                        <font color="#ffffff">1er año</font>
+                                    </th>
+                                    <th bgcolor="#000066">
+                                        <font color="#ffffff">2do año</font>
+                                    </th>
+                                    <th bgcolor="#000066">
+                                        <font color="#ffffff">3er año</font>
+                                    </th>
+                                    <th bgcolor="#000066">
+                                        <font color="#ffffff">4to año</font>
+                                    </th>
+                                    <th bgcolor="#000066">
+                                        <font color="#ffffff">5to año</font>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td align="right">Financiamiento:</td>
+                                    <td>
+                                        <input name="cf01" class="bo" type="text" readonly="1"/>
+                                    </td>
+                                    <td>
+                                        <input name="cf02" class="bo" type="text" readonly="1"/>
+                                    </td>
+                                    <td>
+                                        <input name="cf03" class="bo" type="text" readonly="1"/>
+                                    </td>
+                                    <td>
+                                        <input name="cf04" class="bo" type="text" readonly="1"/>
+                                    </td>
+                                    <td>
+                                        <input name="cf05" class="bo" type="text" readonly="1"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">Cuota Seguro:</td>
+                                    <td>
+                                        <input name="cs01" class="bo" type="text" readonly="1"/>
+                                    </td>
+                                    <td>
+                                        <input name="cs02" class="bo" type="text" readonly="1"/>
+                                    </td>
+                                    <td>
+                                        <input name="cs03" class="bo" type="text" readonly="1"/>
+                                    </td>
+                                    <td>
+                                        <input name="cs04" class="bo" type="text" readonly="1"/>
+                                    </td>
+                                    <td>
+                                        <input name="cs05" class="bo" type="text" readonly="1"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">Total a Pagar:</td>
+                                    <td>
+                                        <input name="tp01" class="bo" type="text" readonly="1"/>
+                                    </td>
+                                    <td>
+                                        <input name="tp02" class="bo" type="text" readonly="1"/>
+                                    </td>
+                                    <td>
+                                        <input name="tp03" class="bo" type="text" readonly="1"/>
+                                    </td>
+                                    <td>
+                                        <input name="tp04" class="bo" type="text" readonly="1"/>
+                                    </td>
+                                    <td>
+                                        <input name="tp05" class="bo" type="text" readonly="1"/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br/>
+                        </div> -->
+
+                            </section>
+
+                    </div>
+                </form>
+                
+            </main>
+            
+               <!-- ########################### SECCION ASIDE ########################### -->
+            <aside class="aside calculator">
+                <section class="video">
+              <!--      Video comentado
+                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/ouIi90VRNfo?list=PLt39WTGH5y0i2clwSrDxgaEJ_4o-pvQib" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen="1"></iframe>-->
+                </section>
+
+                <section class="terminos">
+                    <div class="glosario-title">
+                        <h3>Glosario de términos</h3>
+                        <img class="chevron" src="/elearning_features/static/src/img/chevron-down.svg" alt="chevron-down"/>
+                    </div>
+
+                    <ul>
+                        <li class="item">
+                            <h4>Monto del préstamo</h4>
+                            <p>Cantidad de dinero solicitado por cliente.</p>
+                        </li>
+                        <li class="item">
+                            <h4>Cantidad de cuotas mensuales</h4>
+                            <p>Es la cantidad de pagos en que el cliente se compromete saldar la deuda contraída en calidad de préstamo.</p>
+                        </li>
+                        <li class="item">
+                            <h4>Tasa de interés anual</h4>
+                            <p>Es el costo a pagar por el capital prestado.</p>
+                        </li>
+                        <li class="item">
+                            <h4>Seguro deudor</h4>
+                            <p>Seguro que cubre el préstamo o en caso de pérdida involuntaria del empleo. El cliente recibirá durante cuatro (4) meses el pago de la cuota mensual de su préstamo, en la eventualidad de una perdida involuntaria del empleo.</p>
+                        </li>
+                        <li class="item">
+                            <h4>Pagos extraordinarios</h4>
+                            <p>Selección de fechas y montos para programar pagos a capital antes del desembolso. Una cuota extraordinaria por año, hasta un máximo de cuatro cuotas por la vigencia del préstamo, las mismas deberán ser iguales y consecutivas
+                                en un período no mayor a 12 meses para la primera cuota.</p>
+                            <br/>
+                            <p>El monto acorrespondiente a pagos extraordinarios a realizar nunca deberá exceder el 40% del monto a financiar.</p>
+                        </li>
+                    </ul>
+                </section>
+
+             <section class="publicidad">
+                    <a href="https://www.popularenlinea.com/finanzasconproposito"> <img width="300" src="/elearning_features/static/src/img/banners/banners-publicitarios/ANUNCIO-300X250.jpg" alt=""/> </a>
+                </section>
+            </aside>
+
+
+
+            <!-- ########################### SECCION LISTA DE PRODUCTOS ########################### -->
+            <section class="productos calculator cal-pre-pers">
+                <section class="section-header">
+                    <h3>Productos relacionados</h3>
+                    <hr/>
+                </section>
+
+                <section class="list-items">
+                    <div class="item">
+                        <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos"/>
+                        <h4>Portafolio de cursos</h4>
+                        <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+
+                        <div class="item-options">
+                            <a class="btn btn-azul" href="#">Solicita</a>
+                            <a class="more-btn" href="#">
+                                <!-- Flecha apuntando a la derecha -->
+                                Conocer más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos"/>
+                        <h4>Portafolio de cursos</h4>
+                        <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+
+                        <div class="item-options">
+                            <a class="btn btn-azul" href="#">Solicita</a>
+                            <a class="more-btn" href="#">
+                                <!-- Flecha apuntando a la derecha -->
+                                Conocer más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos"/>
+                        <h4>Portafolio de cursos</h4>
+                        <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+
+                        <div class="item-options">
+                            <a class="btn btn-azul" href="#">Solicita</a>
+                            <a class="more-btn" href="#">
+                                <!-- Flecha apuntando a la derecha -->
+                                Conocer más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos"/>
+                        <h4>Portafolio de cursos</h4>
+                        <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+
+                        <div class="item-options">
+                            <a class="btn btn-azul" href="#">Solicita</a>
+                            <a class="more-btn" href="#">
+                                <!-- Flecha apuntando a la derecha -->
+                                Conocer más
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+        </div>
+    </div>
+
+
+                <script>
+
+<!--                    document.forms['CalcForm'].elements['FechaDesembolso'].value = getDateValue(new Date());-->
+    
+                </script>
+
+<!--                 <script src="/elearning_features/static/src/js/calculadoras_personales.js"></script>-->
+                 <!-- <script src="/elearning_features/static/src/js/calculadoras.js"></script> -->
+
+                  <script>
+                    <!-- ChangeDateSelector() -->
+                   
+                    <!-- loadpage -->
+                </script>
+          
+
+            </div>
+
+        </t>
+    </template>
+
+
+        <!-- Main Calculators Prestamos Page Template -->
+    <template id="calculator_fondo_emergencia" name="Calculadora: Fondo de Emergencia">
+        <t t-call="website.layout">
+
+            <t t-set="pageName" t-value="'Calculadoras: Fondo de Emergencia'" />
+            <div id="wrap" class="oe_structure oe_empty">
+
+         
+            <!--<link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/cal-generic.css"/>
+               <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/app.css"/>  -->
+            <!-- <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/calculadoras_fondo_de_emergencia.css"/> -->
+
+                <!-- <link rel="stylesheet" type="text/css" href="/elearning_features/static/src/css/calculadoras_fondo_de_emergencia.css"/> -->
+
+                        <!-- ######################### BANNER - HEADER  ##################### -->
+             
+              <section class="banner-global banner-calculator" style="background-image: url(/elearning_features/static/src/img/calculadoras/banner-FCP-academia-CALCULADORAS.jpg);">
+                <div class="container">
+                    <h1>CALCULADORA DE FONDOS DE EMERGENCIA</h1>
+                    <h2>Tienes la oportunidad de estar preparado o hacer frente ante situaciones imprevistas. Un fondo de emergencia es un colchón financiero que permitirá estar preparado ante cualquier cambio no esperado. El principal uso de un fondo de emergencia está relacionado a imprevistos de salud, pérdida laboral y transportación.</h2>
+                </div>
+            </section>
+
+                <!-- ########################### HEADER BAR ########################### -->
+                  <section class="header-bar bar-calculator">
+                <div class="container ">
+                    <span class="goback"><a href="#"><img src="/elearning_features/static/src/img/arrow-pointing-to-right.png"/>
+                            Volver atrás</a></span>
+                    <select id="categoria" name="categoria">
+                        <option>Préstamos personales</option>
+                        <option>Inversión</option>
+                        <option selected="1">Fondos de emergencia</option>
+                        <option>Meta de ahorro</option>
+                        <option>Plan de retiro</option>
+                    </select>
+                </div>
+            </section>
+
+              <!-- ########################### SECCION DEL MAIN ########################### -->
+    <div class="full-container">
+        <div class="container calculator">
+
+            <section class="section-header calculator">
+                        <p class="p-calculator">Contar con un fondo de emergencia significa tener reservado de 3 a 6 meses tus gastos esenciales y su finalidad es ser utilizado ante los imprevistos mencionados. <br/>
+                            Con esta calculadora te ayudamos a conocer cuánto debes tener ahorrado como fondo de emergencia, este monto será tu primera meta de ahorro y lo defines de acuerdo a tus gastos esenciales o más importantes mensuales.
+                        </p>
+            </section>
+
+
+            
+
+            <main class="main">
+                <div class="image-side">
+                    <img src="https://picsum.photos/320/440" alt="image-side"/>
+                </div>
+                <form class="calculator formularioUno" action="#" method="get">
+                    <div class="form1">
+
+                        <section class="form-section">
+                            <h4>Ingreso neto</h4>
+                            <input type="text" name="ingreso" id="ingreso" class="input-text" onChange="formatNumericoFe('a')" onkeydown="return numberValidator(event, true)"/>
+                        </section>
+
+                        <section class="form-section">
+                            <h4>Alimentación</h4>
+                            <input type="text" name="alimentacion" id="alimentacion" class="input-text" onChange="formatNumericoFe('b')" onkeydown="return numberValidator(event, true)"/>
+                        </section>
+
+                        <section class="form-section">
+                            <h4>Vivienda</h4>
+                            <input type="text" name="vivienda" id="vivienda" class="input-text" onChange="formatNumericoFe('c')" onkeydown="return numberValidator(event, true)"/>
+                        </section>
+
+                        <section class="form-section">
+                            <h4>Servicios básicos</h4>
+                            <input type="text" name="servicio_basico" id="servicio_basico" class="input-text" onChange="formatNumericoFe('d')" onkeydown="return numberValidator(event, true)"/>
+                        </section>
+
+                        <section class="form-section">
+                            <h4>Educación</h4>
+                            <input type="text" name="educacion" id="educacion" class="input-text" onChange="formatNumericoFe('e')" onkeydown="return numberValidator(event, true)"/>
+                        </section>
+
+                        <section class="form-section">
+                            <h4>Transporte</h4>
+                            <input type="text" name="transporte" id="transporte" class="input-text" onChange="formatNumericoFe('f')" onkeydown="return numberValidator(event, true)"/>
+                        </section>
+
+                        <section class="form-section">
+                            <h4>Salud</h4>
+                            <input type="text" name="salud" id="salud" class="input-text" onChange="formatNumericoFe('g')" onkeydown="return numberValidator(event, true)"/>
+                        </section>
+
+                        <section class="form-section">
+                            <h4>Seguros</h4>
+                            <input type="text" name="seguros" id="seguros" class="input-text" onChange="formatNumericoFe('h')" onkeydown="return numberValidator(event, true)"/>
+                        </section>
+
+                        
+                    </div>
+                    
+                    <input type="button" value="CALCULAR" onclick="calcularFondos()"/>
+                    
+                    <section class="resultado calculator">
+                        <h4 class="font-bold">Gastos mensuales</h4>
+                        <input type="text" name="gasto_mensual" id="gasto_mensual" class="input-text" disabled="1"/>
+
+                        <h4 class="font-bold">Fondo de emergencia básico</h4>
+                        <input type="text" name="fondo_basico" id="fondo_basico" class="input-text" disabled="1"/>
+
+                        <h4 class="font-bold">Fondo de emergencia robusto</h4>
+                        <input type="text" name="fondo_robusto" id="fondo_robusto" class="input-text" disabled="1"/>
+                    </section>
+                </form>
+
+            </main>
+
+
+
+             <!-- ########################### SECCION ASIDE ########################### -->
+            <aside class="aside calculator">
+                <section class="video">
+                  <!--  Video comentado
+                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/ouIi90VRNfo?list=PLt39WTGH5y0i2clwSrDxgaEJ_4o-pvQib" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen="1"></iframe>-->
+                </section>
+
+                <!-- <section class="terminos">
+                    <h3>Glosario de términos</h3>
+
+                    <div class="item">
+                        <h4>Monto de préstamos</h4>
+                                       <p>Cantidad de dinero solicitado por cliente.</p>
+                    </div>
+
+                    <div class="item">
+                         <h4>Cantidad de cuotas mensuales</h4>
+                       <p>Es la cantidad de pagos en que el cliente se compromete saldar la deuda contraída en calidad de préstamo.</p>
+                    </div>
+
+                    <div class="item">
+                            <h4>Tasa de interés anual</h4>
+                            <p>Es el costo a pagar por el capital prestado.</p>
+                    </div>
+
+                    <div class="item">
+                                   <h4>Seguro deudor</h4>
+                            <p>Seguro que cubre el préstamo o en caso de pérdida involuntaria del empleo. El cliente recibirá durante cuatro (4) meses el pago de la cuota mensual de su préstamo, en la eventualidad de una perdida involuntaria del empleo.</p>
+                    </div>
+
+                    <div class="item">
+                        <h4>Pagos extraordinarios</h4>
+                            <p>Selección de fechas y montos para programar pagos a capital antes del desembolso. Una cuota extraordinaria por año, hasta un máximo de cuatro cuotas por la vigencia del préstamo, las mismas deberán ser iguales y consecutivas
+                                en un período no mayor a 12 meses para la primera cuota.</p>
+                            <br/>
+                            <p>El monto acorrespondiente a pagos extraordinarios a realizar nunca deberá exceder el 40% del monto a financiar.</p>
+                    </div>
+                </section> -->
+
+             <section class="publicidad">
+                    <a href="https://www.popularenlinea.com/finanzasconproposito"> <img width="300" src="/elearning_features/static/src/img/banners/banners-publicitarios/ANUNCIO-300X250.jpg" alt=""/> </a>
+                </section>
+            </aside>
+
+            <!-- ########################### SECCION LISTA DE PRODUCTOS ########################### -->
+            <section class="productos calculator">
+                <section class="section-header">
+                    <h3>Productos relacionados</h3>
+                    <hr/>
+                </section>
+
+                <section class="list-items">
+                    <div class="item">
+                        <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos"/>
+                        <h4>Portafolio de cursos</h4>
+                        <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+
+                        <div class="item-options">
+                            <a class="btn btn-azul" href="#">Solicita</a>
+                            <a class="more-btn" href="#">
+                                <!-- Flecha apuntando a la derecha -->
+                              Conocer más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos"/>
+                        <h4>Portafolio de cursos</h4>
+                        <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+
+                        <div class="item-options">
+                            <a class="btn btn-azul" href="#">Solicita</a>
+                            <a class="more-btn" href="#">
+                                <!-- Flecha apuntando a la derecha -->
+                              Conocer más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos"/>
+                        <h4>Portafolio de cursos</h4>
+                        <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+
+                        <div class="item-options">
+                            <a class="btn btn-azul" href="#">Solicita</a>
+                            <a class="more-btn" href="#">
+                                <!-- Flecha apuntando a la derecha -->
+                              Conocer más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="/elearning_features/static/src/img/calculadoras/icon-productos.png" alt="Icono de graficos"/>
+                        <h4>Portafolio de cursos</h4>
+                        <p>Aprende al buen manejo de tus finanzas con cursos en lÍnea dedicados a empoderar tus conocimiento de las finanzas personales.</p>
+
+                        <div class="item-options">
+                            <a class="btn btn-azul" href="#">Solicita</a>
+                            <a class="more-btn" href="#">
+                                <!-- Flecha apuntando a la derecha -->
+                              Conocer más
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+        </div>
+    </div>
+                    
+
+<!--                <script src="/elearning_features/static/src/js/calculadoras_fondo_emergencia.js"></script>-->
+
+
+             </div>
+        </t>
+    </template>
+
+
+
+
+
+    <!-- Publish the template on the website -->
+    <record id="calculator_page_metas_de_ahorro" model="website.page">
+        <field name="website_published">True</field>
+        <field name="url">/calculadora_metas_de_ahorro</field>
+        <field name="view_id" ref="calculator_metas_de_ahorro" />
+    </record>
+
+    <record id="calculator_page_pension" model="website.page">
+        <field name="website_published">True</field>
+        <field name="url">/calculadora_pension</field>
+        <field name="view_id" ref="calculator_pension" />
+    </record>
+
+    <record id="calculator_page_certificado" model="website.page">
+        <field name="website_published">True</field>
+        <field name="url">/calculadora_certificado</field>
+        <field name="view_id" ref="calculator_certificado" />
+    </record>
+
+    <record id="calculator_page_prestamos_personales" model="website.page">
+        <field name="website_published">True</field>
+        <field name="url">/calculadora_prestamos_personales</field>
+        <field name="view_id" ref="calculator_prestamos_personales" />
+    </record>
+
+    <record id="calculator_page_calculator_fondo_emergencia" model="website.page">
+        <field name="website_published">True</field>
+        <field name="url">/calculadora_fondo_emergencia</field>
+        <field name="view_id" ref="calculator_fondo_emergencia" />
+    </record>
+
+
+</odoo>
+
+
+<!--                     <div class="selects_fix">-->
+<!--                                <select id="etapas" name="etapas" onchange="if (this.value) window.location.href=this.value">-->
+<!--                                  <option t-att-value="'/slides/all?channel_tag_group_id_2='+str(channel_tag_group_id_2) " t-att-selected="channel_tag_group_id_1 == False">Ejes educativos</option>-->
+<!--                                  <option t-att-value="'/slides/all?channel_tag_group_id_1=19&amp;channel_tag_group_id_2='+str(channel_tag_group_id_2)" t-att-selected="channel_tag_group_id_1 == '19'">Mi primera experiencia financiera</option>-->
+<!--                                  <option t-att-value="'/slides/all?channel_tag_group_id_1=20&amp;channel_tag_group_id_2='+str(channel_tag_group_id_2)" t-att-selected="channel_tag_group_id_1 == '20'">Finanzas sostenibles</option>-->
+<!--                                  <option t-att-value="'/slides/all?channel_tag_group_id_1=10&amp;channel_tag_group_id_2='+str(channel_tag_group_id_2)" t-att-selected="channel_tag_group_id_1 == '10'">Hacer crecer mi negocio</option>-->
+<!--                                  <option t-att-value="'/slides/all?channel_tag_group_id_1=17&amp;channel_tag_group_id_2='+str(channel_tag_group_id_2)" t-att-selected="channel_tag_group_id_1 == '17'">Crear riquezas con proposito</option>-->
+<!--                                  <option t-att-value="'/slides/all?channel_tag_group_id_1=8&amp;channel_tag_group_id_2='+str(channel_tag_group_id_2)" t-att-selected="channel_tag_group_id_1 == '8'">Planifica mis finanzas familiares</option>-->
+<!--                                  <option t-att-value="'/slides/all?channel_tag_group_id_1=7&amp;channel_tag_group_id_2='+str(channel_tag_group_id_2)" t-att-selected="channel_tag_group_id_1 == '7'">Transformar mis finanzas personales</option>-->
+<!--                                </select>-->
+<!--                              </div>-->
+
+
+<!--                          <div class="selects_fix">-->
+<!--                            <select id="nivel" name="nivel" onchange="if (this.value) window.location.href=this.value">-->
+<!--                            <option t-att-value="'/slides/all?channel_tag_group_id_1='+str(channel_tag_group_id_1)" t-att-selected="channel_tag_group_id_2 == False" >Nivel</option>-->
+<!--                              <option t-att-value="'/slides/all?channel_tag_group_id_2=1&amp;channel_tag_group_id_1='+str(channel_tag_group_id_1)" t-att-selected="channel_tag_group_id_2 == '1'">Básico</option>-->
+<!--                              <option t-att-value="'/slides/all?channel_tag_group_id_2=21&amp;channel_tag_group_id_1='+str(channel_tag_group_id_1)" t-att-selected="channel_tag_group_id_2 == '21'">Intermedio</option>-->
+<!--                              <option t-att-value="'/slides/all?channel_tag_group_id_2=11&amp;channel_tag_group_id_1='+str(channel_tag_group_id_1)" t-att-selected="channel_tag_group_id_2 == '11'">Avanzado</option>-->
+<!--                            </select>-->
+<!--                          </div>-->

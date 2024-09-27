@@ -1,0 +1,751 @@
+/* #################### BANNERS DEL HEADER #################### */
+
+.banner-header {
+    height: 370px;
+    background: url(/elearning_features/static/src/img/banner-FCP-academia-3.jpg);
+}
+
+.carousel {
+    height: 370px;
+}
+
+.carousel-inner img {
+    height: 370px;
+    object-fit: cover;
+}
+
+.banner-header {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 0px 2px 0px #cccccc9e;
+}
+
+.banner-header .container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.banner-header .container h1,
+.banner-header .container h1 span {
+    font-weight: 900;
+    font-style: italic;
+}
+
+.banner-header .container h1 {
+    max-width: 450px;
+    ;
+}
+
+.banner-header .container h1 {
+    color: var(--entremar-4);
+    font-size: 38px;
+    font-weight: 500;
+}
+
+.banner-header .container h1 span {
+    color: var(--entremar-4);
+    font-size: 38px;
+    font-weight: 300;
+}
+
+
+/* #################### SECCION DE EMPODERA TUS FINANZAS #################### */
+
+.empodera {
+    padding: 65px 0;
+}
+
+.empodera .container .head {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.empodera .container .head h3 {
+    margin-bottom: 10px;
+}
+
+.empodera .container .head p {
+    font-size: 14px;
+}
+
+.empodera .container .body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.empodera .container .body .item {
+    text-align: center;
+    max-width: 330px;
+}
+
+.empodera .container .body .item p,
+.empodera .container .body .item h4,
+.empodera .container .body .item img {
+    margin-bottom: 10px;
+}
+
+.empodera .container .body .item h4 {
+    font-weight: 500;
+}
+
+.empodera .container .body .item:first-of-type img {
+    transform: translate(10px, 0px);
+}
+
+.empodera .image-icon {
+    height: 65px;
+}
+
+
+/* #################### SECCION BANNER FINANZAS #################### */
+
+.banner-finanzas {
+    height: 330px;
+    background-image: url(../img/home/Banner-Curso-v-solo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center right;
+}
+
+.banner-finanzas .container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.banner-finanzas .container .content {
+    width: 600px;
+    letter-spacing: 0.3px;
+}
+
+.banner-finanzas .container .content .banner-date {
+    color: var(--mamey);
+    font-size: 16px;
+    font-style: italic;
+    display: inline-block;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.banner-finanzas .container .content h3 {
+    color: white;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.banner-finanzas .container .content p {
+    color: white;
+    font-size: 14px;
+    line-height: 19px;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.banner-finanzas .container .content .banner-orador {
+    color: var(--mamey);
+    font-style: italic;
+    margin-bottom: 25px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.banner-finanzas .container .content .banner-orador span {
+    color: var(--larimar);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+/* #################### SECCION DE PROXIMOS CURSOS #################### */
+
+.cursos {
+    padding: 50px 0;
+}
+
+.cursos .container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.cursos .container .publicidad {
+    width: 300px;
+    height: 600px;
+    margin-right: 25px;
+}
+
+.cursos .container .publicidad img {
+    width: 100%;
+    height: 100%;
+}
+
+.cursos .container .curso {
+    width: 65%;
+    flex-grow: 1;
+}
+
+.cursos .container .curso .item {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+    box-shadow: 0px 2px 3px #cccccc66;
+    padding-right: 20px;
+}
+
+.cursos .container .curso .item .img {
+    width: 34%;
+    line-height: 0;
+}
+
+.cursos .container .curso .item .img img {
+    width: 100%;
+}
+
+.cursos .container .curso .item .details {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    padding: 15px 0 5px 20px;
+    flex-grow: 1;
+}
+
+.cursos .container .curso .item .details .details-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cursos .container .curso .item .details .details-header .segmento,
+.cursos .container .curso .item .details .details-header .fecha {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.cursos .container .curso .item .details .details-header .fecha {
+    color: var(--madera);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.cursos .container .curso .item .details .details-body h4 {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.cursos .container .curso .item .details .details-body .details-body-description {
+    width: 95%;
+    line-height: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.cursos .container .curso .item .details .details-body .details-body-category {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.cursos .container .curso .item .details .details-body .details-body-category span {
+    background-color: #e8e5de;
+    padding: 4px 20px;
+    border-radius: 30px;
+    min-width: 70px;
+    text-align: center;
+    margin: 0 5px 5px 0;
+}
+
+.cursos .container .curso .item .details .details-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.cursos .container .curso .item .details .details-footer .details-footer-orador {
+    font-weight: 500;
+    font-style: italic;
+    color: #8e8787;
+}
+
+.cursos .container .curso .item .details .details-footer .details-footer-orador .orador {
+    color: var(--entremar-3);
+}
+
+
+/* #################### SECCION DE CAPSULAS FINANCIERAS #################### */
+
+.capsulas {
+    background-color: #f5f5f5;
+    padding: 80px 0 60px;
+}
+
+.capsulas .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.capsulas .video-active,
+.capsulas .video-list {
+    flex-grow: 1;
+    max-width: 59%;
+    height: max-content;
+}
+
+.capsulas .video-list {
+    flex-grow: 1;
+    max-width: 40.5%;
+}
+
+.capsulas .video-active .video,
+.capsulas .video-active .video iframe {
+    width: 100%;
+    height: 390px;
+}
+
+.capsulas .video-active .video-details {
+    background-color: white;
+    padding: 20px 20px 40px;
+    max-height: 133px;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 3px 0px #cccccc9e;
+}
+
+.capsulas .video-active .video-details h4 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.capsulas .video-active .video-details p {
+    display: -webkit-box;
+    height: 52.4px;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 5px;
+}
+
+.capsulas .video-active .video-details .more-btn {
+    transform: translate(-11px, -7px);
+}
+
+.capsulas .video-list .item {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.capsulas .video-list .item .video {
+    width: 40%;
+    height: 127px;
+}
+
+.capsulas .video-list .item .video iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.capsulas .video-list .item .details {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px 20px 2px 20px;
+    box-shadow: 0px 2px 3px 0px #cccccc9e;
+    background-color: white;
+    width: 50%;
+}
+
+.capsulas .video-list .item .details .f-right {
+    margin-left: auto;
+}
+
+
+/* #################### SECCION DE GUIAS Y PLANTILLAS #################### */
+
+.guias {
+    padding: 80px 0 60px;
+    background-image: url(../img/home/Guias-y-plantillas-financiera-ok.jpg);
+    background-size: contain;
+    background-position: right 165px;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+}
+
+.guias .plantillas {
+    max-width: 50%;
+}
+
+.guias .plantillas .item {
+    display: flex;
+    padding: 20px 43px 20px 20px;
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.guias .plantillas .item .header {
+    width: 30%;
+    text-align: center;
+    border-right: 1px solid white;
+    padding-right: 10px;
+}
+
+.guias .plantillas .item .header img {
+    margin-bottom: 10px;
+}
+
+.guias .plantillas .item:not(:nth-child(1), :nth-child(2)) .header img {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+.guias .plantillas .item .header .btn.btn-mamey {
+    padding: 17px 20px;
+}
+
+.guias .plantillas .item .body {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    padding-left: 10px;
+}
+
+.guias .plantillas .item .body .details {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.guias .plantillas .item .body .details .size {
+    color: var(--mamey);
+}
+
+.guias .plantillas .item .body .details .type,
+.guias .plantillas .item .body .details .size {
+    font-size: 12px;
+}
+
+.guias .plantillas .item .body h4 {
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+
+/* #################### SECCION DE ARTICULOS RELEVANTES #################### */
+
+.articulos {
+    padding: 80px 0;
+    border-top: 35px solid #f5f5f5;
+}
+
+.articulos .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.articulos .articulo-active {
+    flex-grow: 1;
+    max-width: 53%;
+}
+
+.articulos .articulo-list {
+    flex-grow: 1;
+    max-width: 46.3%;
+}
+
+.articulos .articulo-active .img,
+.articulos .articulo-active .img img {
+    width: 100%;
+    height: 395px;
+}
+
+.articulos .articulo-active .articulo-details {
+    max-height: 118px;
+    background-color: white;
+    padding: 20px 20px 25px;
+    box-shadow: 0px 2px 3px 0px #cccccc9e;
+}
+
+.articulos .articulo-active .articulo-details h4 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.articulos .articulo-active .articulo-details p {
+    display: -webkit-box;
+    height: auto;
+    max-height: 44px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 1px;
+}
+
+.articulos .articulo-active .articulo-details .more-btn {
+    transform: translate(-11px, -7px);
+}
+
+.articulos .articulo-list .item {
+    width: 100%;
+    height: 123px;
+    display: flex;
+    margin-bottom: 7px;
+}
+
+.articulos .articulo-list .item .img {
+    max-width: 35%;
+    line-height: 0;
+}
+
+.articulos .articulo-list .item .img img {
+    width: 100%;
+    height: 100%;
+}
+
+.articulos .articulo-list .item .details {
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    box-shadow: 0px 2px 3px 0px #cccccc9e;
+    padding: 40px 20px;
+}
+
+.articulos .articulo-list .item .details h4 {
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+/* .articulos .articulo-list .item .details p { 
+    margin-bottom: 20px;
+} */
+
+.articulos .articulo-list .item .img .details {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: white;
+    width: 50%;
+}
+
+.articulos .articulo-list .item .details .f-right {
+    margin-left: auto;
+}
+
+
+/* //////////////////////////////  MEDIA QUERYS  ////////////////////////////// */
+
+@media screen and (max-width: 1200px) {
+    .empodera .container .body .item {
+        max-width: 310px;
+    }
+    .cursos .container .publicidad {
+        order: 1;
+    }
+    .capsulas .video-active .video,
+    .capsulas .video-active .video iframe {
+        height: 430px;
+    }
+    .capsulas .video-list .item .video {
+        height: 137.3px;
+    }
+    .articulos .articulo-active .img,
+    .articulos .articulo-active .img img {
+        height: 430px;
+    }
+    .articulos .articulo-list .item {
+        height: 170px;
+    }
+    .banner-finanzas .container .content {
+        width: 540px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .banner-finanzas .container .content {
+        width: 420px;
+    }
+    .guias .plantillas {
+        max-width: 80%;
+    }
+    .capsulas .video-active,
+    .capsulas .video-list {
+        max-width: 100%;
+    }
+    .capsulas .video-list {
+        margin-top: 5px;
+    }
+    .guias {
+        height: 910px;
+        background-position: 150px bottom;
+        padding: 80px 0 0;
+    }
+    .guias .plantillas {
+        max-width: 80%;
+        margin-top: 60px;
+    }
+    .articulos {
+        padding: 80px 0;
+    }
+    .articulos .articulo-active,
+    .articulos .articulo-list {
+        max-width: 100%;
+    }
+    .articulos .articulo-list {
+        margin-top: 5px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .banner-header {
+        height: 300px;
+    }
+    .banner-header .container h1,
+    .banner-header .container h1 span {
+        font-size: 24px;
+    }
+    .carousel-inner img {
+        height: 300px;
+    }
+    .capsulas .video-active .video,
+    .capsulas .video-active .video iframe {
+        height: 350px;
+    }
+    .capsulas .video-list .item .video {
+        height: 150px;
+    }
+    .guias {
+        height: auto;
+        background: none;
+        margin-bottom: 80px;
+    }
+    .guias .plantillas {
+        max-width: 600px;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .articulos {
+        padding-top: 0;
+    }
+    .articulos .articulo-active .img,
+    .articulos .articulo-active .img img {
+        height: 350px;
+    }
+    .articulos .articulo-list .item {
+        height: 150px;
+    }
+    .empodera .container .body {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .empodera .container .body .item {
+        max-width: 400px;
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    .cursos .container .curso .item .details .details-footer {
+        margin-top: 15px;
+    }
+    .cursos .container .curso .item .details .details-header {
+        margin-bottom: 20px;
+    }
+    .cursos .container .curso .item .details .details-body .details-body-category span {
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+    .cursos .container .curso .item .details .details-body .details-body-category {
+        justify-content: left;
+        flex-wrap: wrap;
+    }
+    .cursos .container .curso .item .img {
+        width: 100%;
+        line-height: 0;
+        max-width: 300px;
+        margin: 0 auto 20px;
+    }
+    .cursos .container .curso .item .details {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto 20px;
+    }
+    .cursos .container .curso .item {
+        padding-right: 0;
+    }
+}
+
+
+/* @media screen and (max-width: 638px) {
+    .action-bar .container form .search {
+        width: 100%;
+        max-width: 300px;
+        height: 30px;
+    }
+    .buscador-cursos form .label-search,
+    .action-bar .container form .label-search {
+        height: 30px;
+    }
+} */
+
+@media screen and (max-width: 515px) {
+    .cursos .container .curso .item .details .details-footer .details-footer-orador {
+        margin-bottom: 20px;
+    }
+    .cursos .container .curso .item .details .details-footer .footer-btn,
+    .cursos .container .curso .item .details .details-footer .details-footer-orador {
+        width: 100%;
+    }
+    .cursos .container .curso .item .details .details-footer {
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .articulos .articulo-list,
+    .capsulas .video-list {
+        display: none;
+    }
+    .guias .plantillas .item .body,
+    .guias .plantillas .item .header {
+        width: 100%;
+        border-right: none;
+        padding-right: 0;
+    }
+    .guias .plantillas .item {
+        flex-wrap: wrap;
+    }
+    .guias .plantillas .item .header img {
+        display: block;
+        margin: 0 auto 10px;
+    }
+    .guias .plantillas .item .body .details {
+        margin-top: 20px;
+    }
+    .articulos .articulo-active .img,
+    .articulos .articulo-active .img img,
+    .capsulas .video-active .video,
+    .capsulas .video-active .video iframe {
+        height: 240px;
+    }
+    .cursos .container .curso .item .details .details-header {
+        flex-wrap: wrap;
+    }
+    .cursos .container .curso .item .details .details-header .segmento,
+    .cursos .container .curso .item .details .details-header .fecha {
+        width: 100%;
+    }
+}
